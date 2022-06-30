@@ -1,0 +1,2 @@
+2022-06-26 20:38:52,127 [26] INFO   - ApiActionFilterAttribute /api/User/Login,{"login":{"name":"admin","password":"1"}},System.Security.Claims.ClaimsPrincipal+<get_Claims>d__22
+2022-06-26 20:39:28,459 [31] INFO   - ApiActionFilterAttribute /api/User/Query,{"id":1},System.Security.Claims.ClaimsPrincipal+<get_Claims>d__22

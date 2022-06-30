@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.4.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="CSRedisCore" Version="3.8.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.6" />
+    <PackageReference Include="SqlSugarCore" Version="5.0.9.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WMS.Moudle.Business\WMS.Moudle.Business.csproj" />
+    <ProjectReference Include="..\WMS.Moudle.DataAccess\WMS.Moudle.DataAccess.csproj" />
+    <ProjectReference Include="..\WMS.Moudle.Entity\WMS.Moudle.Entity.csproj" />
+    <ProjectReference Include="..\WMS.Moudle.Redis\WMS.Moudle.Redis.csproj" />
+    <ProjectReference Include="..\WMS.Moudle.Utility\WMS.Moudle.Utility.csproj" />
+  </ItemGroup>
+
+</Project>

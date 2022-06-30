@@ -1,0 +1,316 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WMS.Moudle.Api</name>
+    </assembly>
+    <members>
+        <member name="T:WMS.Moudle.Api.Controllers.AuthController">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.AuthController.#ctor(WMS.Moudle.Business.Interface.System.IRoleBusiness,WMS.Moudle.Business.Interface.System.IRoleMenuBusiness,Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness)">
+            <summary>
+            构造
+            </summary>
+            <param name="_roleBusiness"></param>
+            <param name="_roleMenuBusiness"></param>
+            <param name="_httpContextAccessor"></param>
+            <param name="_userBusiness"></param>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.AuthController.QueryByRoleId(System.Int64)">
+            <summary>
+            查询角色权限清单
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.AuthController.Save(WMS.Moudle.Entity.Dto.System.AuthDto)">
+            <summary>
+            保存
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.AuthController.Test(Microsoft.AspNetCore.Http.IFormCollection)">
+            <summary>
+            
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WMS.Moudle.Api.Controllers.BaseController">
+            <summary>
+            基础信息
+            </summary>
+        </member>
+        <member name="F:WMS.Moudle.Api.Controllers.BaseController._user">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="F:WMS.Moudle.Api.Controllers.BaseController.httpContextAccessor">
+            <summary>
+            HttpContextAccessor
+            </summary>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.BaseController.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness)">
+            <summary>
+            
+            </summary>
+            <param name="_httpContextAccessor"></param>
+            <param name="_userBusiness"></param>
+        </member>
+        <member name="T:WMS.Moudle.Api.Controllers.DeptController">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DeptController.#ctor(WMS.Moudle.Business.Interface.System.IDeptBusiness,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness)">
+            <summary>
+            构造
+            </summary>
+            <param name="_deptBusiness"></param>
+            <param name="_mapper"></param>
+            <param name="_context"></param>
+            <param name="_user"></param>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DeptController.Add(WMS.Moudle.Entity.Dto.System.SystemDto)">
+            <summary>
+            新增
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DeptController.Query(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DeptController.QueryAll">
+            <summary>
+            查询全部
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DeptController.Delete(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DeptController.Update(WMS.Moudle.Entity.Dto.System.SystemDto)">
+            <summary>
+            修改
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DeptController.QueryPage(WMS.Moudle.Entity.Dto.System.SystemPageDto)">
+            <summary>
+            分页查询
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WMS.Moudle.Api.Controllers.MenuController">
+            <summary>
+            菜单
+            </summary>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.MenuController.#ctor(WMS.Moudle.Business.Interface.System.IMenuBusiness,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness)">
+            <summary>
+            构造
+            </summary>
+            <param name="_menuBusiness"></param>
+            <param name="mapper"></param>
+            <param name="_context"></param>
+            <param name="_user"></param>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.MenuController.Add(WMS.Moudle.Entity.Dto.System.MenuDto)">
+            <summary>
+            新增
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.MenuController.Update(WMS.Moudle.Entity.Dto.System.MenuDto)">
+            <summary>
+            修改
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.MenuController.Delete(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.MenuController.QueryTree">
+            <summary>
+            查询所有
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WMS.Moudle.Api.Controllers.RoleController">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.RoleController.#ctor(WMS.Moudle.Business.Interface.System.IRoleBusiness,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness)">
+            <summary>
+            构造
+            </summary>
+            <param name="_roleBusiness"></param>
+            <param name="_mapper"></param>
+            <param name="_context"></param>
+            <param name="_user"></param>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.RoleController.Add(WMS.Moudle.Entity.Dto.System.SystemDto)">
+            <summary>
+            新增
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.RoleController.Query(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.RoleController.QueryAll">
+            <summary>
+            查询全部
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.RoleController.Delete(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.RoleController.Update(WMS.Moudle.Entity.Dto.System.SystemDto)">
+            <summary>
+            修改
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.RoleController.QueryPage(WMS.Moudle.Entity.Dto.System.SystemPageDto)">
+            <summary>
+            分页查询
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WMS.Moudle.Api.Controllers.UserController">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.UserController.#ctor(WMS.Moudle.Business.Interface.System.IUserBusiness,WMS.Moudle.Utility.Interface.IJwtHelper,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            构造
+            </summary>
+            <param name="_userBusiness"></param>
+            <param name="_jwtHelper"></param>
+            <param name="_mapper"></param>
+            <param name="_contextAccessor"></param>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.UserController.Login(WMS.Moudle.Entity.Dto.System.LoginDto)">
+            <summary>
+            获取token
+            </summary>
+            <param name="login"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.UserController.Add(WMS.Moudle.Entity.Dto.System.UserDto)">
+            <summary>
+            新增
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.UserController.Query(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.UserController.QueryAll">
+            <summary>
+            查询全部
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.UserController.Delete(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.UserController.Update(WMS.Moudle.Entity.Dto.System.UserDto)">
+            <summary>
+            修改
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.UserController.QueryPage(WMS.Moudle.Entity.Dto.System.SystemPageDto)">
+            <summary>
+            分页查询
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WMS.Moudle.Api.Custom.Attribution.ApiActionFilterAttribute">
+            <summary>
+            请求过滤器
+            </summary>
+        </member>
+        <member name="M:WMS.Moudle.Api.Custom.Attribution.ApiActionFilterAttribute.#ctor(WMS.Moudle.Utility.Interface.ILogge{WMS.Moudle.Api.Custom.Attribution.ApiActionFilterAttribute})">
+            <summary>
+            构造
+            </summary>
+            <param name="_logge"></param>
+        </member>
+        <member name="M:WMS.Moudle.Api.Custom.Attribution.ApiActionFilterAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            请求记录
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="T:WMS.Moudle.Api.Custom.AutoMapperProfile">
+            <summary>
+            auto映射
+            </summary>
+        </member>
+        <member name="M:WMS.Moudle.Api.Custom.AutoMapperProfile.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="T:WMS.Moudle.Api.Custom.BuilderExtend">
+            <summary>
+            注入扩展
+            </summary>
+        </member>
+        <member name="M:WMS.Moudle.Api.Custom.BuilderExtend.Register(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            自定义内容
+            </summary>
+            <param name="builder"></param>
+        </member>
+    </members>
+</doc>

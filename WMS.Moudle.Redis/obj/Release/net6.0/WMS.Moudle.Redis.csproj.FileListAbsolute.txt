@@ -1,0 +1,12 @@
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Redis\bin\Release\net6.0\WMS.Moudle.Redis.deps.json
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Redis\bin\Release\net6.0\WMS.Moudle.Redis.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Redis\bin\Release\net6.0\WMS.Moudle.Redis.pdb
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Redis\obj\Release\net6.0\WMS.Moudle.Redis.csproj.AssemblyReference.cache
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Redis\obj\Release\net6.0\WMS.Moudle.Redis.GeneratedMSBuildEditorConfig.editorconfig
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Redis\obj\Release\net6.0\WMS.Moudle.Redis.AssemblyInfoInputs.cache
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Redis\obj\Release\net6.0\WMS.Moudle.Redis.AssemblyInfo.cs
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Redis\obj\Release\net6.0\WMS.Moudle.Redis.csproj.CoreCompileInputs.cache
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Redis\obj\Release\net6.0\WMS.Moudle.Redis.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Redis\obj\Release\net6.0\refint\WMS.Moudle.Redis.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Redis\obj\Release\net6.0\WMS.Moudle.Redis.pdb
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Redis\obj\Release\net6.0\ref\WMS.Moudle.Redis.dll

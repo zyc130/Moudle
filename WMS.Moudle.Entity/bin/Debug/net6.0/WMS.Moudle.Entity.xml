@@ -1,0 +1,658 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WMS.Moudle.Entity</name>
+    </assembly>
+    <members>
+        <member name="T:WMS.Moudle.Entity.Dto.BasePageDto">
+            <summary>
+            分页
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.BasePageDto.pageIndex">
+            <summary>
+            检索页码
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.BasePageDto.pageSize">
+            <summary>
+            页码大小
+            </summary>
+        </member>
+        <member name="T:WMS.Moudle.Entity.Dto.System.AuthDto">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.AuthDto.menuIds">
+            <summary>
+            菜单id集合
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.AuthDto.roleId">
+            <summary>
+            角色id
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.LoginDto.name">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.LoginDto.password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:WMS.Moudle.Entity.Dto.System.MenuDto">
+            <summary>
+            菜单按钮dto
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuDto.id">
+            <summary>
+            Desc:主键
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuDto.parent_id">
+            <summary>
+            Desc:上一级id
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuDto.name">
+            <summary>
+            Desc:菜单名称
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuDto.url">
+            <summary>
+            Desc:地址
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuDto.img">
+            <summary>
+            Desc:icon地址
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuDto.action_key">
+            <summary>
+            Desc:操作按钮标识
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuDto.order_no">
+            <summary>
+            Desc:排序
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuDto.menu_level">
+            <summary>
+            Desc:菜单级别
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuDto.state">
+            <summary>
+            Desc:状态(1-启用，0-停用)
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuDto.remark">
+            <summary>
+            Desc:备注
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="T:WMS.Moudle.Entity.Dto.System.MenuTreeDto">
+            <summary>
+            菜单树
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuTreeDto.id">
+            <summary>
+            Desc:主键
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuTreeDto.parent_id">
+            <summary>
+            Desc:上一级id
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuTreeDto.name">
+            <summary>
+            Desc:菜单名称
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuTreeDto.url">
+            <summary>
+            Desc:地址
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuTreeDto.img">
+            <summary>
+            Desc:icon地址
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuTreeDto.action_key">
+            <summary>
+            Desc:操作按钮标识
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuTreeDto.order_no">
+            <summary>
+            Desc:排序
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuTreeDto.menu_level">
+            <summary>
+            Desc:菜单级别
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.MenuTreeDto.child">
+            <summary>
+            子节点
+            </summary>
+        </member>
+        <member name="T:WMS.Moudle.Entity.Dto.System.SystemDto">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.SystemDto.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.SystemDto.code">
+            <summary>
+            Desc:编号
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.SystemDto.name">
+            <summary>
+            Desc:名称
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.SystemDto.state">
+            <summary>
+            Desc:状态(1-启用，0-停用)
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.SystemDto.remark">
+            <summary>
+            Desc:备注
+            </summary>           
+        </member>
+        <member name="T:WMS.Moudle.Entity.Dto.System.SystemPageDto">
+            <summary>
+            部门分页查询入参
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.SystemPageDto.code">
+            <summary>
+            部门编号
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.SystemPageDto.name">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="T:WMS.Moudle.Entity.Dto.System.UserDto">
+            <summary>
+            用户入参(用户账号不自持编辑)
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.UserDto.password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.UserDto.real_name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.UserDto.dept_id">
+            <summary>
+            部门id
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.UserDto.role_id">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.UserDto.power_state">
+            <summary>
+            入库特殊权限
+            </summary>
+        </member>
+        <member name="T:WMS.Moudle.Entity.Models.sys_dept">
+            <summary>
+            部门表
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dept.id">
+            <summary>
+            Desc:主键
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dept.code">
+            <summary>
+            Desc:部门编号
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dept.name">
+            <summary>
+            Desc:部门名称
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dept.state">
+            <summary>
+            Desc:状态(1-启用，0-停用)
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dept.create_time">
+            <summary>
+            Desc:创建时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dept.create_id">
+            <summary>
+            Desc:创建人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dept.update_time">
+            <summary>
+            Desc:修改时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dept.update_id">
+            <summary>
+            Desc:修改人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dept.remark">
+            <summary>
+            Desc:备注
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="T:WMS.Moudle.Entity.Models.sys_menu">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_menu.id">
+            <summary>
+            Desc:主键
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_menu.parent_id">
+            <summary>
+            Desc:上一级id
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_menu.name">
+            <summary>
+            Desc:菜单名称
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_menu.url">
+            <summary>
+            Desc:地址
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_menu.img">
+            <summary>
+            Desc:icon地址
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_menu.action_key">
+            <summary>
+            Desc:操作按钮标识
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_menu.order_no">
+            <summary>
+            Desc:排序
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_menu.menu_level">
+            <summary>
+            Desc:菜单级别
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_menu.state">
+            <summary>
+            Desc:状态(1-启用，0-停用)
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_menu.create_time">
+            <summary>
+            Desc:创建时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_menu.create_id">
+            <summary>
+            Desc:创建人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_menu.update_time">
+            <summary>
+            Desc:修改时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_menu.update_id">
+            <summary>
+            Desc:修改人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_menu.remark">
+            <summary>
+            Desc:备注
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="T:WMS.Moudle.Entity.Models.sys_role">
+            <summary>
+            角色表
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_role.id">
+            <summary>
+            Desc:主键
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_role.code">
+            <summary>
+            Desc:角色编号
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_role.name">
+            <summary>
+            Desc:角色名称
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_role.state">
+            <summary>
+            Desc:状态(1-启用，0-停用)
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_role.create_time">
+            <summary>
+            Desc:创建时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_role.create_id">
+            <summary>
+            Desc:创建人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_role.update_time">
+            <summary>
+            Desc:修改时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_role.update_id">
+            <summary>
+            Desc:修改人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_role.remark">
+            <summary>
+            Desc:备注
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="T:WMS.Moudle.Entity.Models.sys_role_menu">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_role_menu.id">
+            <summary>
+            Desc:
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_role_menu.role_id">
+            <summary>
+            Desc:角色id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_role_menu.menu_id">
+            <summary>
+            Desc:菜单id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="T:WMS.Moudle.Entity.Models.sys_user">
+            <summary>
+            用户表
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_user.id">
+            <summary>
+            Desc:主键
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_user.name">
+            <summary>
+            Desc:用户名
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_user.password">
+            <summary>
+            Desc:密码
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_user.code">
+            <summary>
+            Desc:编号
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_user.real_name">
+            <summary>
+            Desc:姓名
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_user.dept_id">
+            <summary>
+            Desc:部门id
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_user.role_id">
+            <summary>
+            Desc:角色id
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_user.power_state">
+            <summary>
+            Desc:权限状态(0-默认，1-入库不检验)
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_user.state">
+            <summary>
+            Desc:状态(1-启用，0-停用)
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_user.create_time">
+            <summary>
+            Desc:创建时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_user.create_id">
+            <summary>
+            Desc:创建人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_user.update_time">
+            <summary>
+            Desc:修改时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_user.update_id">
+            <summary>
+            Desc:修改人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_user.remark">
+            <summary>
+            Desc:备注说明
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="T:WMS.Moudle.Entity.PageData`1">
+            <summary>
+            分页数据对象
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:WMS.Moudle.Entity.PageData`1.TotalCount">
+            <summary>
+            总条数
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.PageData`1.PageIndex">
+            <summary>
+            当前页
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.PageData`1.PageSize">
+            <summary>
+            页码大小
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.PageData`1.DataList">
+            <summary>
+            数据集合
+            </summary>
+        </member>
+    </members>
+</doc>

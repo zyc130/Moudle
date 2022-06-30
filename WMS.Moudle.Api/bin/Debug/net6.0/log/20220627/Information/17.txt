@@ -1,0 +1,12 @@
+2022-06-27 17:26:11,859 [23] INFO   - ApiActionFilterAttribute /api/Menu/Add,{"t":{"id":0,"parent_id":4,"name":"任务管理","url":"/task/list","img":"","action_key":"","order_no":1,"menu_level":2,"state":1,"remark":"string"}},admin
+2022-06-27 17:26:40,355 [29] INFO   - ApiActionFilterAttribute /api/Menu/Add,{"t":{"id":0,"parent_id":4,"name":"历史任务","url":"/task/listhis","img":"","action_key":"","order_no":2,"menu_level":2,"state":1,"remark":""}},admin
+2022-06-27 17:28:28,997 [24] INFO   - ApiActionFilterAttribute /api/Menu/Add,{"t":{"id":0,"parent_id":5,"name":"汇总信息","url":"/stock/list","img":"","action_key":"","order_no":1,"menu_level":2,"state":1,"remark":""}},admin
+2022-06-27 17:28:45,672 [23] INFO   - ApiActionFilterAttribute /api/Menu/Add,{"t":{"id":0,"parent_id":5,"name":"明细信息","url":"/stock/detail","img":"","action_key":"","order_no":2,"menu_level":2,"state":1,"remark":""}},admin
+2022-06-27 17:29:22,694 [31] INFO   - ApiActionFilterAttribute /api/Menu/Add,{"t":{"id":0,"parent_id":5,"name":"货位展示","url":"/stock/position","img":"","action_key":"","order_no":3,"menu_level":2,"state":1,"remark":""}},admin
+2022-06-27 17:34:34,373 [57] INFO   - ApiActionFilterAttribute /api/Menu/Add,{"t":{"id":0,"parent_id":2,"name":"摸具设置","url":"/base/moudleset","img":"","action_key":"","order_no":2,"menu_level":2,"state":1,"remark":""}},admin
+2022-06-27 17:35:35,790 [61] INFO   - ApiActionFilterAttribute /api/Menu/Delete,{"id":7},admin
+2022-06-27 17:36:35,809 [68] INFO   - ApiActionFilterAttribute /api/Menu/Add,{"t":{"id":0,"parent_id":6,"name":"部门管理","url":"/system/dept","img":"","action_key":"","order_no":1,"menu_level":2,"state":1,"remark":""}},admin
+2022-06-27 17:36:55,966 [70] INFO   - ApiActionFilterAttribute /api/Menu/Add,{"t":{"id":0,"parent_id":6,"name":"角色管理","url":"/system/role","img":"","action_key":"","order_no":2,"menu_level":2,"state":1,"remark":""}},admin
+2022-06-27 17:37:21,230 [71] INFO   - ApiActionFilterAttribute /api/Menu/Add,{"t":{"id":0,"parent_id":6,"name":"用户管理","url":"/system/user","img":"","action_key":"","order_no":3,"menu_level":2,"state":1,"remark":""}},admin
+2022-06-27 17:37:46,016 [67] INFO   - ApiActionFilterAttribute /api/Menu/Add,{"t":{"id":0,"parent_id":6,"name":"日志管理","url":"/system/log","img":"","action_key":"","order_no":4,"menu_level":2,"state":1,"remark":""}},admin
+2022-06-27 17:58:55,500 [163] INFO   - ApiActionFilterAttribute /api/Menu/Add,{"t":{"id":0,"parent_id":6,"name":"权限管理","url":"/system/log","img":"","action_key":"","order_no":4,"menu_level":2,"state":1,"remark":""}},admin

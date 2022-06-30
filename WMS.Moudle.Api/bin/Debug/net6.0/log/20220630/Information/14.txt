@@ -1,0 +1,4 @@
+2022-06-30 14:14:23,175 [6] INFO   - ApiActionFilterAttribute /api/Dept/QueryAll,{},
+2022-06-30 14:35:37,112 [6] INFO   - ApiActionFilterAttribute /api/Auth/Test,{"file":[]},
+2022-06-30 14:35:41,372 [6] INFO   - ApiActionFilterAttribute /api/Auth/Test,{"file":[]},
+2022-06-30 14:35:56,015 [9] INFO   - ApiActionFilterAttribute /api/Auth/Test,{"file":[]},

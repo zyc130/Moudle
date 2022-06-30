@@ -1,0 +1,1 @@
+2022-06-27 08:58:01,051 [10] INFO   - ApiActionFilterAttribute /api/User/Query,{"id":1},System.Security.Claims.ClaimsPrincipal+<get_Claims>d__22

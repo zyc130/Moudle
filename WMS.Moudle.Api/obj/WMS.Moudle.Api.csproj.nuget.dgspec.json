@@ -1,0 +1,474 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Api\\WMS.Moudle.Api.csproj": {}
+  },
+  "projects": {
+    "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Api\\WMS.Moudle.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Api\\WMS.Moudle.Api.csproj",
+        "projectName": "WMS.Moudle.Api",
+        "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Api\\WMS.Moudle.Api.csproj",
+        "packagesPath": "C:\\Users\\Jarvis\\.nuget\\packages\\",
+        "outputPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Jarvis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Business\\WMS.Moudle.Business.csproj": {
+                "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Business\\WMS.Moudle.Business.csproj"
+              },
+              "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.DataAccess\\WMS.Moudle.DataAccess.csproj": {
+                "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.DataAccess\\WMS.Moudle.DataAccess.csproj"
+              },
+              "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Entity\\WMS.Moudle.Entity.csproj": {
+                "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Entity\\WMS.Moudle.Entity.csproj"
+              },
+              "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Redis\\WMS.Moudle.Redis.csproj": {
+                "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Redis\\WMS.Moudle.Redis.csproj"
+              },
+              "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Utility\\WMS.Moudle.Utility.csproj": {
+                "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Utility\\WMS.Moudle.Utility.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Autofac": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "CSRedisCore": {
+              "target": "Package",
+              "version": "[3.8.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "SqlSugarCore": {
+              "target": "Package",
+              "version": "[5.0.9.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Business\\WMS.Moudle.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Business\\WMS.Moudle.Business.csproj",
+        "projectName": "WMS.Moudle.Business",
+        "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Business\\WMS.Moudle.Business.csproj",
+        "packagesPath": "C:\\Users\\Jarvis\\.nuget\\packages\\",
+        "outputPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Jarvis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.DataAccess\\WMS.Moudle.DataAccess.csproj": {
+                "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.DataAccess\\WMS.Moudle.DataAccess.csproj"
+              },
+              "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Entity\\WMS.Moudle.Entity.csproj": {
+                "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Entity\\WMS.Moudle.Entity.csproj"
+              },
+              "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Redis\\WMS.Moudle.Redis.csproj": {
+                "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Redis\\WMS.Moudle.Redis.csproj"
+              },
+              "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Utility\\WMS.Moudle.Utility.csproj": {
+                "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Utility\\WMS.Moudle.Utility.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.DataAccess\\WMS.Moudle.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.DataAccess\\WMS.Moudle.DataAccess.csproj",
+        "projectName": "WMS.Moudle.DataAccess",
+        "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.DataAccess\\WMS.Moudle.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Jarvis\\.nuget\\packages\\",
+        "outputPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Jarvis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Entity\\WMS.Moudle.Entity.csproj": {
+                "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Entity\\WMS.Moudle.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "SqlSugarCore": {
+              "target": "Package",
+              "version": "[5.0.9.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Entity\\WMS.Moudle.Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Entity\\WMS.Moudle.Entity.csproj",
+        "projectName": "WMS.Moudle.Entity",
+        "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Entity\\WMS.Moudle.Entity.csproj",
+        "packagesPath": "C:\\Users\\Jarvis\\.nuget\\packages\\",
+        "outputPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Entity\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Jarvis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "SqlSugarCore": {
+              "target": "Package",
+              "version": "[5.0.9.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Redis\\WMS.Moudle.Redis.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Redis\\WMS.Moudle.Redis.csproj",
+        "projectName": "WMS.Moudle.Redis",
+        "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Redis\\WMS.Moudle.Redis.csproj",
+        "packagesPath": "C:\\Users\\Jarvis\\.nuget\\packages\\",
+        "outputPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Redis\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Jarvis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "CSRedisCore": {
+              "target": "Package",
+              "version": "[3.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Utility\\WMS.Moudle.Utility.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Utility\\WMS.Moudle.Utility.csproj",
+        "projectName": "WMS.Moudle.Utility",
+        "projectPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Utility\\WMS.Moudle.Utility.csproj",
+        "packagesPath": "C:\\Users\\Jarvis\\.nuget\\packages\\",
+        "outputPath": "D:\\BOZONG\\米其林模组\\service\\Moudle\\WMS.Moudle.Utility\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Jarvis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "SqlSugarCore": {
+              "target": "Package",
+              "version": "[5.0.9.1, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.14, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

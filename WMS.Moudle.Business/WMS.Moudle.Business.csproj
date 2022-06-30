@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WMS.Moudle.DataAccess\WMS.Moudle.DataAccess.csproj" />
+    <ProjectReference Include="..\WMS.Moudle.Entity\WMS.Moudle.Entity.csproj" />
+    <ProjectReference Include="..\WMS.Moudle.Redis\WMS.Moudle.Redis.csproj" />
+    <ProjectReference Include="..\WMS.Moudle.Utility\WMS.Moudle.Utility.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,11 @@
+2022-06-29 10:37:33,896 [22] INFO   - ApiActionFilterAttribute /api/User/Login,{"login":{"name":"admin","password":"1"}},
+2022-06-29 10:38:08,955 [30] INFO   - ApiActionFilterAttribute /api/User/Add,{"t":{"password":"string","real_name":"string","dept_id":0,"role_id":0,"power_state":0,"Id":0,"code":"string","name":"string","state":1,"remark":"string"}},admin
+2022-06-29 10:38:15,883 [32] INFO   - ApiActionFilterAttribute /api/User/Add,{"t":{"password":"string","real_name":"string","dept_id":0,"role_id":0,"power_state":0,"Id":0,"code":"string11","name":"string","state":1,"remark":"string"}},admin
+2022-06-29 10:39:35,033 [31] INFO   - ApiActionFilterAttribute /api/User/Update,{"t":{"password":"string","real_name":"string","dept_id":3,"role_id":0,"power_state":0,"Id":2,"code":"string11","name":"string","state":1,"remark":"string"}},admin
+2022-06-29 10:39:58,204 [38] INFO   - ApiActionFilterAttribute /api/Dept/Delete,{"id":3},admin
+2022-06-29 10:40:45,504 [25] INFO   - ApiActionFilterAttribute /api/Dept/Delete,{"id":3},admin
+2022-06-29 10:42:37,307 [18] INFO   - ApiActionFilterAttribute /api/Dept/Delete,{"id":4},admin
+2022-06-29 10:42:42,635 [24] INFO   - ApiActionFilterAttribute /api/Dept/Delete,{"id":3},admin
+2022-06-29 10:50:28,611 [20] INFO   - ApiActionFilterAttribute /api/Dept/Delete,{"id":2},admin
+2022-06-29 10:50:42,853 [17] INFO   - ApiActionFilterAttribute /api/Dept/Delete,{"id":2},admin
+2022-06-29 10:50:48,345 [20] INFO   - ApiActionFilterAttribute /api/Dept/Delete,{"id":3},admin
