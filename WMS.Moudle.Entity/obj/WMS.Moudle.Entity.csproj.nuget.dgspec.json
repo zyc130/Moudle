@@ -45,6 +45,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Npoi.Mapper": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "SqlSugarCore": {
               "target": "Package",
               "version": "[5.0.9.1, )"

@@ -205,21 +205,6 @@ namespace WMS.Moudle.DataAccess.Serveice
 
         #endregion
 
-        private bool ExcuteTran(Func<bool> func)
-        {
-            _client.Ado.BeginTran();
-            var result = func.Invoke();
-            if (result)
-            {
-                _client.Ado.CommitTran();
-            }
-            else
-            {
-                _client.Ado.RollbackTran();
-            }
-            return result;
-        }
-
         public void Dispose()
         {
             if (_client != null)

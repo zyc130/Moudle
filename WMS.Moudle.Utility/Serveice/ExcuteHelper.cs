@@ -29,7 +29,27 @@ namespace WMS.Moudle.Utility.Serveice
         /// <typeparam name="T"></typeparam>
         /// <param name="func"></param>
         /// <returns></returns>
-        public (bool, T) Func<T>(Func<(bool, T)> func)
+        public T Try<T>(Func<T> func)
+        {
+            try
+            {
+                return func.Invoke();
+            }
+            catch (Exception ex)
+            {
+                logge.Error($"msg:{ex.Message},StackTrace:{ex.StackTrace}");
+                return default;
+            }
+        }
+
+
+        /// <summary>
+        /// 执行带参函数
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        public (bool, T) Try<T>(Func<(bool, T)> func)
         {
             try
             {
@@ -52,7 +72,7 @@ namespace WMS.Moudle.Utility.Serveice
         public (bool, T) Tran<T>(Func<(bool, T)> func)
         {
             client.Ado.BeginTran();
-            var exec = Func<T>(func);
+            var exec = Try<T>(func);
             if (exec.Item1)
             {
                 client.Ado.CommitTran();

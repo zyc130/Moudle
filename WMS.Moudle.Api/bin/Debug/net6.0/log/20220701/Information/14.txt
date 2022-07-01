@@ -1,0 +1,5 @@
+2022-07-01 14:43:30,947 [25] INFO   - ApiActionFilterAttribute /api/Material/Import,{"file":[]},
+2022-07-01 14:44:27,937 [32] INFO   - ApiActionFilterAttribute /api/Material/Import,{"file":[]},
+2022-07-01 14:48:09,905 [9] INFO   - ApiActionFilterAttribute /api/Material/Import,{"file":[]},
+2022-07-01 14:49:14,460 [35] INFO   - ApiActionFilterAttribute /api/Material/QueryPage,{"t":{"code":null,"code_type":null,"pageIndex":1,"pageSize":10}},
+2022-07-01 14:55:33,181 [9] INFO   - ApiActionFilterAttribute /api/Material/Import,{"file":[]},

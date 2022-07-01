@@ -23,7 +23,15 @@ namespace WMS.Moudle.Utility.Interface
         /// <typeparam name="T"></typeparam>
         /// <param name="func"></param>
         /// <returns></returns>
-        (bool,T) Func<T>(Func<(bool, T)> func);
+        T Try<T>(Func<T> func);
+
+        /// <summary>
+        /// 异常抓取返回值
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        (bool,T) Try<T>(Func<(bool, T)> func);
 
         /// <summary>
         /// 执行SqlSugar分布式事务

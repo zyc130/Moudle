@@ -85,6 +85,10 @@
               "target": "Package",
               "version": "[6.0.6, )"
             },
+            "Npoi.Mapper": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "SqlSugarCore": {
               "target": "Package",
               "version": "[5.0.9.1, )"
@@ -304,6 +308,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Npoi.Mapper": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "SqlSugarCore": {
               "target": "Package",
               "version": "[5.0.9.1, )"
@@ -441,6 +449,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.3, )"
+            },
+            "Npoi.Mapper": {
+              "target": "Package",
+              "version": "[4.1.0, )"
             },
             "SqlSugarCore": {
               "target": "Package",

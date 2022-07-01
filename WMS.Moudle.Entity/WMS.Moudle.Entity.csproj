@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,10 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Dto\System\ImportMaterialDto.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Npoi.Mapper" Version="4.1.0" />
     <PackageReference Include="SqlSugarCore" Version="5.0.9.1" />
   </ItemGroup>
 

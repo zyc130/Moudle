@@ -53,6 +53,10 @@
               "target": "Package",
               "version": "[12.0.3, )"
             },
+            "Npoi.Mapper": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "SqlSugarCore": {
               "target": "Package",
               "version": "[5.0.9.1, )"

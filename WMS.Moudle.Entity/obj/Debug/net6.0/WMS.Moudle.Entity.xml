@@ -19,6 +19,66 @@
             页码大小
             </summary>
         </member>
+        <member name="T:WMS.Moudle.Entity.Dto.Base.ImportMaterialDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.ImportMaterialDto.fabrication_no">
+            <summary>
+            部件编号(唯一)
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.ImportMaterialDto.piece_code">
+            <summary>
+            部件组编号
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.ImportMaterialDto.etat_code">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.ImportMaterialDto.due_date">
+            <summary>
+            有效期时间
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.ImportMaterialDto.disponibilite_date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.ImportMaterialDto.der_mouvement_date">
+            <summary>
+            Date der. MOUVEMENT
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.ImportMaterialDto.piece_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.ImportMaterialDto.facultative_evt">
+            <summary>
+            EVT Facultative
+            </summary>
+        </member>
+        <member name="T:WMS.Moudle.Entity.Dto.Base.MaterialPageDto">
+            <summary>
+            分页入参
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.MaterialPageDto.code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.MaterialPageDto.code_type">
+            <summary>
+            编码类型
+            </summary>
+        </member>
         <member name="T:WMS.Moudle.Entity.Dto.System.AuthDto">
             <summary>
             权限
@@ -259,6 +319,263 @@
             <summary>
             入库特殊权限
             </summary>
+        </member>
+        <member name="T:WMS.Moudle.Entity.Models.base_material">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.fabrication_no">
+            <summary>
+            Desc:
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.piece_code">
+            <summary>
+            Desc:
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.etat_code">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.due_date">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.usine_code">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.localisation_code">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.localisation">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.associe_no">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.renovations_nbr">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.renovable_code">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.nbr_cuissons_totales">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.gestionnaire_code">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.gep_code">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.eventation_no">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.disponibilite_date">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.dispo_equ">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.assemble_moule_no">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.consigne_codegep_date">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.der_mouvement_date">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.piece_type">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.facultative_evt">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.gar_ou_sup">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.nomv_der_utilisation">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.affectation">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.der_rpq">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.der_cb">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.der_cai_lpc">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.dimension">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.sculpture">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.profil">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.type_de_moule">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.create_id">
+            <summary>
+            Desc:
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.create_time">
+            <summary>
+            Desc:
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.update_id">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.update_time">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_material.state">
+            <summary>
+            Desc:
+            Default:
+            Nullable:False
+            </summary>           
         </member>
         <member name="T:WMS.Moudle.Entity.Models.sys_dept">
             <summary>

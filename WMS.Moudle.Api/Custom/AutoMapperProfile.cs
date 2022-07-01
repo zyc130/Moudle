@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using WMS.Moudle.Entity.Dto.Base;
 using WMS.Moudle.Entity.Dto.System;
 using WMS.Moudle.Entity.Models;
 
@@ -19,6 +20,7 @@ namespace WMS.Moudle.Api.Custom
             CreateMap<UserDto, sys_user>().ReverseMap();
             CreateMap<MenuDto, sys_menu>().ReverseMap();
             CreateMap<MenuTreeDto, sys_menu>().ReverseMap();
+            CreateMap<ImportMaterialDto, base_material>().ReverseMap();
         }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using WMS.Moudle.Business.Interface.System;
 using WMS.Moudle.Entity.Dto.System;
 using WMS.Moudle.Utility;
+using WMS.Moudle.Utility.Interface;
 
 namespace WMS.Moudle.Api.Controllers
 {
@@ -22,7 +23,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="_httpContextAccessor"></param>
         /// <param name="_userBusiness"></param>
         public AuthController(
-            IRoleBusiness   _roleBusiness
+            IRoleBusiness _roleBusiness
             , IRoleMenuBusiness _roleMenuBusiness
             , IHttpContextAccessor _httpContextAccessor
             , IUserBusiness _userBusiness) : base(_httpContextAccessor, _userBusiness)
@@ -56,20 +57,6 @@ namespace WMS.Moudle.Api.Controllers
                 return new ApiResult((false, "角色id不存在!"));
             }
             return new ApiResult(roleMenuBusiness.Save(t));
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="file"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public IActionResult Test([FromForm]IFormCollection file)
-        {
-           // var sheet =  new HSSFWorkbook(file.Files[0].OpenReadStream()).GetSheetAt(0);
-           
-
-            return new ApiResult("test");
         }
     }
 }

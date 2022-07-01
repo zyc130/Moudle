@@ -1,0 +1,2 @@
+2022-07-01 10:34:50,879 [10] INFO   - ApiActionFilterAttribute /api/Auth/Test,{"file":[]},
+2022-07-01 10:47:40,748 [9] INFO   - ApiActionFilterAttribute /api/Auth/Test,{"file":[]},

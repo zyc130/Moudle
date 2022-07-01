@@ -19,34 +19,26 @@ namespace WMS.Moudle.Utility
         }
         public ApiResult(bool isSuccess = true)
         {
-            result.Set(_isSuccess:isSuccess, _msg: !isSuccess ? "网络不给力！" : String.Empty);
+            result.Set(_isSuccess:isSuccess, _msg: !isSuccess ? "网络不给力！" : "操作成功!");
         }
 
         public ApiResult((bool isSuccess, string msg) exec)
         {
-            if (exec.isSuccess)
-            {
-                result.Set(_isSuccess: exec.isSuccess);
-            }
-            else
-            {
-                result.Set(_isSuccess: exec.isSuccess, _msg: string.IsNullOrWhiteSpace(exec.msg) ? "网络不给力!" : exec.msg);
-            }
+            result.Set(_isSuccess: exec.isSuccess
+                , _msg: string.IsNullOrWhiteSpace(exec.msg) ?
+               (exec.isSuccess ? "操作成功!" : "网络不给力!")
+                : exec.msg);
         }
 
-        public ApiResult((bool isSuccess, string msg,object obj) exec)
+        public ApiResult((bool isSuccess, string msg, object obj) exec)
         {
-            if (exec.isSuccess)
-            {
-                result.Set(exec.obj, exec.isSuccess);
-            }
-            else
-            {
-                result.Set(_isSuccess: exec.isSuccess, _msg: string.IsNullOrWhiteSpace(exec.msg) ? "网络不给力!" : exec.msg);
-            }
+            result.Set(exec.obj, exec.isSuccess
+                , _msg: string.IsNullOrWhiteSpace(exec.msg) ?
+                (exec.isSuccess ? "操作成功!" : "网络不给力!")
+                : exec.msg);
         }
 
-        public ApiResult(object data=null, bool isSuccess = true, int code = 0, string msg = "")
+        public ApiResult(object? data=null, bool isSuccess = true, int code = 0, string msg = "")
         {
             result.Set(data, isSuccess,code,msg);
         }
@@ -96,7 +88,7 @@ namespace WMS.Moudle.Utility
         /// <summary>
         /// 返回信息
         /// </summary>
-        public object data 
+        public object? data 
         { 
             get { return result.data; }
             set { result.data = value; }
@@ -148,7 +140,7 @@ namespace WMS.Moudle.Utility
         /// <summary>
         /// 返回信息
         /// </summary>
-        public object data = string.Empty;
+        public object? data = string.Empty;
         /// <summary>
         /// 错误信息
         /// </summary>
@@ -163,7 +155,7 @@ namespace WMS.Moudle.Utility
         /// </summary>
         /// <param name="_code"></param>
         /// <param name="_msg"></param>
-        public void Set(object _data=null,bool _isSuccess=true,int _code = 0, string _msg = "")
+        public void Set(object? _data=null,bool _isSuccess=true,int _code = 0, string _msg = "")
         {
             isSuccess = _isSuccess;
             code = _code;

@@ -9,7 +9,7 @@
             权限
             </summary>
         </member>
-        <member name="M:WMS.Moudle.Api.Controllers.AuthController.#ctor(WMS.Moudle.Business.Interface.System.IRoleBusiness,WMS.Moudle.Business.Interface.System.IRoleMenuBusiness,Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness)">
+        <member name="M:WMS.Moudle.Api.Controllers.AuthController.#ctor(WMS.Moudle.Business.Interface.System.IRoleBusiness,WMS.Moudle.Utility.Interface.IExcelHelper,WMS.Moudle.Business.Interface.System.IRoleMenuBusiness,Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness)">
             <summary>
             构造
             </summary>
@@ -32,13 +32,6 @@
             <param name="t"></param>
             <returns></returns>
         </member>
-        <member name="M:WMS.Moudle.Api.Controllers.AuthController.Test(Microsoft.AspNetCore.Http.IFormCollection)">
-            <summary>
-            
-            </summary>
-            <param name="file"></param>
-            <returns></returns>
-        </member>
         <member name="T:WMS.Moudle.Api.Controllers.BaseController">
             <summary>
             基础信息
@@ -56,10 +49,18 @@
         </member>
         <member name="M:WMS.Moudle.Api.Controllers.BaseController.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness)">
             <summary>
-            
+            构造
             </summary>
             <param name="_httpContextAccessor"></param>
             <param name="_userBusiness"></param>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.BaseController.WriteExcel(System.Byte[],System.String)">
+            <summary>
+            输出Excel文件
+            </summary>
+            <param name="data"></param>
+            <param name="fileName">文件名不带后缀(默认.xlsx)</param>
+            <returns></returns>
         </member>
         <member name="T:WMS.Moudle.Api.Controllers.DeptController">
             <summary>
@@ -110,6 +111,42 @@
             <returns></returns>
         </member>
         <member name="M:WMS.Moudle.Api.Controllers.DeptController.QueryPage(WMS.Moudle.Entity.Dto.System.SystemPageDto)">
+            <summary>
+            分页查询
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WMS.Moudle.Api.Controllers.MaterialController">
+            <summary>
+            物料(摸具)
+            </summary>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.MaterialController.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Utility.Interface.IExcelHelper,WMS.Moudle.Business.Interface.Base.IMaterialBusiness,AutoMapper.IMapper,WMS.Moudle.Business.Interface.System.IUserBusiness)">
+            <summary>
+            构造
+            </summary>
+            <param name="_httpContextAccessor"></param>
+            <param name="_excelHelper"></param>
+            <param name="_materialBusiness"></param>
+            <param name="_mapper"></param>
+            <param name="_userBusiness"></param>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.MaterialController.Import(Microsoft.AspNetCore.Http.IFormCollection)">
+            <summary>
+            导入
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.MaterialController.Export(System.String,System.String)">
+            <summary>
+            导出
+            </summary>
+            <param name="code">编号</param>
+            <param name="code_type">类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.MaterialController.QueryPage(WMS.Moudle.Entity.Dto.Base.MaterialPageDto)">
             <summary>
             分页查询
             </summary>
