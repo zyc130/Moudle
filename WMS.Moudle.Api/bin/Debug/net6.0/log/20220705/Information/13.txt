@@ -1,0 +1,5 @@
+2022-07-05 13:42:31,804 [31] INFO   - ApiActionFilterAttribute /api/Dictionary/QueryPage,{"t":{"code":null,"name":null,"state":null,"pageIndex":1,"pageSize":10}},
+2022-07-05 13:43:44,139 [39] INFO   - ApiActionFilterAttribute /api/Dictionary/Add,{"t":{"Id":0,"code":"sys_state","name":"状态","state":1,"remark":"系统状态"}},
+2022-07-05 13:44:00,331 [38] INFO   - ApiActionFilterAttribute /api/Dictionary/Query,{"id":1},
+2022-07-05 13:44:08,444 [39] INFO   - ApiActionFilterAttribute /api/Dictionary/QueryAll,{},
+2022-07-05 13:44:14,257 [39] INFO   - ApiActionFilterAttribute /api/Dictionary/QueryPage,{"t":{"code":null,"name":null,"state":null,"pageIndex":1,"pageSize":10}},

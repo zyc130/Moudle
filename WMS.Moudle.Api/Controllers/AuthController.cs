@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WMS.Moudle.Business.Interface.System;
 using WMS.Moudle.Entity.Dto.System;
@@ -22,15 +23,17 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="_roleMenuBusiness"></param>
         /// <param name="_httpContextAccessor"></param>
         /// <param name="_userBusiness"></param>
+        /// <param name="_mapper"></param>
         public AuthController(
             IRoleBusiness _roleBusiness
             , IRoleMenuBusiness _roleMenuBusiness
             , IHttpContextAccessor _httpContextAccessor
-            , IUserBusiness _userBusiness) : base(_httpContextAccessor, _userBusiness)
+            , IUserBusiness _userBusiness
+            , IMapper _mapper) : base(_httpContextAccessor, _userBusiness, _mapper)
         {
             roleMenuBusiness = _roleMenuBusiness;
             roleBusiness = _roleBusiness;
-    }
+        }
 
         /// <summary>
         /// 查询角色权限清单
@@ -52,7 +55,7 @@ namespace WMS.Moudle.Api.Controllers
         public IActionResult Save(AuthDto t)
         {
             var role = roleBusiness.Find(t.roleId);
-            if (role==null)
+            if (role == null)
             {
                 return new ApiResult((false, "角色id不存在!"));
             }

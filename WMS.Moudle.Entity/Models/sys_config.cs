@@ -38,18 +38,11 @@ namespace WMS.Moudle.Entity.Models
            public string name {get;set;}
 
            /// <summary>
-           /// Desc:键值
+           /// Desc:数值
            /// Default:
            /// Nullable:True
            /// </summary>           
-           public string value {get;set;}
-
-           /// <summary>
-           /// Desc:键值预留
-           /// Default:
-           /// Nullable:True
-           /// </summary>           
-           public string cust_value {get;set;}
+           public int? value {get;set;}
 
            /// <summary>
            /// Desc:说明

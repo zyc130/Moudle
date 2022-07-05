@@ -17,10 +17,13 @@ namespace WMS.Moudle.Api.Custom
         {
             CreateMap<SystemDto, sys_dept>().ReverseMap();
             CreateMap<SystemDto, sys_role>().ReverseMap();
+            CreateMap<SystemDto, sys_dictionary>().ReverseMap();
+            CreateMap<DicDetailDto, sys_dictionary_detail>().ReverseMap();
             CreateMap<UserDto, sys_user>().ReverseMap();
             CreateMap<MenuDto, sys_menu>().ReverseMap();
             CreateMap<MenuTreeDto, sys_menu>().ReverseMap();
             CreateMap<ImportMaterialDto, base_material>().ReverseMap();
+            CreateMap<ConfigDto, sys_config>().ReverseMap();
         }
     }
 }

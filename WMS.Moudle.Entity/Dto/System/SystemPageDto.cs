@@ -20,5 +20,10 @@ namespace WMS.Moudle.Entity.Dto.System
         /// 部门名称
         /// </summary>
         public string? name { get; set; }
+
+        /// <summary>
+        /// 状态
+        /// </summary>
+        public int? state { get; set; }
     }
 }

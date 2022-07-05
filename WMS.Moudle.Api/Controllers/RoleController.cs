@@ -15,7 +15,6 @@ namespace WMS.Moudle.Api.Controllers
     public class RoleController : BaseController
     {
         IRoleBusiness roleBusiness;
-        IMapper mapper;
 
         /// <summary>
         /// 构造
@@ -26,10 +25,9 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="_user"></param>
         public RoleController(IRoleBusiness _roleBusiness
             , IMapper _mapper
-            , IHttpContextAccessor _context, IUserBusiness _user) : base(_context, _user)
+            , IHttpContextAccessor _context, IUserBusiness _user) : base(_context, _user,_mapper)
         {
             roleBusiness = _roleBusiness;
-            mapper = _mapper;
         }
 
         /// <summary>
@@ -41,8 +39,8 @@ namespace WMS.Moudle.Api.Controllers
         public IActionResult Add(SystemDto t)
         {
             var role = mapper.Map<SystemDto, sys_role>(t);
-            role.create_id = _user?.id ?? 0;
-            role.update_id = _user?.id ?? 0;
+            role.create_id = user?.id ?? 0;
+            role.update_id = user?.id ?? 0;
             return new ApiResult(roleBusiness.Add(role));
         }
 
@@ -88,7 +86,7 @@ namespace WMS.Moudle.Api.Controllers
         public IActionResult Update(SystemDto t)
         {
             var role = mapper.Map<SystemDto, sys_role>(t);
-            role.update_id = _user?.id ?? 0;
+            role.update_id = user?.id ?? 0;
             return new ApiResult(roleBusiness.Update(role));
         }
 

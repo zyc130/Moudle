@@ -111,3 +111,9 @@ D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\WMS.M
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\WMS.Moudle.Api.pdb
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\WMS.Moudle.Api.genruntimeconfig.cache
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\ref\WMS.Moudle.Api.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\bin\Release\net6.0\NPOI.OOXML.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\bin\Release\net6.0\NPOI.OpenXml4Net.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\bin\Release\net6.0\NPOI.OpenXmlFormats.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\bin\Release\net6.0\NPOI.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\bin\Release\net6.0\Npoi.Mapper.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\bin\Release\net6.0\ICSharpCode.SharpZipLib.dll

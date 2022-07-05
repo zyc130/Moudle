@@ -10,7 +10,6 @@ D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTm
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\Autofac.Extensions.DependencyInjection.dll
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\AutoMapper.dll
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\BouncyCastle.Crypto.dll
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\CSRedisCore.dll
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\Google.Protobuf.dll
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\K4os.Compression.LZ4.dll
@@ -33,7 +32,14 @@ D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTm
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\ZstdNet.dll
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\Npgsql.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\NPOI.OOXML.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\NPOI.OpenXml4Net.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\NPOI.OpenXmlFormats.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\NPOI.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\Npoi.Mapper.dll
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\Oracle.ManagedDataAccess.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\BouncyCastle.Crypto.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\ICSharpCode.SharpZipLib.dll
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\SQLitePCLRaw.batteries_v2.dll
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\SQLitePCLRaw.nativelibrary.dll
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Release\net6.0\PubTmp\Out\SQLitePCLRaw.core.dll

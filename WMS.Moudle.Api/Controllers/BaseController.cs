@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Security.Claims;
@@ -18,26 +19,35 @@ namespace WMS.Moudle.Api.Controllers
         /// <summary>
         /// 用户信息
         /// </summary>
-        protected sys_user _user;
+        protected sys_user? user;
         /// <summary>
         /// HttpContextAccessor
         /// </summary>
         protected readonly IHttpContextAccessor httpContextAccessor;
 
         /// <summary>
+        /// automapper
+        /// </summary>
+        protected IMapper mapper;
+        private IUserBusiness userBusiness;
+
+        /// <summary>
         /// 构造
         /// </summary>
         /// <param name="_httpContextAccessor"></param>
         /// <param name="_userBusiness"></param>
+        /// <param name="_mapper"></param>
         public BaseController
             (IHttpContextAccessor _httpContextAccessor
-            , IUserBusiness _userBusiness)
+            , IUserBusiness _userBusiness
+            , IMapper _mapper)
         {
             httpContextAccessor = _httpContextAccessor;
+            mapper= _mapper;
+            userBusiness = _userBusiness;
 
             var claims = httpContextAccessor.HttpContext?.User.Claims;
-
-            _user = _userBusiness.QueryByName(claims?.FirstOrDefault()?.Subject?.Name??string.Empty);
+            user = _userBusiness.QueryByName(claims?.FirstOrDefault()?.Subject?.Name??string.Empty);
         }
 
         /// <summary>

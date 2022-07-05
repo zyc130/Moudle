@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace WMS.Moudle.Entity.Dto.System
 {
     /// <summary>
-    /// 部门
+    /// 系统公用入参
     /// </summary>
     public class SystemDto
     {
@@ -21,14 +21,14 @@ namespace WMS.Moudle.Entity.Dto.System
         /// Desc:编号
         /// </summary>           
         [Required(ErrorMessage = "编号不能为空")]
-        [MaxLength(20, ErrorMessage = "编号最大长度:20")]
+        [MaxLength(50, ErrorMessage = "编号最大长度:50")]
         public string code { get; set; }
 
         /// <summary>
         /// Desc:名称
         /// </summary>           
         [Required(ErrorMessage = "名称不能为空")]
-        [MaxLength(20, ErrorMessage = "名称最大长度:20")]
+        [MaxLength(50, ErrorMessage = "名称最大长度:50")]
         public string name { get; set; }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace WMS.Moudle.Entity.Dto.System
         /// <summary>
         /// Desc:备注
         /// </summary>           
-        [MaxLength(20, ErrorMessage = "备注最大长度:50")]
-        public string remark { get; set; }
+        [MaxLength(50, ErrorMessage = "备注最大长度:50")]
+        public string? remark { get; set; }
     }
 }

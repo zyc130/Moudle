@@ -14,7 +14,6 @@ namespace WMS.Moudle.Api.Controllers
     public class DeptController : BaseController
     {
         IDeptBusiness deptBusiness;
-        IMapper mapper;
 
         /// <summary>
         /// 构造
@@ -24,10 +23,9 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="_context"></param>
         /// <param name="_user"></param>
         public DeptController(IDeptBusiness _deptBusiness,IMapper _mapper
-            , IHttpContextAccessor _context, IUserBusiness _user) : base(_context, _user)
+            , IHttpContextAccessor _context, IUserBusiness _user) : base(_context, _user, _mapper)
         {
             deptBusiness = _deptBusiness;
-            mapper = _mapper;
         }
 
         /// <summary>
@@ -39,8 +37,8 @@ namespace WMS.Moudle.Api.Controllers
         public IActionResult Add(SystemDto t)
         {
             var dept=  mapper.Map<SystemDto, sys_dept>(t);
-            dept.create_id = _user?.id ?? 0;
-            dept.update_id = _user?.id ?? 0;
+            dept.create_id = user?.id ?? 0;
+            dept.update_id = user?.id ?? 0;
             return new ApiResult(deptBusiness.Add(dept));
         }
 
@@ -86,7 +84,7 @@ namespace WMS.Moudle.Api.Controllers
         public IActionResult Update(SystemDto t)
         {
             var dept = mapper.Map<SystemDto, sys_dept>(t);
-            dept.update_id = _user?.id??0;
+            dept.update_id = user?.id??0;
             return new ApiResult(deptBusiness.Update(dept));
         }
 

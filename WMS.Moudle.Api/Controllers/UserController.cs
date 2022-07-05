@@ -18,7 +18,7 @@ namespace WMS.Moudle.Api.Controllers
     {
         IUserBusiness userBusiness;
         IJwtHelper jwtHelper;
-        IMapper mapper;
+
         /// <summary>
         /// 构造
         /// </summary>
@@ -29,11 +29,10 @@ namespace WMS.Moudle.Api.Controllers
         public UserController(IUserBusiness _userBusiness
             , IJwtHelper _jwtHelper
             , IMapper _mapper
-            , IHttpContextAccessor _contextAccessor) : base(_contextAccessor, _userBusiness)
+            , IHttpContextAccessor _contextAccessor) : base(_contextAccessor, _userBusiness, _mapper)
         {
             userBusiness    = _userBusiness;
             jwtHelper = _jwtHelper;
-            mapper = _mapper;
         }
 
         /// <summary>
@@ -72,8 +71,8 @@ namespace WMS.Moudle.Api.Controllers
         public IActionResult Add(UserDto t)
         {
             var user = mapper.Map<SystemDto, sys_user>(t);
-            user.create_id = _user?.id ?? 0;
-            user.update_id = _user?.id ?? 0;
+            user.create_id = base.user?.id ?? 0;
+            user.update_id = base.user?.id ?? 0;
             return new ApiResult(userBusiness.Add(user));
         }
 
@@ -121,7 +120,7 @@ namespace WMS.Moudle.Api.Controllers
         public IActionResult Update(UserDto t)
         {
             var user = mapper.Map<UserDto, sys_user>(t);
-            user.update_id = _user?.id ?? 0;
+            user.update_id = base.user?.id ?? 0;
             return new ApiResult(userBusiness.Update(user));
         }
 

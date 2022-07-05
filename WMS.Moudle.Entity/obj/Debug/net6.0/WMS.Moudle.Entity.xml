@@ -94,6 +94,66 @@
             角色id
             </summary>
         </member>
+        <member name="T:WMS.Moudle.Entity.Dto.System.ConfigDto">
+            <summary>
+            配置管理
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.ConfigDto.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.ConfigDto.value">
+            <summary>
+            Desc:值(1-启用，0-停用)
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.ConfigDto.remark">
+            <summary>
+            Desc:备注
+            </summary>           
+        </member>
+        <member name="T:WMS.Moudle.Entity.Dto.System.DicDetailDto">
+            <summary>
+            字典键值dto
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.DicDetailDto.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.DicDetailDto.dic_code">
+            <summary>
+            Desc:编号
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.DicDetailDto.dic_name">
+            <summary>
+            Desc:名称
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.DicDetailDto.dic_value">
+            <summary>
+            Desc:字典键值
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.DicDetailDto.dic_sort">
+            <summary>
+            Desc:排序
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.DicDetailDto.state">
+            <summary>
+            Desc:状态(1-启用，0-停用)
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.DicDetailDto.remark">
+            <summary>
+            Desc:备注
+            </summary>           
+        </member>
         <member name="P:WMS.Moudle.Entity.Dto.System.LoginDto.name">
             <summary>
             用户名
@@ -247,7 +307,7 @@
         </member>
         <member name="T:WMS.Moudle.Entity.Dto.System.SystemDto">
             <summary>
-            部门
+            系统公用入参
             </summary>
         </member>
         <member name="P:WMS.Moudle.Entity.Dto.System.SystemDto.Id">
@@ -290,6 +350,11 @@
             部门名称
             </summary>
         </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.SystemPageDto.state">
+            <summary>
+            状态
+            </summary>
+        </member>
         <member name="T:WMS.Moudle.Entity.Dto.System.UserDto">
             <summary>
             用户入参(用户账号不自持编辑)
@@ -322,7 +387,7 @@
         </member>
         <member name="T:WMS.Moudle.Entity.Models.base_material">
             <summary>
-            
+            物料表
             </summary>
         </member>
         <member name="P:WMS.Moudle.Entity.Models.base_material.fabrication_no">
@@ -577,6 +642,81 @@
             Nullable:False
             </summary>           
         </member>
+        <member name="T:WMS.Moudle.Entity.Models.sys_config">
+            <summary>
+            系统配置表
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_config.id">
+            <summary>
+            Desc:主键
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_config.code">
+            <summary>
+            Desc:编号
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_config.name">
+            <summary>
+            Desc:名称
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_config.value">
+            <summary>
+            Desc:数值
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_config.remark">
+            <summary>
+            Desc:说明
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_config.create_id">
+            <summary>
+            Desc:创建人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_config.create_time">
+            <summary>
+            Desc:创建时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_config.update_id">
+            <summary>
+            Desc:修改人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_config.update_time">
+            <summary>
+            Desc:修改时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_config.state">
+            <summary>
+            Desc:状态(0-停用，1-启用)
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
         <member name="T:WMS.Moudle.Entity.Models.sys_dept">
             <summary>
             部门表
@@ -641,6 +781,156 @@
         <member name="P:WMS.Moudle.Entity.Models.sys_dept.remark">
             <summary>
             Desc:备注
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="T:WMS.Moudle.Entity.Models.sys_dictionary">
+            <summary>
+            字典类型表
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary.id">
+            <summary>
+            Desc:主键
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary.code">
+            <summary>
+            Desc:字典类型
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary.name">
+            <summary>
+            Desc:字典名称
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary.state">
+            <summary>
+            Desc:状态(0-停用，1-启用)
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary.create_time">
+            <summary>
+            Desc:创建时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary.create_id">
+            <summary>
+            Desc:创建人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary.update_time">
+            <summary>
+            Desc:修改时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary.update_id">
+            <summary>
+            Desc:修改人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary.remark">
+            <summary>
+            Desc:
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="T:WMS.Moudle.Entity.Models.sys_dictionary_detail">
+            <summary>
+            字典键值表
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary_detail.id">
+            <summary>
+            Desc:主键
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary_detail.dic_code">
+            <summary>
+            Desc:字典类型(主表)
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary_detail.dic_name">
+            <summary>
+            Desc:字典名称
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary_detail.dic_value">
+            <summary>
+            Desc:字典键值
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary_detail.dic_sort">
+            <summary>
+            Desc:排序
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary_detail.state">
+            <summary>
+            Desc:状态(0-停用，1-启用)
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary_detail.create_time">
+            <summary>
+            Desc:创建时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary_detail.create_id">
+            <summary>
+            Desc:创建人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary_detail.update_time">
+            <summary>
+            Desc:修改时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary_detail.update_id">
+            <summary>
+            Desc:修改人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.sys_dictionary_detail.remark">
+            <summary>
+            Desc:
             Default:
             Nullable:True
             </summary>           

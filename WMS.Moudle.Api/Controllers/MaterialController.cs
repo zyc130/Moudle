@@ -16,7 +16,6 @@ namespace WMS.Moudle.Api.Controllers
     {
         IExcelHelper excelHelper;
         IMaterialBusiness materialBusiness;
-        IMapper mapper;
 
         /// <summary>
         /// 构造
@@ -31,11 +30,10 @@ namespace WMS.Moudle.Api.Controllers
             , IExcelHelper _excelHelper
             , IMaterialBusiness _materialBusiness
             , IMapper _mapper
-            , IUserBusiness _userBusiness) : base(_httpContextAccessor, _userBusiness)
+            , IUserBusiness _userBusiness) : base(_httpContextAccessor, _userBusiness, _mapper)
         {
             excelHelper = _excelHelper;
             materialBusiness = _materialBusiness;
-            mapper = _mapper;
         }
 
         /// <summary>
@@ -61,9 +59,9 @@ namespace WMS.Moudle.Api.Controllers
             materials?.ForEach(a =>
             {
                 a.create_time = DateTime.Now;
-                a.create_id =_user?.id ?? 0;
+                a.create_id =user?.id ?? 0;
                 a.update_time = DateTime.Now;
-                a.update_id = _user?.id ?? 0;
+                a.update_id = user?.id ?? 0;
                 a.state = 1;
             });
             return new ApiResult(materialBusiness.Import(materials));

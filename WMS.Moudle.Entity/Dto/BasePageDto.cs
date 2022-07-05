@@ -21,7 +21,7 @@ namespace WMS.Moudle.Entity.Dto
         /// <summary>
         /// 页码大小
         /// </summary>
-        [Required(ErrorMessage = "页码大小不能为空")]
+        [Required(ErrorMessage = "每页大小不能为空")]
         public int pageSize { get; set; } = 20;
     }
 }

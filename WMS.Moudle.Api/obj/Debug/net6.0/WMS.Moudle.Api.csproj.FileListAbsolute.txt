@@ -99,7 +99,6 @@ D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Debug\net6.0\WMS.Mou
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Debug\net6.0\WMS.Moudle.Api.AssemblyInfoInputs.cache
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Debug\net6.0\WMS.Moudle.Api.AssemblyInfo.cs
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Debug\net6.0\WMS.Moudle.Api.csproj.CoreCompileInputs.cache
-D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Debug\net6.0\WMS.Moudle.Api.MvcApplicationPartsAssemblyInfo.cs
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Debug\net6.0\WMS.Moudle.Api.MvcApplicationPartsAssemblyInfo.cache
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Debug\net6.0\staticwebassets.build.json
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Debug\net6.0\staticwebassets.development.json
@@ -117,3 +116,4 @@ D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\bin\Debug\net6.0\NPOI.Op
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\bin\Debug\net6.0\NPOI.dll
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\bin\Debug\net6.0\Npoi.Mapper.dll
 D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\bin\Debug\net6.0\ICSharpCode.SharpZipLib.dll
+D:\BOZONG\米其林模组\service\Moudle\WMS.Moudle.Api\obj\Debug\net6.0\WMS.Moudle.Api.MvcApplicationPartsAssemblyInfo.cs

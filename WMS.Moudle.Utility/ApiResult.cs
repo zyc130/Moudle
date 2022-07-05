@@ -30,7 +30,7 @@ namespace WMS.Moudle.Utility
                 : exec.msg);
         }
 
-        public ApiResult((bool isSuccess, string msg, object obj) exec)
+        public ApiResult((bool isSuccess, string msg, object? obj) exec)
         {
             result.Set(exec.obj, exec.isSuccess
                 , _msg: string.IsNullOrWhiteSpace(exec.msg) ?
