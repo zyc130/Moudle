@@ -1,0 +1,2 @@
+2022-07-06 09:00:45,146 [9] INFO   - ApiActionFilterAttribute /api/Config/QueryPage,{"page":{"name":null,"pageIndex":1,"pageSize":10}},
+2022-07-06 09:01:08,463 [25] INFO   - ApiActionFilterAttribute /api/Config/QueryPage,{"page":{"name":"模具","pageIndex":1,"pageSize":10}},

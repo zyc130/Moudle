@@ -50,15 +50,14 @@ namespace WMS.Moudle.Api.Controllers
             return new ApiResult(configBusiness.Find(id));
         }
 
-
         /// <summary>
-        /// 查询全部
+        /// 分页
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult QueryAll()
+        public IActionResult QueryPage([FromQuery]ConfigPageDto page)
         {
-            return new ApiResult(configBusiness.FindAll());
+            return new ApiResult(configBusiness.QueryPage(page));
         }
 
         /// <summary>

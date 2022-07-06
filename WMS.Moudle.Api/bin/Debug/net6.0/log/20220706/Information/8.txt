@@ -1,0 +1,6 @@
+2022-07-06 08:42:27,140 [11] INFO   - ApiActionFilterAttribute /api/Config/QueryAll,{},
+2022-07-06 08:49:46,926 [48] INFO   - ApiActionFilterAttribute /api/Config/Add,{"t":{"id":0,"code":"moudle_part","name":"摸具-部件入库扫码行数","value":8,"remark":"摸具-部件入库扫码行数","create_id":0,"create_time":"2022-07-06T00:48:34.071Z","update_id":0,"update_time":"2022-07-06T00:48:34.071Z","state":0}},
+2022-07-06 08:51:08,373 [47] INFO   - ApiActionFilterAttribute /api/Config/Add,{"t":{"id":0,"code":"moudle_whole","name":"模具-整模入库扫码行数","value":2,"remark":"模具-整模入库扫码行数","create_id":0,"create_time":"2022-07-06T00:48:34.071Z","update_id":0,"update_time":"2022-07-06T00:48:34.071Z","state":0}},
+2022-07-06 08:51:53,275 [56] INFO   - ApiActionFilterAttribute /api/Config/Add,{"t":{"id":0,"code":"moudle_spare","name":"模具-备件入库扫码行数","value":10,"remark":"模具-备件入库扫码行数","create_id":0,"create_time":"2022-07-06T00:48:34.071Z","update_id":0,"update_time":"2022-07-06T00:48:34.071Z","state":0}},
+2022-07-06 08:52:46,868 [62] INFO   - ApiActionFilterAttribute /api/Config/Add,{"t":{"id":0,"code":"is_scan_pallet","name":"是否扫描托盘","value":1,"remark":"是否扫描托盘","create_id":0,"create_time":"2022-07-06T00:48:34.071Z","update_id":0,"update_time":"2022-07-06T00:48:34.071Z","state":0}},
+2022-07-06 08:52:57,209 [62] INFO   - ApiActionFilterAttribute /api/Config/Query,{"id":1},

@@ -1,5 +1,8 @@
-﻿using WMS.Moudle.Business.Interface.System;
+﻿using SqlSugar;
+using WMS.Moudle.Business.Interface.System;
 using WMS.Moudle.DataAccess.Interface.System;
+using WMS.Moudle.Entity;
+using WMS.Moudle.Entity.Dto.System;
 using WMS.Moudle.Entity.Models;
 
 namespace WMS.Moudle.Business.Serveice.System
@@ -32,6 +35,13 @@ namespace WMS.Moudle.Business.Serveice.System
         public List<sys_config> FindAll()
         {
             return configDataAccess.FindAll<sys_config>();
+        }
+
+        public PageData<sys_config> QueryPage(ConfigPageDto page)
+        {
+            Expressionable<sys_config> express = new();
+            express.AndIF(!string.IsNullOrWhiteSpace(page.name), a => a.name.Contains(page.name));
+            return configDataAccess.QueryPage(page.pageIndex, page.pageSize, express.ToExpression(), a => a.update_time, false);
         }
 
         public (bool, string) Update(sys_config t)

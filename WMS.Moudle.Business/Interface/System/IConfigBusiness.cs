@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WMS.Moudle.Entity;
+using WMS.Moudle.Entity.Dto.System;
 using WMS.Moudle.Entity.Models;
 
 namespace WMS.Moudle.Business.Interface.System
@@ -43,5 +44,12 @@ namespace WMS.Moudle.Business.Interface.System
         /// </summary>
         /// <returns></returns>
         List<sys_config> FindAll();
+
+        /// <summary>
+        /// 分页查询
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        PageData<sys_config> QueryPage(ConfigPageDto page);
     }
 }

@@ -114,6 +114,16 @@
             Desc:备注
             </summary>           
         </member>
+        <member name="T:WMS.Moudle.Entity.Dto.System.ConfigPageDto">
+            <summary>
+            系统配置分页入参
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.System.ConfigPageDto.name">
+            <summary>
+            名称
+            </summary>
+        </member>
         <member name="T:WMS.Moudle.Entity.Dto.System.DicDetailDto">
             <summary>
             字典键值dto

@@ -97,9 +97,9 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:WMS.Moudle.Api.Controllers.ConfigController.QueryAll">
+        <member name="M:WMS.Moudle.Api.Controllers.ConfigController.QueryPage(WMS.Moudle.Entity.Dto.System.ConfigPageDto)">
             <summary>
-            查询全部
+            分页
             </summary>
             <returns></returns>
         </member>
