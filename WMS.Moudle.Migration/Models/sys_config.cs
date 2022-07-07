@@ -45,13 +45,6 @@ namespace WMS.Moudle.Entity.Models
            public int? value {get;set;}
 
            /// <summary>
-           /// Desc:键值预留
-           /// Default:
-           /// Nullable:True
-           /// </summary>           
-           public string cust_value {get;set;}
-
-           /// <summary>
            /// Desc:说明
            /// Default:
            /// Nullable:True

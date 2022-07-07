@@ -24,6 +24,8 @@ namespace WMS.Moudle.Api.Custom
             CreateMap<MenuTreeDto, sys_menu>().ReverseMap();
             CreateMap<ImportMaterialDto, base_material>().ReverseMap();
             CreateMap<ConfigDto, sys_config>().ReverseMap();
+            CreateMap<LocationDto, base_location>().ReverseMap();
+            
         }
     }
 }

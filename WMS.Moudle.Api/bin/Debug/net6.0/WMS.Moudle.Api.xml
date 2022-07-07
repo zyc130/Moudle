@@ -275,6 +275,39 @@
             <param name="t"></param>
             <returns></returns>
         </member>
+        <member name="T:WMS.Moudle.Api.Controllers.LocationController">
+            <summary>
+            货位
+            </summary>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.LocationController.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness,AutoMapper.IMapper,WMS.Moudle.Business.Interface.Base.ILocationBusiness)">
+            <summary>
+            构造
+            </summary>
+            <param name="_httpContextAccessor"></param>
+            <param name="_userBusiness"></param>
+            <param name="_mapper"></param>
+            <param name="_locationBusiness"></param>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.LocationController.Init(System.Collections.Generic.List{WMS.Moudle.Entity.Dto.Base.LocationInitDto})">
+            <summary>
+            初始化
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.LocationController.QueryRows">
+            <summary>
+            获取货架行数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.LocationController.QueryByRowNo(System.Int32)">
+            <summary>
+            获取货位根据行号
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:WMS.Moudle.Api.Controllers.MaterialController">
             <summary>
             物料(摸具)

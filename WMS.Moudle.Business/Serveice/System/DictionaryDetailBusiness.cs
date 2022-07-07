@@ -50,6 +50,11 @@ namespace WMS.Moudle.Business.Serveice.System
             return dictionaryDetailDataAccess.Delete<sys_dictionary_detail>(id);
         }
 
+        public bool DeleteByCode(string code)
+        {
+            return dictionaryDetailDataAccess.Delete<sys_dictionary_detail>(a => a.dic_code == code);
+        }
+
         /// <summary>
         /// 查询
         /// </summary>
@@ -89,6 +94,12 @@ namespace WMS.Moudle.Business.Serveice.System
                 return (false, $"修改失败!");
             }
             return (true, $"修改失败!");
+        }
+
+        public bool UpdateByCode(sys_dictionary_detail t)
+        {
+            t.update_time = DateTime.Now;
+            return dictionaryDetailDataAccess.UpdateColumns(t, a => new { a.dic_code,a.update_id,a.update_time }, w => w.dic_code == t.dic_code);
         }
     }
 }

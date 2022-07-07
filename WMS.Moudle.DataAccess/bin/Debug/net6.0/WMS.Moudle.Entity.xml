@@ -64,6 +64,79 @@
             EVT Facultative
             </summary>
         </member>
+        <member name="T:WMS.Moudle.Entity.Dto.Base.LocationInitDto">
+            <summary>
+            货位初始化dto
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.LocationInitDto.RowIndex">
+            <summary>
+            行号
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.LocationInitDto.ColumnCount">
+            <summary>
+            列数
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.LocationInitDto.FloorCount">
+            <summary>
+            层数
+            </summary>
+        </member>
+        <member name="T:WMS.Moudle.Entity.Dto.Base.LocationShowDto">
+            <summary>
+            货位展示
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.LocationShowDto.RowNo">
+            <summary>
+            行号
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.LocationShowDto.Name">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.LocationShowDto.DataList">
+            <summary>
+            集合
+            </summary>
+        </member>
+        <member name="T:WMS.Moudle.Entity.Dto.Base.LocationDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.LocationDto.roadway_no">
+            <summary>
+            Desc:巷到编号
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.LocationDto.location_code">
+            <summary>
+            Desc:
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.LocationDto.location_name">
+            <summary>
+            Desc:
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Dto.Base.LocationDto.location_type">
+            <summary>
+            Desc:货位类型0-默认，1-
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
         <member name="T:WMS.Moudle.Entity.Dto.Base.MaterialPageDto">
             <summary>
             分页入参
@@ -395,6 +468,109 @@
             入库特殊权限
             </summary>
         </member>
+        <member name="T:WMS.Moudle.Entity.Models.base_location">
+            <summary>
+            货位表
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_location.id">
+            <summary>
+            Desc:主键
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_location.roadway_no">
+            <summary>
+            Desc:巷到编号
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_location.row_no">
+            <summary>
+            Desc:行编号
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_location.column_no">
+            <summary>
+            Desc:列编号
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_location.floor_no">
+            <summary>
+            Desc:层编号
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_location.location_code">
+            <summary>
+            Desc:
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_location.location_name">
+            <summary>
+            Desc:
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_location.location_type">
+            <summary>
+            Desc:货位类型0-默认，1-
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_location.state">
+            <summary>
+            Desc:状态(1-启用，0-停用)
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_location.create_time">
+            <summary>
+            Desc:创建时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_location.create_id">
+            <summary>
+            Desc:创建人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_location.update_time">
+            <summary>
+            Desc:修改时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_location.update_id">
+            <summary>
+            Desc:修改人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.base_location.remark">
+            <summary>
+            Desc:备注
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
         <member name="T:WMS.Moudle.Entity.Models.base_material">
             <summary>
             物料表
@@ -648,6 +824,198 @@
         <member name="P:WMS.Moudle.Entity.Models.base_material.state">
             <summary>
             Desc:
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="T:WMS.Moudle.Entity.Models.stock_location">
+            <summary>
+            库存主表
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location.id">
+            <summary>
+            Desc:主键
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location.location_code">
+            <summary>
+            Desc:货位编号
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location.location_state">
+            <summary>
+            Desc:货位状态
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location.pallet_barcode">
+            <summary>
+            Desc:托盘条码
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location.task_id">
+            <summary>
+            Desc:任务id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location.task_type">
+            <summary>
+            Desc:任务类型
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location.is_stock_in">
+            <summary>
+            Desc:是否入库(1-入库，0-出库)
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location.stock_type">
+            <summary>
+            Desc:库存类型(1-模具托盘，2-模套托盘，3-模具)
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location.state">
+            <summary>
+            Desc:状态(1-启用，0-默认)
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location.create_time">
+            <summary>
+            Desc:创建时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location.create_id">
+            <summary>
+            Desc:创建人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location.update_time">
+            <summary>
+            Desc:修改时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location.update_id">
+            <summary>
+            Desc:修改人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location.remark">
+            <summary>
+            Desc:备注
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="T:WMS.Moudle.Entity.Models.stock_location_detail">
+            <summary>
+            库存明细表
+            </summary>
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location_detail.id">
+            <summary>
+            Desc:明细id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location_detail.stock_location_id">
+            <summary>
+            Desc:主表id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location_detail.piece_code">
+            <summary>
+            Desc:模具类型编号
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location_detail.fabrication_no">
+            <summary>
+            Desc:模具编号
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location_detail.etat_code">
+            <summary>
+            Desc:状态
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location_detail.due_date">
+            <summary>
+            Desc:有效期
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location_detail.number">
+            <summary>
+            Desc:数量
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location_detail.create_id">
+            <summary>
+            Desc:创建人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location_detail.create_time">
+            <summary>
+            Desc:创建时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location_detail.update_id">
+            <summary>
+            Desc:修改人id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location_detail.update_time">
+            <summary>
+            Desc:修改时间
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:WMS.Moudle.Entity.Models.stock_location_detail.state">
+            <summary>
+            Desc:状态(1-启用，0-停用)
             Default:
             Nullable:False
             </summary>           

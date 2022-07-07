@@ -80,9 +80,9 @@ namespace WMS.Moudle.DataAccess.Serveice
         /// <typeparam name="T"></typeparam>
         /// <param name="funcFilter"></param>
         /// <returns></returns>
-        public ISugarQueryable<T> Query<T>(Expression<Func<T, bool>> funcFilter) where T : class, new()
+        public ISugarQueryable<T> Query<T>(Expression<Func<T, bool>>? funcFilter) where T : class, new()
         {
-            return _client.Queryable<T>().Where(funcFilter);
+            return _client.Queryable<T>().WhereIF(funcFilter!=null,funcFilter);
         }
 
         /// <summary>

@@ -29,11 +29,25 @@ namespace WMS.Moudle.Business.Interface.System
         bool Delete(long id);
 
         /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        bool DeleteByCode(string code);
+
+        /// <summary>
         /// 修改
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
         (bool,string) Update(sys_dictionary_detail t);
+
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        bool UpdateByCode(sys_dictionary_detail t);
 
         /// <summary>
         /// 查询

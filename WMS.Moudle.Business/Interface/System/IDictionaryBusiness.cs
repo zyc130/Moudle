@@ -26,7 +26,7 @@ namespace WMS.Moudle.Business.Interface.System
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        bool Delete(long id);
+        (bool,string) Delete(long id);
 
         /// <summary>
         /// 修改

@@ -9,7 +9,7 @@
             权限
             </summary>
         </member>
-        <member name="M:WMS.Moudle.Api.Controllers.AuthController.#ctor(WMS.Moudle.Business.Interface.System.IRoleBusiness,WMS.Moudle.Business.Interface.System.IRoleMenuBusiness,Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness)">
+        <member name="M:WMS.Moudle.Api.Controllers.AuthController.#ctor(WMS.Moudle.Business.Interface.System.IRoleBusiness,WMS.Moudle.Business.Interface.System.IRoleMenuBusiness,Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness,AutoMapper.IMapper)">
             <summary>
             构造
             </summary>
@@ -17,6 +17,7 @@
             <param name="_roleMenuBusiness"></param>
             <param name="_httpContextAccessor"></param>
             <param name="_userBusiness"></param>
+            <param name="_mapper"></param>
         </member>
         <member name="M:WMS.Moudle.Api.Controllers.AuthController.QueryByRoleId(System.Int64)">
             <summary>
@@ -37,7 +38,7 @@
             基础信息
             </summary>
         </member>
-        <member name="F:WMS.Moudle.Api.Controllers.BaseController._user">
+        <member name="F:WMS.Moudle.Api.Controllers.BaseController.user">
             <summary>
             用户信息
             </summary>
@@ -47,12 +48,18 @@
             HttpContextAccessor
             </summary>
         </member>
-        <member name="M:WMS.Moudle.Api.Controllers.BaseController.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness)">
+        <member name="F:WMS.Moudle.Api.Controllers.BaseController.mapper">
+            <summary>
+            automapper
+            </summary>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.BaseController.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness,AutoMapper.IMapper)">
             <summary>
             构造
             </summary>
             <param name="_httpContextAccessor"></param>
             <param name="_userBusiness"></param>
+            <param name="_mapper"></param>
         </member>
         <member name="M:WMS.Moudle.Api.Controllers.BaseController.WriteExcel(System.Byte[],System.String)">
             <summary>
@@ -60,6 +67,54 @@
             </summary>
             <param name="data"></param>
             <param name="fileName">文件名不带后缀(默认.xlsx)</param>
+            <returns></returns>
+        </member>
+        <member name="T:WMS.Moudle.Api.Controllers.ConfigController">
+            <summary>
+            系统配置
+            </summary>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.ConfigController.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness,AutoMapper.IMapper,WMS.Moudle.Business.Interface.System.IConfigBusiness)">
+            <summary>
+            构造
+            </summary>
+            <param name="_httpContextAccessor"></param>
+            <param name="_userBusiness"></param>
+            <param name="_mapper"></param>
+            <param name="configBusiness"></param>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.ConfigController.Add(WMS.Moudle.Entity.Models.sys_config)">
+            <summary>
+            新增
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.ConfigController.Query(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.ConfigController.QueryPage(WMS.Moudle.Entity.Dto.System.ConfigPageDto)">
+            <summary>
+            分页
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.ConfigController.Delete(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.ConfigController.Update(WMS.Moudle.Entity.Dto.System.ConfigDto)">
+            <summary>
+            修改
+            </summary>
+            <param name="t"></param>
             <returns></returns>
         </member>
         <member name="T:WMS.Moudle.Api.Controllers.DeptController">
@@ -117,6 +172,109 @@
             <param name="t"></param>
             <returns></returns>
         </member>
+        <member name="T:WMS.Moudle.Api.Controllers.DictionaryController">
+            <summary>
+            字典分类
+            </summary>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DictionaryController.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness,AutoMapper.IMapper,WMS.Moudle.Business.Interface.System.IDictionaryBusiness)">
+            <summary>
+            字典类型
+            </summary>
+            <param name="_httpContextAccessor"></param>
+            <param name="_userBusiness"></param>
+            <param name="_mapper"></param>
+            <param name="_dictionary"></param>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DictionaryController.Add(WMS.Moudle.Entity.Dto.System.SystemDto)">
+            <summary>
+            新增
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DictionaryController.Query(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DictionaryController.QueryAll">
+            <summary>
+            查询全部
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DictionaryController.Delete(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DictionaryController.Update(WMS.Moudle.Entity.Dto.System.SystemDto)">
+            <summary>
+            修改
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DictionaryController.QueryPage(WMS.Moudle.Entity.Dto.System.SystemPageDto)">
+            <summary>
+            分页查询
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WMS.Moudle.Api.Controllers.DictionaryDetailController">
+            <summary>
+            字典键值
+            </summary>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DictionaryDetailController.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,WMS.Moudle.Business.Interface.System.IUserBusiness,AutoMapper.IMapper,WMS.Moudle.Business.Interface.System.IDictionaryDetailBusiness)">
+            <summary>
+            构造
+            </summary>
+            <param name="_httpContextAccessor"></param>
+            <param name="_userBusiness"></param>
+            <param name="_mapper"></param>
+            <param name="dictionaryDetailBusiness"></param>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DictionaryDetailController.Add(WMS.Moudle.Entity.Dto.System.DicDetailDto)">
+            <summary>
+            新增
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DictionaryDetailController.Query(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DictionaryDetailController.QueryByCode(System.String)">
+            <summary>
+            根据类型查询全部
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DictionaryDetailController.Delete(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WMS.Moudle.Api.Controllers.DictionaryDetailController.Update(WMS.Moudle.Entity.Dto.System.DicDetailDto)">
+            <summary>
+            修改
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
         <member name="T:WMS.Moudle.Api.Controllers.MaterialController">
             <summary>
             物料(摸具)
@@ -163,7 +321,7 @@
             构造
             </summary>
             <param name="_menuBusiness"></param>
-            <param name="mapper"></param>
+            <param name="_mapper"></param>
             <param name="_context"></param>
             <param name="_user"></param>
         </member>

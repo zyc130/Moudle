@@ -32,7 +32,7 @@ namespace WMS.Moudle.DataAccess.Interface
         /// <typeparam name="T"></typeparam>
         /// <param name="funcFilter"></param>
         /// <returns></returns>
-        ISugarQueryable<T> Query<T>(Expression<Func<T, bool>> funcFilter) where T : class, new();
+        ISugarQueryable<T> Query<T>(Expression<Func<T, bool>>? funcFilter) where T : class, new();
 
         /// <summary>
         /// 分页查询
