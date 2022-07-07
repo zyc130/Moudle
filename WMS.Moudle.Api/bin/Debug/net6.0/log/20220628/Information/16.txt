@@ -1,4 +1,0 @@
-2022-06-28 16:13:21,569 [10] INFO   - ApiActionFilterAttribute /api/Role/Query,{},
-2022-06-28 16:13:38,262 [6] INFO   - ApiActionFilterAttribute /api/Role/Query,{},
-2022-06-28 16:19:43,564 [6] INFO   - ApiActionFilterAttribute /api/Role/Query,{},
-2022-06-28 16:19:50,666 [6] INFO   - ApiActionFilterAttribute /api/Role/Query,{},

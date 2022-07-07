@@ -1,7 +1,0 @@
-2022-07-06 16:09:04,564 [6] INFO   - ApiActionFilterAttribute /api/Dictionary/QueryAll,{},
-2022-07-06 16:46:32,512 [23] INFO   - ApiActionFilterAttribute /api/Location/Init,{"ts":[{"RowIndex":1,"ColumnCount":30,"FloorCount":20},{"RowIndex":2,"ColumnCount":30,"FloorCount":20},{"RowIndex":3,"ColumnCount":30,"FloorCount":20},{"RowIndex":4,"ColumnCount":30,"FloorCount":20}]},
-2022-07-06 16:47:20,498 [21] INFO   - ApiActionFilterAttribute /api/Location/Init,{"ts":[]},
-2022-07-06 16:50:34,376 [10] INFO   - ApiActionFilterAttribute /api/Location/Init,{"ts":[{"RowIndex":4,"ColumnCount":99,"FloorCount":99}]},
-2022-07-06 16:51:27,056 [6] INFO   - ApiActionFilterAttribute /api/Location/Init,{"ts":[{"RowIndex":4,"ColumnCount":99,"FloorCount":99}]},
-2022-07-06 16:51:39,238 [6] INFO   - ApiActionFilterAttribute /api/Location/Init,{"ts":[{"RowIndex":4,"ColumnCount":99,"FloorCount":99}]},
-2022-07-06 16:58:00,494 [24] INFO   - ApiActionFilterAttribute /api/Location/Init,{"ts":[{"RowIndex":1,"ColumnCount":20,"FloorCount":20},{"RowIndex":2,"ColumnCount":20,"FloorCount":20},{"RowIndex":3,"ColumnCount":20,"FloorCount":20},{"RowIndex":4,"ColumnCount":20,"FloorCount":20}]},

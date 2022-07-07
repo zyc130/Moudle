@@ -1,9 +1,0 @@
-2022-06-27 09:37:40,234 [30] INFO   - ApiActionFilterAttribute /api/Role/Add,{"t":{"Id":0,"code":"test","name":"string","state":1,"remark":"string"}},System.Security.Claims.ClaimsPrincipal+<get_Claims>d__22
-2022-06-27 09:39:50,540 [11] INFO   - ApiActionFilterAttribute /api/Dept/Add,{"t":{"Id":0,"code":"string","name":"string","state":1,"remark":"string"}},System.Security.Claims.ClaimsPrincipal+<get_Claims>d__22
-2022-06-27 09:40:20,297 [25] INFO   - ApiActionFilterAttribute /api/Dept/Add,{"t":{"Id":0,"code":"string1","name":"string","state":1,"remark":"string"}},System.Security.Claims.ClaimsPrincipal+<get_Claims>d__22
-2022-06-27 09:40:44,533 [29] INFO   - ApiActionFilterAttribute /api/Dept/Add,{"t":{"Id":0,"code":"string2","name":"string","state":1,"remark":"string"}},System.Security.Claims.ClaimsPrincipal+<get_Claims>d__22
-2022-06-27 09:40:54,490 [31] INFO   - ApiActionFilterAttribute /api/Dept/Add,{"t":{"Id":0,"code":"string2","name":"string1","state":1,"remark":"string"}},System.Security.Claims.ClaimsPrincipal+<get_Claims>d__22
-2022-06-27 09:41:06,289 [31] INFO   - ApiActionFilterAttribute /api/Dept/Add,{"t":{"Id":0,"code":"string2","name":"string2","state":1,"remark":"string"}},System.Security.Claims.ClaimsPrincipal+<get_Claims>d__22
-2022-06-27 09:42:43,810 [3] INFO   - ApiActionFilterAttribute /api/Dept/Update,{"t":{"Id":2,"code":"string3","name":"string3","state":1,"remark":"string"}},System.Security.Claims.ClaimsPrincipal+<get_Claims>d__22
-2022-06-27 09:48:21,323 [59] INFO   - ApiActionFilterAttribute /api/Dept/QueryAll,{},System.Security.Claims.ClaimsPrincipal+<get_Claims>d__22
-2022-06-27 09:48:41,520 [70] INFO   - ApiActionFilterAttribute /api/Role/QueryAll,{},System.Security.Claims.ClaimsPrincipal+<get_Claims>d__22

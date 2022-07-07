@@ -1,6 +1,0 @@
-2022-07-06 17:32:29,880 [160] INFO   - ApiActionFilterAttribute /api/Location/Init,{"ts":[{"RowIndex":1,"ColumnCount":20,"FloorCount":20},{"RowIndex":2,"ColumnCount":20,"FloorCount":20},{"RowIndex":3,"ColumnCount":20,"FloorCount":20},{"RowIndex":4,"ColumnCount":20,"FloorCount":20}]},
-2022-07-06 17:33:14,541 [4] INFO   - ApiActionFilterAttribute /api/Location/Init,{"ts":[{"RowIndex":1,"ColumnCount":20,"FloorCount":20},{"RowIndex":2,"ColumnCount":20,"FloorCount":20},{"RowIndex":3,"ColumnCount":20,"FloorCount":20},{"RowIndex":4,"ColumnCount":20,"FloorCount":20}]},
-2022-07-06 17:55:39,654 [9] INFO   - ApiActionFilterAttribute /api/Location/QueryAll,{},
-2022-07-06 17:57:08,633 [6] INFO   - ApiActionFilterAttribute /api/Location/QueryAll,{},
-2022-07-06 17:58:08,983 [13] INFO   - ApiActionFilterAttribute /api/Location/QueryAll,{},
-2022-07-06 17:58:50,453 [13] INFO   - ApiActionFilterAttribute /api/Location/QueryAll,{},
