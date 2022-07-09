@@ -66,7 +66,7 @@ namespace WMS.Moudle.Entity.Models
            public string location_name {get;set;}
 
            /// <summary>
-           /// Desc:货位类型0-默认，1-
+           /// Desc:
            /// Default:
            /// Nullable:False
            /// </summary>           

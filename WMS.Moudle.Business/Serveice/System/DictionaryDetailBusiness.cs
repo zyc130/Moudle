@@ -93,13 +93,13 @@ namespace WMS.Moudle.Business.Serveice.System
             {
                 return (false, $"修改失败!");
             }
-            return (true, $"修改失败!");
+            return (true, string.Empty);
         }
 
-        public bool UpdateByCode(sys_dictionary_detail t)
+        public bool UpdateByCode(sys_dictionary_detail t,string oldDicCode)
         {
             t.update_time = DateTime.Now;
-            return dictionaryDetailDataAccess.UpdateColumns(t, a => new { a.dic_code,a.update_id,a.update_time }, w => w.dic_code == t.dic_code);
+            return dictionaryDetailDataAccess.UpdateColumns(t, a => new { a.dic_code,a.update_id,a.update_time }, w => w.dic_code == oldDicCode);
         }
     }
 }

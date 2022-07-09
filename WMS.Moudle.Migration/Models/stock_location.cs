@@ -59,11 +59,11 @@ namespace WMS.Moudle.Entity.Models
            public int task_type {get;set;}
 
            /// <summary>
-           /// Desc:是否入库(1-入库，0-出库)
+           /// Desc:是否入库(1-入库，2-出库)
            /// Default:
            /// Nullable:False
            /// </summary>           
-           public int is_stock_in {get;set;}
+           public int is_in_stock {get;set;}
 
            /// <summary>
            /// Desc:库存类型(1-模具托盘，2-模套托盘，3-模具)

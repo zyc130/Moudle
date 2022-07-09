@@ -1,5 +1,6 @@
 using Microsoft.OpenApi.Models;
 using WMS.Moudle.Api.Custom;
+using WMS.Moudle.Api.Custom.Filter;
 using WMS.Moudle.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -69,6 +70,7 @@ builder.Services.AddSwaggerGen(a =>
     a.IncludeXmlComments(apiPath, true);                                                //ÊÇ·ñÏÔÊ¾×¢ÊÍ
     a.IncludeXmlComments(entityPath, true);                                             //ÊÇ·ñÏÔÊ¾×¢ÊÍ
     a.OrderActionsBy(o => o.RelativePath);                                              //actionÃû³ÆÅÅĞò
+    a.SchemaFilter<EnumSchemaFilter>();
 });
 
 var app = builder.Build();

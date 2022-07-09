@@ -47,7 +47,7 @@ namespace WMS.Moudle.Business.Interface.System
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-        bool UpdateByCode(sys_dictionary_detail t);
+        bool UpdateByCode(sys_dictionary_detail t,string oldDicCode);
 
         /// <summary>
         /// 查询

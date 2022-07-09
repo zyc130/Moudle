@@ -105,7 +105,7 @@ namespace WMS.Moudle.Business.Serveice.System
         public (bool,string) Update(sys_dictionary t)
         {
             var dic = Find(t.id);
-            if (dic != null)
+            if (dic == null)
             {
                 return (false, "对象不存在!");
             }
@@ -126,11 +126,11 @@ namespace WMS.Moudle.Business.Serveice.System
                     {
                         var detail = new sys_dictionary_detail()
                         {
-                            dic_code = dic.code,
+                            dic_code = t.code,
                             update_id = dic.update_id
                         };
                         //执行明细更新
-                        if (!dictionaryDetailBusiness.UpdateByCode(detail))
+                        if (!dictionaryDetailBusiness.UpdateByCode(detail,dic.code))
                         {
                             return (false, "修改明细失败!");
                         }

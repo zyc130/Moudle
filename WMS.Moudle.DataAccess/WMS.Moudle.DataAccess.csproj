@@ -12,6 +12,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WMS.Moudle.Entity\WMS.Moudle.Entity.csproj" />
+    <ProjectReference Include="..\WMS.Moudle.Utility\WMS.Moudle.Utility.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interface\Stock\" />
+    <Folder Include="Serveice\Stock\" />
   </ItemGroup>
 
 </Project>

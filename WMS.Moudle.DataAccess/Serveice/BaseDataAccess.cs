@@ -2,12 +2,16 @@
 using SqlSugar;
 using System.Linq.Expressions;
 using WMS.Moudle.DataAccess.Interface;
+using WMS.Moudle.Utility.Extend;
 
 namespace WMS.Moudle.DataAccess.Serveice
 {
     internal class BaseDataAccess : IBaseDataAccess
     {
         protected ISqlSugarClient _client;
+
+        private static string create_time= "create_time";
+        private static string update_time = "update_time";
         public BaseDataAccess(ISqlSugarClient client)
         {
             _client = client;
@@ -134,6 +138,7 @@ namespace WMS.Moudle.DataAccess.Serveice
         /// <exception cref="NotImplementedException"></exception>
         public T Insert<T>(T t) where T : class, new()
         {
+            t.SetNowTime(new List<string>() { create_time,update_time });
             return _client.Insertable(t).ExecuteReturnEntity();
         }
 
@@ -145,7 +150,8 @@ namespace WMS.Moudle.DataAccess.Serveice
         /// <returns></returns>
         public int Insert<T>(List<T> ts) where T : class, new()
         {
-           return _client.Insertable(ts).ExecuteCommand();
+            ts.SetNowTime(new List<string>() { create_time, update_time });
+            return _client.Insertable(ts).ExecuteCommand();
         }
 
         #endregion
@@ -160,6 +166,7 @@ namespace WMS.Moudle.DataAccess.Serveice
         /// <returns></returns>
         public bool Update<T>(T t) where T : class, new()
         {
+            t.SetNowTime(new List<string>() { update_time });
             return _client.Updateable<T>(t).ExecuteCommandHasChange();
         }
 
@@ -171,8 +178,9 @@ namespace WMS.Moudle.DataAccess.Serveice
         /// <returns></returns>
         public bool UpdateIgnore<T>(T t, Expression<Func<T, object>> columns) where T :class,new()
         {
+            t.SetNowTime(new List<string>() { update_time });
             return _client.Updateable(t)
-                .IgnoreColumns(columns)
+                .IgnoreColumnsIF(columns!=null,columns)
                 .ExecuteCommandHasChange();
         }
 
@@ -186,8 +194,9 @@ namespace WMS.Moudle.DataAccess.Serveice
         /// <exception cref="NotImplementedException"></exception>
         public bool UpdateColumns<T>(T t, Expression<Func<T, object>> columns, Expression<Func<T, bool>> where) where T : class, new()
         {
+            t.SetNowTime(new List<string>() { update_time });
             return _client.Updateable(t)
-                .UpdateColumns(columns)
+                .UpdateColumnsIF(columns!=null,columns)
                 .Where(where)
                 .ExecuteCommandHasChange();
         }
@@ -200,6 +209,7 @@ namespace WMS.Moudle.DataAccess.Serveice
         /// <returns></returns>
         public bool Update<T>(List<T> ts) where T : class, new()
         {
+            ts.SetNowTime(new List<string>() { update_time });
             return _client.Updateable<T>(ts).ExecuteCommandHasChange();
         }
 

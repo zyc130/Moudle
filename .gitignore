@@ -1,0 +1,14 @@
+/WMS.Moudle.Api/obj
+/WMS.Moudle.Api/bin
+/WMS.Moudle.Business/obj
+/WMS.Moudle.Business/bin
+/WMS.Moudle.DataAccess/obj
+/WMS.Moudle.DataAccess/bin
+/WMS.Moudle.Entity/obj
+/WMS.Moudle.Entity/bin
+/WMS.Moudle.Migration/obj
+/WMS.Moudle.Migration/bin
+/WMS.Moudle.Redis/obj
+/WMS.Moudle.Redis/bin
+/WMS.Moudle.Utility/obj
+/WMS.Moudle.Utility/bin

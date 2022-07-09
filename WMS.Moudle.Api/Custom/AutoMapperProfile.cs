@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using WMS.Moudle.Entity.Dto.Base;
 using WMS.Moudle.Entity.Dto.System;
+using WMS.Moudle.Entity.Dto.Task;
 using WMS.Moudle.Entity.Models;
 
 namespace WMS.Moudle.Api.Custom
@@ -25,7 +26,7 @@ namespace WMS.Moudle.Api.Custom
             CreateMap<ImportMaterialDto, base_material>().ReverseMap();
             CreateMap<ConfigDto, sys_config>().ReverseMap();
             CreateMap<LocationDto, base_location>().ReverseMap();
-            
+            CreateMap<TaskDto, task>().ReverseMap();
         }
     }
 }
