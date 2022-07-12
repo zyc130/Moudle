@@ -27,6 +27,55 @@ namespace WMS.Moudle.Api.Controllers
             locationBusiness = _locationBusiness;
         }
 
+        #region 初始化入参
+        /*
+         
+         [
+  {
+    "roadway_no": 1,
+    "rows": [
+      {
+        "rowIndex": 1,
+        "columnCount": 35,
+        "floorCount": 18,
+        "bigFloor": [
+          1,2,18
+        ]
+      },
+   {
+        "rowIndex": 2,
+        "columnCount": 35,
+        "floorCount": 18,
+        "bigFloor": [
+          1,2,18
+        ]
+      }
+    ]
+  },
+{
+    "roadway_no": 2,
+    "rows": [
+      {
+        "rowIndex": 1,
+        "columnCount": 35,
+        "floorCount": 18,
+        "bigFloor": [
+          1,2,18
+        ]
+      },
+   {
+        "rowIndex": 2,
+        "columnCount": 35,
+        "floorCount": 18,
+        "bigFloor": [
+          1,2,18
+        ]
+      }
+    ]
+  }
+]
+         */
+        #endregion
         /// <summary>
         /// 初始化
         /// </summary>
@@ -35,11 +84,11 @@ namespace WMS.Moudle.Api.Controllers
         [HttpPost]
         public IActionResult Init(List<LocationInitDto> ts)
         {
-            if (ts?.Count==0)
+            if (ts?.Count == 0)
             {
-                return new ApiResult((false,"入参不能为空!"));
+                return new ApiResult((false, "入参不能为空!"));
             }
-            return new ApiResult(locationBusiness.Init(ts, user?.id??0));
+            return new ApiResult(locationBusiness.Init(ts, user?.id ?? 0));
         }
 
         /// <summary>

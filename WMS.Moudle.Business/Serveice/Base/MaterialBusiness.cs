@@ -65,6 +65,11 @@ namespace WMS.Moudle.Business.Serveice.Base
            return excelHelper.Export(exportData);
         }
 
+        public base_material Find(string fabricationNo)
+        {
+            return materialDataAccess.Query<base_material>(a => a.fabrication_no == fabricationNo).First();
+        }
+
         /// <summary>
         /// 导入
         /// </summary>

@@ -86,5 +86,38 @@ namespace WMS.Moudle.Api.Controllers
             dic.update_id = user?.id ?? 0;
             return new ApiResult(dictionaryDetailBusiness.Update(dic));
         }
+
+        #region option
+
+        /// <summary>
+        /// 托盘类型
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult QueryPalletType()
+        {
+            return new ApiResult(dictionaryDetailBusiness.GetPalletType());
+        }
+
+        /// <summary>
+        /// 模具入库类型
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult QueryMoudleInType()
+        {
+            return new ApiResult(dictionaryDetailBusiness.GetMoudleInType());
+        }
+
+        /// <summary>
+        /// 模具类型
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult QueryMoudleType()
+        {
+            return new ApiResult(dictionaryDetailBusiness.GetMoudleType());
+        }
+        #endregion 
     }
 }

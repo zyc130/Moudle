@@ -62,5 +62,27 @@ namespace WMS.Moudle.Business.Interface.System
         /// <param name="code"></param>
         /// <returns></returns>
         List<sys_dictionary_detail> FindByCode(string code);
+
+        #region option
+
+        /// <summary>
+        /// 托盘类型
+        /// </summary>
+        /// <returns></returns>
+        List<sys_dictionary_detail> GetPalletType();
+
+        /// <summary>
+        /// 模具入库类型
+        /// </summary>
+        /// <returns></returns>
+        List<sys_dictionary_detail> GetMoudleInType();
+
+        /// <summary>
+        /// 模具类型
+        /// </summary>
+        /// <returns></returns>
+        List<sys_dictionary_detail> GetMoudleType();
+
+        #endregion
     }
 }

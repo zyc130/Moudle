@@ -15,9 +15,4 @@
     <ProjectReference Include="..\WMS.Moudle.Utility\WMS.Moudle.Utility.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Interface\Stock\" />
-    <Folder Include="Serveice\Stock\" />
-  </ItemGroup>
-
 </Project>

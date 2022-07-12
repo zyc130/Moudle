@@ -17,6 +17,13 @@ namespace WMS.Moudle.Business.Interface.Base
     public interface IMaterialBusiness
     {
         /// <summary>
+        /// 获取信息
+        /// </summary>
+        /// <param name="fabricationNo"></param>
+        /// <returns></returns>
+        base_material Find(string fabricationNo);
+
+        /// <summary>
         /// 导入
         /// </summary>
         /// <param name="file"></param>

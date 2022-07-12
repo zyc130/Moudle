@@ -33,5 +33,27 @@ namespace WMS.Moudle.Utility.Extend
             }
             return description;
         }
+
+        /// <summary>
+        /// 根据value获取枚举
+        /// </summary>
+        /// <typeparam name="T">泛型T</typeparam>
+        /// <param name="value">Value</param>
+        /// <returns></returns>
+        public static T ToEnum<T>(this int value) where T : struct
+        {
+            var type = typeof(T);
+            if (!type.IsEnum)
+            {
+                return default(T);
+            }
+
+            if (Enum.TryParse<T>(value.ToString(), true, out T result))
+            {
+                return result;
+            }
+
+            return default(T);
+        }
     }
 }

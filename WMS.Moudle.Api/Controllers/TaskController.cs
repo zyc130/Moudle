@@ -61,6 +61,11 @@ namespace WMS.Moudle.Api.Controllers
             List<task> items = new();
             for (int i = 0; i < t.number; i++)
             {
+                string taskNo = taskBusiness.GetTaskNo();
+                if (string.IsNullOrWhiteSpace(taskNo))
+                {
+                    return new ApiResult((false, "任务号生成异常!"));
+                }
                 items.Add(new task()
                 {
                     material_type = t.material_type.GetHashCode(),
@@ -69,7 +74,8 @@ namespace WMS.Moudle.Api.Controllers
                     create_id = user?.id ?? 0,
                     update_id = user?.id ?? 0,
                     state = CommonEnum.EState.Use.GetHashCode(),
-                    task_state = TaskEnum.ETaskState.Wait.GetHashCode()
+                    task_state = TaskEnum.ETaskState.Wait.GetHashCode(),
+                    task_no = taskNo
                 });
             }
             return new ApiResult(taskBusiness.CreatePalletOut(items));
@@ -79,13 +85,24 @@ namespace WMS.Moudle.Api.Controllers
         #region 模具入库
 
         /// <summary>
+        /// 获取入库条码部件数量
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ApiResult QueryMoudleCount([FromQuery]MoudleCountDto t)
+        {
+            return new ApiResult(taskBusiness.QueryMoudleCount(t));
+        }
+
+        /// <summary>
         /// 模具入库
         /// </summary>
         /// <returns></returns>
         [HttpPost]
         public IActionResult CreateMoudleIn(MoudleInDto t)
         {
-            return new ApiResult(taskBusiness.CreateMoudleIn(t,user?.id??0));
+            return new ApiResult(taskBusiness.CreateMoudleIn(t,user));
         }
 
         #endregion

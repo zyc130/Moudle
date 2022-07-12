@@ -24,11 +24,18 @@ namespace WMS.Moudle.Entity.Models
            public long id {get;set;}
 
            /// <summary>
+           /// Desc:任务号
+           /// Default:
+           /// Nullable:False
+           /// </summary>           
+           public long task_no {get;set;}
+
+           /// <summary>
            /// Desc:是否入库(1-入库，2-出库)
            /// Default:
-           /// Nullable:True
+           /// Nullable:False
            /// </summary>           
-           public int? is_in_stock {get;set;}
+           public int is_in_stock {get;set;}
 
            /// <summary>
            /// Desc:任务类型

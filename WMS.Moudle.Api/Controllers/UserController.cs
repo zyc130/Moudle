@@ -16,7 +16,6 @@ namespace WMS.Moudle.Api.Controllers
     /// </summary>
     public class UserController : BaseController
     {
-        IUserBusiness userBusiness;
         IJwtHelper jwtHelper;
 
         /// <summary>
@@ -31,7 +30,6 @@ namespace WMS.Moudle.Api.Controllers
             , IMapper _mapper
             , IHttpContextAccessor _contextAccessor) : base(_contextAccessor, _userBusiness, _mapper)
         {
-            userBusiness    = _userBusiness;
             jwtHelper = _jwtHelper;
         }
 

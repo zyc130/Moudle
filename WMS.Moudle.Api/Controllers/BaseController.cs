@@ -19,7 +19,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <summary>
         /// 用户信息
         /// </summary>
-        protected sys_user? user;
+        protected sys_user user;
         /// <summary>
         /// HttpContextAccessor
         /// </summary>
@@ -29,7 +29,16 @@ namespace WMS.Moudle.Api.Controllers
         /// automapper
         /// </summary>
         protected IMapper mapper;
-        private IUserBusiness userBusiness;
+
+        /// <summary>
+        /// 用户
+        /// </summary>
+        protected IUserBusiness userBusiness;
+
+        /// <summary>
+        /// 返回对象
+        /// </summary>
+        protected ApiResult result;
 
         /// <summary>
         /// 构造
@@ -47,7 +56,9 @@ namespace WMS.Moudle.Api.Controllers
             userBusiness = _userBusiness;
 
             var claims = httpContextAccessor.HttpContext?.User.Claims;
-            user = _userBusiness.QueryByName(claims?.FirstOrDefault()?.Subject?.Name??string.Empty);
+            user = _userBusiness.QueryByName(claims?.FirstOrDefault()?.Subject?.Name ?? string.Empty) ?? new sys_user() { id = 0 };
+
+            result = new ApiResult(isSuccess: true, msg: string.Empty);
         }
 
         /// <summary>

@@ -80,6 +80,13 @@ namespace WMS.Moudle.Entity.Models
            public int material_type {get;set;}
 
            /// <summary>
+           /// Desc:是否部分出入库(1-是，0-否)
+           /// Default:
+           /// Nullable:False
+           /// </summary>           
+           public int is_part {get;set;}
+
+           /// <summary>
            /// Desc:状态(1-启用，0-默认)
            /// Default:
            /// Nullable:False

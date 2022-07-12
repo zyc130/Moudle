@@ -37,36 +37,46 @@ namespace WMS.Moudle.Business.Serveice.Base
                 return (false, "数据库已有货位!");
             }
 
-            if (ts.Select(a=>a.RowIndex).Distinct().Count()!=ts.Count)
+            if (ts.Select(a=>a.roadway_no).Distinct().Count()!=ts.Count)
             {
-                return (false, "行号不能重复!");
+                return (false, "巷道号不能重复!");
             }
             List<base_location> items = new();
+            int sortModel=4;
+            int rowIndex = 1;
+
             //生成货位
-            ts?.ForEach(row =>
+            ts?.ForEach(roadway =>
             {
-                for (int c = 1; c <= row.ColumnCount; c++)
+                roadway.rows.ForEach(row =>
                 {
-                    for (int f = 1; f <= row.FloorCount; f++)
+                    int groupNo = 0;
+                    for (int c = 1; c <= row.ColumnCount; c++)
                     {
-                        items.Add(new base_location()
+                        for (int f = 1; f <= row.FloorCount; f++)
                         {
-                            roadway_no =row.RowIndex>2?2:1,
-                            row_no=row.RowIndex,
-                            column_no = c,
-                            floor_no =f,
-                            location_code = $"{row.RowIndex}-{c}-{f}",
-                            location_name = $"{c}列{f}层",
-                            location_type=0,
-                            state=1,
-                            create_time=DateTime.Now,
-                            update_time=DateTime.Now,
-                            remark=string.Empty,
-                            create_id= createId,
-                            update_id= createId
-                        });
+                            items.Add(new base_location()
+                            {
+                                roadway_no = roadway.roadway_no,
+                                row_no = row.RowIndex,
+                                column_no = c,
+                                floor_no = f,
+                                location_code = $"{row.RowIndex}-{c}-{f}",
+                                location_name = $"{c}列{f}层",
+                                location_type = row.BigFloor.Contains(f)?1:0,
+                                state = 1,
+                                create_time = DateTime.Now,
+                                update_time = DateTime.Now,
+                                remark = string.Empty,
+                                create_id = createId,
+                                update_id = createId,
+                                sort_no = rowIndex + sortModel * groupNo,
+                            });
+                            groupNo += 1;
+                        }
                     }
-                }
+                    rowIndex++;
+                });
             });
 
             if (ts?.Count>0)

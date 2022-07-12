@@ -13,7 +13,7 @@ namespace WMS.Moudle.Utility.Extend
             var properties = t.GetType().GetProperties();
             foreach (var p in properties)
             {
-                if (propertyNames.Exists(a=>a.Equals(p.Name)))
+                if (propertyNames?.Exists(a=>a.Equals(p.Name))??false)
                 {
                     if (p.PropertyType == typeof(DateTime))
                     {
@@ -27,17 +27,7 @@ namespace WMS.Moudle.Utility.Extend
         {
             ts?.ForEach(t =>
             {
-                var properties = t.GetType().GetProperties();
-                foreach (var p in properties)
-                {
-                    if (propertyNames.Exists(a => a.Equals(p.Name)))
-                    {
-                        if (p.PropertyType == typeof(DateTime))
-                        {
-                            p.SetValue(t, DateTime.Now);
-                        }
-                    }
-                }
+                t.SetNowTime(propertyNames);
             });
         }
     }

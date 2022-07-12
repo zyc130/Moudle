@@ -3,6 +3,7 @@ using WMS.Moudle.Business.Interface.System;
 using WMS.Moudle.DataAccess.Interface.System;
 using WMS.Moudle.Entity;
 using WMS.Moudle.Entity.Dto.System;
+using WMS.Moudle.Entity.Enum;
 using WMS.Moudle.Entity.Models;
 
 namespace WMS.Moudle.Business.Serveice.System
@@ -42,6 +43,16 @@ namespace WMS.Moudle.Business.Serveice.System
             Expressionable<sys_config> express = new();
             express.AndIF(!string.IsNullOrWhiteSpace(page.name), a => a.name.Contains(page.name));
             return configDataAccess.QueryPage(page.pageIndex, page.pageSize, express.ToExpression(), a => a.update_time, false);
+        }
+
+        /// <summary>
+        /// 获取配置value值
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public int? QueryValue(CommonEnum.EConfigCode code)
+        {
+            return FindAll()?.FirstOrDefault(a=>a.code==code.ToString())?.value;
         }
 
         public (bool, string) Update(sys_config t)

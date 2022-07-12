@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -15,11 +15,6 @@
     <ProjectReference Include="..\WMS.Moudle.Entity\WMS.Moudle.Entity.csproj" />
     <ProjectReference Include="..\WMS.Moudle.Redis\WMS.Moudle.Redis.csproj" />
     <ProjectReference Include="..\WMS.Moudle.Utility\WMS.Moudle.Utility.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Interface\Stock\" />
-    <Folder Include="Serveice\Stock\" />
   </ItemGroup>
 
 </Project>

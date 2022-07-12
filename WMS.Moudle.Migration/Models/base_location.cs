@@ -73,6 +73,13 @@ namespace WMS.Moudle.Entity.Models
            public int location_type {get;set;}
 
            /// <summary>
+           /// Desc:优先级排序
+           /// Default:
+           /// Nullable:True
+           /// </summary>           
+           public int? sort_no {get;set;}
+
+           /// <summary>
            /// Desc:状态(1-启用，0-停用)
            /// Default:
            /// Nullable:False

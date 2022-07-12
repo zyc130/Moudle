@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WMS.Moudle.Entity;
 using WMS.Moudle.Entity.Dto.System;
 using WMS.Moudle.Entity.Models;
+using static WMS.Moudle.Entity.Enum.CommonEnum;
 
 namespace WMS.Moudle.Business.Interface.System
 {
@@ -40,7 +41,7 @@ namespace WMS.Moudle.Business.Interface.System
         sys_config Find(long id);
 
         /// <summary>
-        /// 
+        /// 全部
         /// </summary>
         /// <returns></returns>
         List<sys_config> FindAll();
@@ -51,5 +52,12 @@ namespace WMS.Moudle.Business.Interface.System
         /// <param name="page"></param>
         /// <returns></returns>
         PageData<sys_config> QueryPage(ConfigPageDto page);
+
+        /// <summary>
+        /// 获取配置value值
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        int? QueryValue(EConfigCode code);
     }
 }

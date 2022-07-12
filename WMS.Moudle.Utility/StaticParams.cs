@@ -11,7 +11,14 @@ namespace WMS.Moudle.Utility
     /// </summary>
     public class StaticParams
     {
+        #region config
+
+        /// <summary>
+        /// config配置
+        /// </summary>
         public static CustomConfig CUSTOMCONFIG { get; set; }=new CustomConfig();
+
+        #endregion
     }
 
     #region 配置信息

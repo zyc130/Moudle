@@ -26,7 +26,9 @@ namespace WMS.Moudle.Api.Custom
             CreateMap<ImportMaterialDto, base_material>().ReverseMap();
             CreateMap<ConfigDto, sys_config>().ReverseMap();
             CreateMap<LocationDto, base_location>().ReverseMap();
-            CreateMap<TaskDto, task>().ReverseMap();
+            CreateMap<MoudleInDto, task>().ReverseMap();
+            CreateMap<base_material, TaskDetailDto>().ReverseMap();
+            CreateMap<task_detail, TaskDetailDto>().ReverseMap();
         }
     }
 }
