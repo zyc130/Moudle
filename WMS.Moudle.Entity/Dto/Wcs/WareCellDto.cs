@@ -27,7 +27,7 @@ namespace WMS.Moudle.Entity.Dto.Wcs
         /// <summary>
         /// 设备号
         /// </summary>
-        public string PickUpEquipmentNo { get; set; }
+        public string? PickUpEquipmentNo { get; set; }
 
         /// <summary>
         /// Memo1

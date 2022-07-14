@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using WMS.Moudle.Entity.Dto.Base;
+using WMS.Moudle.Entity.Dto.Stock;
 using WMS.Moudle.Entity.Dto.System;
 using WMS.Moudle.Entity.Dto.Task;
 using WMS.Moudle.Entity.Models;
@@ -27,8 +28,13 @@ namespace WMS.Moudle.Api.Custom
             CreateMap<ConfigDto, sys_config>().ReverseMap();
             CreateMap<LocationDto, base_location>().ReverseMap();
             CreateMap<MoudleInDto, task>().ReverseMap();
-            CreateMap<base_material, TaskDetailDto>().ReverseMap();
-            CreateMap<task_detail, TaskDetailDto>().ReverseMap();
+            CreateMap<TaskDetailDto, base_material>().ReverseMap();
+            CreateMap<TaskDetailDto, task_detail>().ReverseMap();
+            CreateMap<StockDto, task>().ReverseMap()
+                .ForMember(s => s.location_code, t => t.MapFrom(to => to.end_point))
+                .ForMember(s => s.task_id, t => t.MapFrom(to => to.id));
+            CreateMap<StockDto, stock>().ReverseMap();
+            CreateMap<TaskDetailDto, stock_detail>().ReverseMap();
         }
     }
 }

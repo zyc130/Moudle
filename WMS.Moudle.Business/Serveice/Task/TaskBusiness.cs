@@ -1,13 +1,7 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WMS.Moudle.Business.Interface.Task;
 using WMS.Moudle.DataAccess.Interface.Task;
 using WMS.Moudle.Entity.Dto.Task;
-using WMS.Moudle.Entity.Enum;
 using WMS.Moudle.Entity.Models;
 using WMS.Moudle.Utility.Interface;
 using static WMS.Moudle.Entity.Enum.TaskEnum;
@@ -17,6 +11,10 @@ using static WMS.Moudle.Entity.Enum.CommonEnum;
 using WMS.Moudle.Redis.Interface;
 using WMS.Moudle.Utility;
 using WMS.Moudle.Business.Interface.Stock;
+using WMS.Moudle.Entity.Dto.Wcs;
+using Newtonsoft.Json.Linq;
+using WMS.Moudle.Entity.Dto.Stock;
+using Newtonsoft.Json;
 
 namespace WMS.Moudle.Business.Serveice.Task
 {
@@ -32,6 +30,7 @@ namespace WMS.Moudle.Business.Serveice.Task
         IConfigBusiness configBusiness;
         ITaskRedis taskRedis;
         IStockBusiness stockBusiness;
+        IStockDetailBusiness stockDetailBusiness;
         public TaskBusiness(ITaskDataAccess _taskDataAccess
             , IMapper _mapper
             , IExcuteHelper _excuteHelper
@@ -190,6 +189,100 @@ namespace WMS.Moudle.Business.Serveice.Task
             return taskDataAccess.Query<task>(a => a.task_state == ETaskState.Wait.GetHashCode())?.ToList();
         }
 
+        /// <summary>
+        /// 可用空货位
+        /// </summary>
+        /// <param name="taskType"></param>
+        /// <returns></returns>
+        public int GetLocationEmptyCount(ETaskType taskType)
+        {
+            //获取空货位数
+            int emptyCount = stockBusiness.GetLocationEmptyCount(taskType == ETaskType.MoudleSetIn ? ELocationType.Big : ELocationType.Common);
+            //获取未分配任务数
+            var tasks = GetWaitAll();
+            Predicate<task> match = (t) => taskType == ETaskType.MoudleSetIn ? t.task_type == ETaskType.MoudleSetIn.GetHashCode() : t.task_type != ETaskType.MoudleSetIn.GetHashCode();
+            int waitCount = tasks?.FindAll(match)?.Count() ?? 0;
+            return emptyCount - waitCount;
+        }
+
+        /// <summary>
+        /// 获取巷道列表
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public (bool, string, List<int>) GetRoadwayNo(TunnelDto t)
+        {
+            var _task = taskDataAccess.Query<task>(a => a.task_no == t.WMSTaskNum && a.task_state==ETaskState.Wait.GetHashCode())?.First();
+            if (_task == null)
+            {
+                return (false, "任务号不存在!", null);
+            }
+            var items = stockBusiness.GetRoadwayNo(GetLocationType(_task.task_type.ToEnum<ETaskType>()));
+            List<int> data = new();
+            items?.ForEach(a =>
+            {
+                if (t?.SrmCurTunnelList.Any(b=>b.Values.Contains(a))??false)
+                {
+                    data.Add(a);
+                }
+            });
+            return (true, string.Empty, data);
+        }
+
+        /// <summary>
+        /// 获取分配货位
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public (bool isSuccess, string msg, base_location locat, task _task) GetWareCell(WareCellDto t,sys_user user)
+        {
+            //获取任务
+            var _task = taskDataAccess.Query<task>(a => a.task_no == t.WMSTaskNum && a.task_state == ETaskState.Wait.GetHashCode())?.First();
+            if (_task == null)
+            {
+                return (false, "任务号不存在/已分配!", null, null);
+            }
+            //根据巷道和任务类型获取货位
+            base_location location = stockBusiness.GetEmptyLocation(ConvertHelper.ToInt(t.TunnelNum),GetLocationType(_task.task_type.ToEnum<ETaskType>()));
+            if (location == null)
+            {
+                return (false, "分配货位失败!", null, null);
+            }
+
+            _task.update_id = user.id;
+            _task.roadway_no =ConvertHelper.ToInt(t.TunnelNum);
+            _task.start_point = t.PickUpEquipmentNo;
+            _task.now_point = t.PickUpEquipmentNo;
+            _task.end_point = location.location_code;
+            _task.task_state = ETaskState.Excuting.GetHashCode();
+            //任务明细
+            var details = taskDetailBusiness.GetByTaskId(_task.id);
+
+            var exec = excuteHelper.Tran<string>(() =>
+            {
+                //写入任务货位信息
+                if (!taskDataAccess.UpdateIgnore(_task, a => new { a.create_id, a.create_time, a.state }))
+                {
+                    return (false, "任务更新失败!");
+                }
+                //写入存库信息
+                var exec = InsertStock(_task, details,user);
+                if (!exec.Item1)
+                {
+                    return (false, "存库写入失败!");
+                }
+                return exec;
+            });
+            //返回货位信息
+            if (!exec.Item1)
+            {
+                return (false, exec.Item2, null, null);
+            }
+            return (true,"", location, _task);
+        }
+
         #region private
 
         /// <summary>
@@ -266,21 +359,59 @@ namespace WMS.Moudle.Business.Serveice.Task
         }
 
         /// <summary>
-        /// 可用空货位
+        /// 任务类型获取货位类型
         /// </summary>
-        /// <param name="taskType"></param>
+        /// <param name="type"></param>
         /// <returns></returns>
-        public int GetLocationEmptyCount(ETaskType taskType)
+        private ELocationType GetLocationType(ETaskType type)
         {
-            //获取空货位数
-            int emptyCount = stockBusiness.GetLocationEmptyCount(taskType == ETaskType.MoudleSetIn ? ELocationType.Big : ELocationType.Common);
-            //获取未分配任务数
-            var tasks = GetWaitAll();
-            Predicate<task> match = (t) => taskType == ETaskType.MoudleSetIn ? t.task_type == ETaskType.MoudleSetIn.GetHashCode() : t.task_type != ETaskType.MoudleSetIn.GetHashCode();
-            int waitCount = tasks?.FindAll(match)?.Count()??0;
-            return emptyCount - waitCount;
+            if (type == ETaskType.MoudleSetIn)
+            {
+                return ELocationType.Big;
+            }
+            return ELocationType.Common;
         }
 
+        /// <summary>
+        /// 写入库存
+        /// </summary>
+        /// <param name="t"></param>
+        /// <param name="ts"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        private (bool, string) InsertStock(task t,List<task_detail> ts,sys_user user)
+        {
+            var dto = mapper.Map<StockDto>(t);
+            var _stock = mapper.Map<stock>(dto);
+            _stock.location_state = (t.is_in_stock.ToEnum<EIsInStock>() == EIsInStock.Yes ? ELocationState.InStock : ELocationState.OutStock).GetHashCode();
+            _stock.create_id = user.id;
+            _stock.update_id = user.id;
+            List<stock_detail> details = new();
+            if (ts?.Count>0)
+            {
+                var dtoList = mapper.Map<TaskDetailDto>(ts);
+                details = mapper.Map<List<stock_detail>>(dtoList);
+                details.ForEach(a =>
+                {
+                    a.create_id = user.id;
+                    a.update_id = user.id;
+                    a.state = EState.Use.GetHashCode();
+                });
+            }
+            var exec = stockBusiness.Insert(_stock);
+            if (exec?.id==0)
+            {
+                return (false, "写入库存失败!");
+            }
+            if (details?.Count>0)
+            {
+                if (!stockDetailBusiness.Insert(details))
+                {
+                    return (false, "写入库存失败!");
+                }
+            }
+            return (true, string.Empty);
+        }
 
         #endregion
 

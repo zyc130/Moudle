@@ -1,7 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+using WMS.Moudle.Business.Interface.Stock;
 using WMS.Moudle.Business.Interface.System;
+using WMS.Moudle.Business.Interface.Task;
 using WMS.Moudle.Entity.Dto.Wcs;
+using WMS.Moudle.Utility;
 
 namespace WMS.Moudle.Api.Controllers
 {
@@ -10,14 +14,22 @@ namespace WMS.Moudle.Api.Controllers
     /// </summary>
     public class WCSController : BaseController
     {
+        ITaskBusiness taskBusiness;
+
         /// <summary>
         /// 构造
         /// </summary>
         /// <param name="_httpContextAccessor"></param>
         /// <param name="_userBusiness"></param>
         /// <param name="_mapper"></param>
-        public WCSController(IHttpContextAccessor _httpContextAccessor, IUserBusiness _userBusiness, IMapper _mapper) : base(_httpContextAccessor, _userBusiness, _mapper)
+        /// <param name="_taskBusiness"></param>
+        public WCSController(IHttpContextAccessor _httpContextAccessor
+            , IUserBusiness _userBusiness
+            , IMapper _mapper
+            , ITaskBusiness _taskBusiness
+            ) : base(_httpContextAccessor, _userBusiness, _mapper)
         {
+            taskBusiness = _taskBusiness;
         }
 
         /// <summary>
@@ -27,7 +39,9 @@ namespace WMS.Moudle.Api.Controllers
         [HttpPost]
         public ResResult I_WCS_GetTunnelList(TunnelDto t)
         {
-            return new ResResult(true,"",t);
+            var (isSuccess, msg, data) = taskBusiness.GetRoadwayNo(t);
+            return new ResResult(isSuccess, msg
+                , new { SrmCurTunnelList=data });
         }
 
         /// <summary>
@@ -37,41 +51,23 @@ namespace WMS.Moudle.Api.Controllers
         [HttpPost]
         public ResResult I_WCS_GetWareCell(WareCellDto t)
         {
-            return new ResResult(true, "", t);
-        }
-
-        /// <summary>
-        /// 返回对象
-        /// </summary>
-        public class ResResult
-        {
-            /// <summary>
-            /// 构造
-            /// </summary>
-            /// <param name="result"></param>
-            /// <param name="msg"></param>
-            /// <param name="data"></param>
-            public ResResult(bool result,string msg,object data)
+            var (isSuccess, msg, locat, _task) = taskBusiness.GetWareCell(t, user);
+            JObject obj = new();
+            if (isSuccess)
             {
-                ResType=result; 
-                ResMessage=msg;
-                ResData=data;
+                obj = new JObject()
+                {
+                    {"WMSTaskNum",t.WMSTaskNum },
+                    { "TaskType",_task.task_type},
+                    { "CellNo",locat.location_code},
+                    { "Row",locat.row_no},
+                    { "Colomn",locat.column_no},
+                    { "Layer",locat.floor_no},
+                    { "TunnelNum",locat.roadway_no}
+                };
             }
-
-            /// <summary>
-            /// 是否成功
-            /// </summary>
-            public bool ResType { get; set; }
-
-            /// <summary>
-            /// 提示信息
-            /// </summary>
-            public string ResMessage { get; set; }
-
-            /// <summary>
-            /// 数据
-            /// </summary>
-            public object ResData { get; set; }
+            return new ResResult(isSuccess, msg, obj);
         }
+
     }
 }

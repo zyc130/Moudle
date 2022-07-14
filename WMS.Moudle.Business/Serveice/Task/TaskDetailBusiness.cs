@@ -77,5 +77,16 @@ namespace WMS.Moudle.Business.Serveice.Task
             });
             return (true,string.Empty, items);
         }
+
+        /// <summary>
+        /// 获取明细列表
+        /// </summary>
+        /// <param name="taskId"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public List<task_detail> GetByTaskId(long taskId)
+        {
+            return detailDataAccess.Query<task_detail>(a => a.task_id == taskId)?.ToList();
+        }
     }
 }

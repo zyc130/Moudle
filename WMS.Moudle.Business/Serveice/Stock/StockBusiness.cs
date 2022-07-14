@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WMS.Moudle.Business.Interface.Stock;
 using WMS.Moudle.DataAccess.Interface.Stock;
 using WMS.Moudle.Entity.Enum;
+using WMS.Moudle.Entity.Models;
 using static WMS.Moudle.Entity.Enum.CommonEnum;
 
 namespace WMS.Moudle.Business.Serveice.Stock
@@ -16,6 +17,11 @@ namespace WMS.Moudle.Business.Serveice.Stock
         public StockBusiness(IStockDataAccess stockDataAccess)
         {
             this.stockDataAccess = stockDataAccess;
+        }
+
+        public base_location GetEmptyLocation(int roadwayNo, ELocationType type)
+        {
+            return stockDataAccess.GetEmptyLocation(roadwayNo, type);
         }
 
         /// <summary>
@@ -29,9 +35,27 @@ namespace WMS.Moudle.Business.Serveice.Stock
             return stockDataAccess.GetLocationEmptyCount(type);
         }
 
+        /// <summary>
+        /// 获取巷道顺序
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public List<int> GetRoadwayNo(ELocationType type)
         {
-            throw new NotImplementedException();
+            return stockDataAccess.GetRoadwayNo(type);
+        }
+
+        /// <summary>
+        /// 新增
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public stock Insert(stock t)
+        {
+           t.state = EState.Use.GetHashCode();
+           return stockDataAccess.Insert(t);
         }
     }
 }

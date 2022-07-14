@@ -21,7 +21,7 @@ namespace WMS.Moudle.Entity.Dto.Wcs
         /// <summary>
         /// 巷到列表
         /// </summary>
-        //[Required(ErrorMessage = "巷到列表不能为空")]
+        [Required(ErrorMessage = "巷到列表不能为空")]
         public List<Dictionary<string,int>> SrmCurTunnelList { get; set; }
 
         /// <summary>

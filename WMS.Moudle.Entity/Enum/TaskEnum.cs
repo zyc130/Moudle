@@ -135,7 +135,43 @@ namespace WMS.Moudle.Entity.Enum
             /// 排队中
             /// </summary>
             [Description("排队中")]
-            Wait =0
+            Wait =0,
+
+            /// <summary>
+            /// 执行中
+            /// </summary>
+            [Description("执行中")]
+            Excuting = 1,
+
+            /// <summary>
+            /// 输送线执行中
+            /// </summary>
+            [Description("输送线执行中")]
+            Conveyor = 2,
+
+            /// <summary>
+            /// 提升机执行中 99.完成;106.取消;109.手动完成
+            /// </summary>
+            [Description("提升机执行中")]
+            Hoist = 3,
+
+            /// <summary>
+            /// 完成
+            /// </summary>
+            [Description("完成")]
+            Finish = 99,
+
+            /// <summary>
+            /// 取消
+            /// </summary>
+            [Description("取消")]
+            Cancel = 106,
+
+            /// <summary>
+            /// 手动完成
+            /// </summary>
+            [Description("手动完成")]
+            HandFinish = 109,
         }
     }
 }

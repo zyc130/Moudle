@@ -11,5 +11,12 @@ namespace WMS.Moudle.Business.Interface.Stock
     /// </summary>
     public interface IStockDetailBusiness
     {
+        /// <summary>
+        /// 新增
+        /// </summary>
+        /// <typeparam name="stock_detial"></typeparam>
+        /// <param name="ts"></param>
+        /// <returns></returns>
+        bool Insert<stock_detial>(List<stock_detial> ts);
     }
 }

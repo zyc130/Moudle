@@ -38,5 +38,12 @@ namespace WMS.Moudle.Entity.Dto.Task
         /// Nullable:True
         /// </summary>           
         public DateTime? due_date { get; set; }
+
+        /// <summary>
+        /// Desc:数量
+        /// Default:
+        /// Nullable:True
+        /// </summary>           
+        public int? number { get; set; }
     }
 }

@@ -23,5 +23,12 @@ namespace WMS.Moudle.Business.Interface.Task
         /// <param name="userId"></param>
         /// <returns></returns>
         (bool, string, List<task_detail>) FormatDetails(List<string> codes, sys_user user);
+
+        /// <summary>
+        /// 获取明细列表
+        /// </summary>
+        /// <param name="taskId"></param>
+        /// <returns></returns>
+        List<task_detail> GetByTaskId(long taskId);
     }
 }

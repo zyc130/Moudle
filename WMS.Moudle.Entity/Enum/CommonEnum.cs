@@ -113,5 +113,41 @@ namespace WMS.Moudle.Entity.Enum
             /// </summary>
             Big=1
         }
+
+        /// <summary>
+        /// 货架类型
+        /// </summary>
+        public enum ELocationState
+        {
+            /// <summary>
+            /// 空货位
+            /// </summary>
+            Empty = 1,
+
+            /// <summary>
+            /// 有货
+            /// </summary>
+            Use = 2,
+
+            /// <summary>
+            /// 禁用
+            /// </summary>
+            Stop=3,
+
+            /// <summary>
+            /// 入库中
+            /// </summary>
+            InStock=4,
+
+            /// <summary>
+            /// 出库中
+            /// </summary>
+            OutStock = 5,
+
+            /// <summary>
+            /// 禁止出库
+            /// </summary>
+            OutStockStop = 6,
+        }
     }
 }

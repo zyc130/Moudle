@@ -1,14 +1,19 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WMS.Moudle.Entity.Dto.Task;
+using WMS.Moudle.Entity.Dto.Wcs;
 using WMS.Moudle.Entity.Models;
 using static WMS.Moudle.Entity.Enum.TaskEnum;
 
 namespace WMS.Moudle.Business.Interface.Task
 {
+    /// <summary>
+    /// 任务
+    /// </summary>
     public interface ITaskBusiness
     {
         /// <summary>
@@ -57,5 +62,19 @@ namespace WMS.Moudle.Business.Interface.Task
         /// <param name="taskType"></param>
         /// <returns></returns>
         int GetLocationEmptyCount(ETaskType taskType);
+
+        /// <summary>
+        /// 获取巷道列表
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        (bool isSuccess,string msg, List<int> data) GetRoadwayNo(TunnelDto t);
+
+        /// <summary>
+        /// 获取分配货位
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        (bool isSuccess, string msg, base_location locat,task _task) GetWareCell(WareCellDto t, sys_user user);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WMS.Moudle.Entity.Models;
 using static WMS.Moudle.Entity.Enum.CommonEnum;
 
 namespace WMS.Moudle.Business.Interface.Stock
@@ -24,5 +25,20 @@ namespace WMS.Moudle.Business.Interface.Stock
         /// </summary>
         /// <returns></returns>
         List<int> GetRoadwayNo(ELocationType type);
+
+        /// <summary>
+        /// 根据巷道和货位类型获取货位
+        /// </summary>
+        /// <param name="roadwayNo"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        base_location GetEmptyLocation(int roadwayNo, ELocationType type);
+
+        /// <summary>
+        /// 新增
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        stock Insert(stock t);
     }
 }
