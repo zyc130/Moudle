@@ -32,6 +32,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="t"></param>
         /// <returns></returns>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_config))]
         public IActionResult Add(sys_config t)
         {
             t.create_id = user?.id ?? 0;
@@ -45,6 +46,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_config))]
         public IActionResult Query(long id)
         {
             return new ApiResult(configBusiness.Find(id));
@@ -55,9 +57,12 @@ namespace WMS.Moudle.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_config))]
         public IActionResult QueryPage([FromQuery]ConfigPageDto page)
         {
-            return new ApiResult(configBusiness.QueryPage(page));
+            var data = configBusiness.QueryPage(page);
+            data.DataList?.SetName(userBusiness.FindAll());
+            return new ApiResult(data);
         }
 
         /// <summary>

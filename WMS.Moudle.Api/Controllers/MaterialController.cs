@@ -87,9 +87,12 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="t"></param>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(base_material))]
         public IActionResult QueryPage([FromQuery]MaterialPageDto t)
         {
-            return new ApiResult(materialBusiness.QueryPage(t));
+            var data = materialBusiness.QueryPage(t);
+            data?.DataList.SetName(userBusiness.FindAll());
+            return new ApiResult(data);
         }
     }
 }

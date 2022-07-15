@@ -90,12 +90,14 @@ namespace WMS.Moudle.Entity.Enum
             /// <summary>
             /// 入库不检测
             /// </summary>
-            Yes=1,
-            
+            [Description("入库不检测")]
+            Yes =1,
+
             /// <summary>
             /// 默认
             /// </summary>
-            No=0,
+            [Description("默认")]
+            No =0,
         }
 
         /// <summary>
@@ -106,12 +108,14 @@ namespace WMS.Moudle.Entity.Enum
             /// <summary>
             /// 常规
             /// </summary>
-            Common=0,
+            [Description("常规")]
+            Common =0,
 
             /// <summary>
             /// 大货架
             /// </summary>
-            Big=1
+            [Description("大货架")]
+            Big =1
         }
 
         /// <summary>
@@ -122,32 +126,56 @@ namespace WMS.Moudle.Entity.Enum
             /// <summary>
             /// 空货位
             /// </summary>
+            [Description("空货位")]
             Empty = 1,
 
             /// <summary>
             /// 有货
             /// </summary>
+            [Description("有货")]
             Use = 2,
 
             /// <summary>
             /// 禁用
             /// </summary>
-            Stop=3,
+            [Description("禁用")]
+            Stop = 3,
 
             /// <summary>
             /// 入库中
             /// </summary>
-            InStock=4,
+            [Description("入库中")]
+            InStock = 4,
 
             /// <summary>
             /// 出库中
             /// </summary>
+            [Description("出库中")]
             OutStock = 5,
 
             /// <summary>
             /// 禁止出库
             /// </summary>
+            [Description("禁止出库")]
             OutStockStop = 6,
+        }
+
+        /// <summary>
+        /// 巷道
+        /// </summary>
+        public enum ERoadWay
+        {
+            /// <summary>
+            /// 巷道1
+            /// </summary>
+            [Description("巷道1")]
+            One =1,
+
+            /// <summary>
+            /// 巷道2
+            /// </summary>
+            [Description("巷道2")]
+            Two =2
         }
     }
 }

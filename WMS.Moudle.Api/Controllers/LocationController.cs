@@ -106,6 +106,7 @@ namespace WMS.Moudle.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LocationShowDto))]
         public IActionResult QueryByRowNo(int rowNo)
         {
             return new ApiResult(locationBusiness.QueryByRowNo(rowNo));

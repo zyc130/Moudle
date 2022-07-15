@@ -107,5 +107,29 @@ namespace WMS.Moudle.Api.Controllers
 
         #endregion
 
+        #region 手动完成
+
+        /// <summary>
+        /// 取消
+        /// </summary>
+        /// <returns></returns>
+        [HttpPut]
+        public IActionResult Cancel(long id)
+        {
+            return new ApiResult(taskBusiness.Cancel(id,user));
+        }
+
+        /// <summary>
+        /// 手动完成
+        /// </summary>
+        /// <returns></returns>
+        [HttpPut]
+        public IActionResult Finish(long id)
+        {
+            return new ApiResult(taskBusiness.Finish(id, user));
+        }
+
+        #endregion
+
     }
 }

@@ -36,6 +36,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="t"></param>
         /// <returns></returns>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_menu))]
         public IActionResult Add(MenuDto t)
         {
             sys_menu menu= mapper.Map<MenuDto,sys_menu>(t);
@@ -50,7 +51,6 @@ namespace WMS.Moudle.Api.Controllers
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
-        [Authorize]
         [HttpPut]
         public IActionResult Update(MenuDto t)
         {
@@ -75,6 +75,7 @@ namespace WMS.Moudle.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MenuTreeDto))]
         public IActionResult QueryTree()
         {
             return new ApiResult(menuBusiness.QueryTree());

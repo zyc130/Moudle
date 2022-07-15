@@ -19,7 +19,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <summary>
         /// 用户信息
         /// </summary>
-        protected sys_user user;
+        protected readonly sys_user user;
         /// <summary>
         /// HttpContextAccessor
         /// </summary>

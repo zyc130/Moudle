@@ -37,7 +37,8 @@ namespace WMS.Moudle.Business.Serveice.Task
             , ITaskDetailBusiness _taskDetailBusiness
             , IConfigBusiness _configBusiness
             , ITaskRedis _taskRedis
-            , IStockBusiness _stockBusiness)
+            , IStockBusiness _stockBusiness
+            , IStockDetailBusiness _stockDetailBusiness)
         {
             taskDataAccess = _taskDataAccess;
             mapper = _mapper;
@@ -46,6 +47,12 @@ namespace WMS.Moudle.Business.Serveice.Task
             configBusiness = _configBusiness;
             taskRedis = _taskRedis;
             stockBusiness = _stockBusiness;
+            stockDetailBusiness = _stockDetailBusiness;
+        }
+
+        public task Find(long id)
+        {
+            return taskDataAccess.Find<task>(id);
         }
 
         /// <summary>
@@ -114,12 +121,22 @@ namespace WMS.Moudle.Business.Serveice.Task
             return Insert(t, null);
         }
 
+        /// <summary>
+        /// 托盘出库
+        /// </summary>
+        /// <param name="ts"></param>
+        /// <returns></returns>
         public bool CreatePalletOut(List<task> ts)
         {
             //判断托盘库存
             return taskDataAccess.Insert(ts)>0;
         }
 
+        /// <summary>
+        /// 新增
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public task Insert(task t)
         {
             return taskDataAccess.Insert(t);
@@ -283,6 +300,68 @@ namespace WMS.Moudle.Business.Serveice.Task
             return (true,"", location, _task);
         }
 
+        /// <summary>
+        /// 取消
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public (bool,string) Cancel(long id,sys_user user)
+        {
+            var _task = Find(id);
+            if (_task==null)
+            {
+                return (false,$"任务不存在!");
+            }
+            if (_task.task_state.ToEnum<ETaskState>()!=ETaskState.Wait)
+            {
+                return (false, $"任务进行中/已结束无法取消!");
+            }
+            _task.update_id = user.id;
+            _task.task_state = ETaskState.Cancel.GetHashCode();
+            if (!UpdateState(_task))
+            {
+                return (false, "操作失败!");
+            }
+            return (true,string.Empty);
+        }
+
+        /// <summary>
+        /// 手动完成
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public (bool,string) Finish(long id,sys_user user)
+        {
+            var _task = Find(id);
+            if (_task == null)
+            {
+                return (false, $"任务不存在!");
+            }
+            if (_task.task_state.ToEnum<ETaskState>() == ETaskState.Wait
+                || _task.task_state>=ETaskState.Finish.GetHashCode())
+            {
+                return (false, $"任务排队中/已结束无法手动完成!");
+            }
+            //校验wcs是否允许执行完成
+
+            _task.update_id = user.id;
+            _task.task_state = ETaskState.HandFinish.GetHashCode();
+            //获取库存信息
+            var _stock = stockBusiness.QueryByTaskId(_task.id);
+
+            var exec = excuteHelper.Tran<string>(() =>
+            {
+                if (!UpdateState(_task))
+                {
+                    return (false, "操作失败!");
+                }
+                return stockBusiness.Finish(_stock, user);
+            });
+
+            return (exec.Item1, exec.Item2);
+        }
+
         #region private
 
         /// <summary>
@@ -411,6 +490,16 @@ namespace WMS.Moudle.Business.Serveice.Task
                 }
             }
             return (true, string.Empty);
+        }
+
+        /// <summary>
+        /// 更新任务状态
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        private bool UpdateState(task t)
+        {
+            return taskDataAccess.UpdateColumns(t, a => new { a.task_state,a.update_id,a.update_time},w=>w.id==t.id);
         }
 
         #endregion

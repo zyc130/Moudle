@@ -36,6 +36,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="t"></param>
         /// <returns></returns>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_dictionary))]
         public IActionResult Add(SystemDto t)
         {
             var dic = mapper.Map<SystemDto, sys_dictionary>(t);
@@ -50,6 +51,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_dictionary))]
         public IActionResult Query(long id)
         {
             return new ApiResult(dictionaryBusiness.Find(id));
@@ -61,6 +63,7 @@ namespace WMS.Moudle.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_dictionary))]
         public IActionResult QueryAll()
         {
             return new ApiResult(dictionaryBusiness.FindAll());
@@ -96,9 +99,12 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="t"></param>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_dictionary))]
         public IActionResult QueryPage([FromQuery] SystemPageDto t)
         {
-            return new ApiResult(dictionaryBusiness.QueryPage(t));
+            var data = dictionaryBusiness.QueryPage(t);
+            data?.DataList.SetName(userBusiness.FindAll());
+            return new ApiResult(data);
         }
     }
 }

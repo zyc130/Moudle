@@ -16,7 +16,7 @@ namespace WMS.Moudle.Entity.Models
 
            }
            /// <summary>
-           /// Desc:
+           /// Desc:编码
            /// Default:
            /// Nullable:False
            /// </summary>           
@@ -24,21 +24,21 @@ namespace WMS.Moudle.Entity.Models
            public string fabrication_no {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:类型
            /// Default:
            /// Nullable:False
            /// </summary>           
            public string piece_code {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:状态
            /// Default:
            /// Nullable:True
            /// </summary>           
            public string etat_code {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:有效期
            /// Default:
            /// Nullable:True
            /// </summary>           
@@ -234,35 +234,35 @@ namespace WMS.Moudle.Entity.Models
            public string type_de_moule {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:新增人员id
            /// Default:
            /// Nullable:False
            /// </summary>           
            public long create_id {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:新增时间
            /// Default:
            /// Nullable:False
            /// </summary>           
            public DateTime create_time {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:修改人id
            /// Default:
            /// Nullable:True
            /// </summary>           
            public long? update_id {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:修改时间
            /// Default:
            /// Nullable:True
            /// </summary>           
            public DateTime? update_time {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:状态
            /// Default:
            /// Nullable:False
            /// </summary>           

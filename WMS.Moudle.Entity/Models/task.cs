@@ -45,6 +45,13 @@ namespace WMS.Moudle.Entity.Models
            public int task_type {get;set;}
 
            /// <summary>
+           /// Desc:是否部分出入库
+           /// Default:
+           /// Nullable:True
+           /// </summary>           
+           public int? is_part {get;set;}
+
+           /// <summary>
            /// Desc:任务状态
            /// Default:
            /// Nullable:False

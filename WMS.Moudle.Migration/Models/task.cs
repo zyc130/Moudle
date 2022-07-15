@@ -28,7 +28,7 @@ namespace WMS.Moudle.Entity.Models
            /// Default:
            /// Nullable:False
            /// </summary>           
-           public long task_no {get;set;}
+           public string task_no {get;set;}
 
            /// <summary>
            /// Desc:是否入库(1-入库，2-出库)
@@ -43,6 +43,13 @@ namespace WMS.Moudle.Entity.Models
            /// Nullable:False
            /// </summary>           
            public int task_type {get;set;}
+
+           /// <summary>
+           /// Desc:是否部分出入库
+           /// Default:
+           /// Nullable:True
+           /// </summary>           
+           public int? is_part {get;set;}
 
            /// <summary>
            /// Desc:任务状态

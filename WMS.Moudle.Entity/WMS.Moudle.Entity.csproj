@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\stock_location.cs" />
+    <Compile Remove="Models\stock_location_detail.cs" />
+    <Compile Remove="Models\task_detial.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Npoi.Mapper" Version="4.1.0" />
     <PackageReference Include="SqlSugarCore" Version="5.0.9.1" />
   </ItemGroup>

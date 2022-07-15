@@ -33,6 +33,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="t"></param>
         /// <returns></returns>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_dictionary_detail))]
         public IActionResult Add(DicDetailDto t)
         {
             var dic = mapper.Map<DicDetailDto, sys_dictionary_detail>(t);
@@ -47,6 +48,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_dictionary_detail))]
         public IActionResult Query(long id)
         {
             return new ApiResult(dictionaryDetailBusiness.Find(id));
@@ -58,6 +60,7 @@ namespace WMS.Moudle.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_dictionary_detail))]
         public IActionResult QueryByCode(string dicCode)
         {
             return new ApiResult(dictionaryDetailBusiness.FindByCode(dicCode));
@@ -94,6 +97,7 @@ namespace WMS.Moudle.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_dictionary_detail))]
         public IActionResult QueryPalletType()
         {
             return new ApiResult(dictionaryDetailBusiness.GetPalletType());
@@ -104,6 +108,7 @@ namespace WMS.Moudle.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_dictionary_detail))]
         public IActionResult QueryMoudleInType()
         {
             return new ApiResult(dictionaryDetailBusiness.GetMoudleInType());
@@ -114,6 +119,7 @@ namespace WMS.Moudle.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_dictionary_detail))]
         public IActionResult QueryMoudleType()
         {
             return new ApiResult(dictionaryDetailBusiness.GetMoudleType());

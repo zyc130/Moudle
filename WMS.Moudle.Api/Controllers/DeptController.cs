@@ -34,6 +34,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="t"></param>
         /// <returns></returns>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_dept))]
         public IActionResult Add(SystemDto t)
         {
             var dept=  mapper.Map<SystemDto, sys_dept>(t);
@@ -48,6 +49,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_dept))]
         public IActionResult Query(long id)
         {
             return new ApiResult(deptBusiness.Find(id));
@@ -59,6 +61,7 @@ namespace WMS.Moudle.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_dept))]
         public IActionResult QueryAll()
         {
             return new ApiResult(deptBusiness.FindAll());
@@ -94,9 +97,12 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="t"></param>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_dept))]
         public IActionResult QueryPage([FromQuery] SystemPageDto t)
         {
-            return new ApiResult(deptBusiness.QueryPage(t));
+            var data = deptBusiness.QueryPage(t);
+            data.DataList?.SetName(userBusiness.FindAll());
+            return new ApiResult(data);
         }
     }
 }

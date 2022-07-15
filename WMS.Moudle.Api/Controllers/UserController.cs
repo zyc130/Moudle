@@ -66,6 +66,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="t"></param>
         /// <returns></returns>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_user))]
         public IActionResult Add(UserDto t)
         {
             var user = mapper.Map<SystemDto, sys_user>(t);
@@ -80,7 +81,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_user))]
         public IActionResult Query(long id)
         {
             var user =   httpContextAccessor.HttpContext?.User;
@@ -93,6 +94,7 @@ namespace WMS.Moudle.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_user))]
         public IActionResult QueryAll()
         {
             return new ApiResult(userBusiness.FindAll());
@@ -128,9 +130,12 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="t"></param>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_user))]
         public IActionResult QueryPage([FromQuery] SystemPageDto t)
         {
-            return new ApiResult(userBusiness.QueryPage(t));
+            var data = userBusiness.QueryPage(t);
+            data?.DataList.SetName(userBusiness.FindAll());
+            return new ApiResult(data);
         }
     }
 }

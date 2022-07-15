@@ -16,6 +16,8 @@ namespace WMS.Moudle.Business.Interface.Task
     /// </summary>
     public interface ITaskBusiness
     {
+        task Find(long id);
+
         /// <summary>
         /// 空托盘入库
         /// </summary>
@@ -76,5 +78,19 @@ namespace WMS.Moudle.Business.Interface.Task
         /// <param name="t"></param>
         /// <returns></returns>
         (bool isSuccess, string msg, base_location locat,task _task) GetWareCell(WareCellDto t, sys_user user);
+
+        /// <summary>
+        /// 取消
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        (bool,string) Cancel(long id,sys_user user);
+
+        /// <summary>
+        /// 手动完成
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        (bool, string) Finish(long id, sys_user user);
     }
 }

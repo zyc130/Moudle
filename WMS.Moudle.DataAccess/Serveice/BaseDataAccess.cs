@@ -195,10 +195,7 @@ namespace WMS.Moudle.DataAccess.Serveice
         public bool UpdateColumns<T>(T t, Expression<Func<T, object>> columns, Expression<Func<T, bool>> where) where T : class, new()
         {
             t.SetNowTime(new List<string>() { update_time });
-            return _client.Updateable(t)
-                .UpdateColumnsIF(columns!=null,columns)
-                .Where(where)
-                .ExecuteCommandHasChange();
+            return _client.Updateable(t).UpdateColumns(columns).Where(where).ExecuteCommandHasChange();
         }
 
         /// <summary>

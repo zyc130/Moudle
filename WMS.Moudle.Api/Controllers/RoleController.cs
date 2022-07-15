@@ -36,6 +36,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="t"></param>
         /// <returns></returns>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_role))]
         public IActionResult Add(SystemDto t)
         {
             var role = mapper.Map<SystemDto, sys_role>(t);
@@ -50,6 +51,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_role))]
         public IActionResult Query(long id)
         {
             return new ApiResult(roleBusiness.Find(id));
@@ -61,6 +63,7 @@ namespace WMS.Moudle.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_role))]
         public IActionResult QueryAll()
         {
             return new ApiResult(roleBusiness.FindAll());
@@ -96,9 +99,12 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="t"></param>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(sys_role))]
         public IActionResult QueryPage([FromQuery] SystemPageDto t)
         {
-            return new ApiResult(roleBusiness.QueryPage(t));
+            var data = roleBusiness.QueryPage(t);
+            data?.DataList.SetName(userBusiness.FindAll());
+            return new ApiResult(data);
         }
     }
 }
