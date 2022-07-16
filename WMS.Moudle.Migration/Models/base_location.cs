@@ -24,7 +24,7 @@ namespace WMS.Moudle.Entity.Models
            public long id {get;set;}
 
            /// <summary>
-           /// Desc:巷到编号
+           /// Desc:巷道编号
            /// Default:
            /// Nullable:False
            /// </summary>           
@@ -52,21 +52,21 @@ namespace WMS.Moudle.Entity.Models
            public int floor_no {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:货位编号
            /// Default:
            /// Nullable:False
            /// </summary>           
            public string location_code {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:货位名称
            /// Default:
            /// Nullable:False
            /// </summary>           
            public string location_name {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:货位类型
            /// Default:
            /// Nullable:False
            /// </summary>           
@@ -80,7 +80,7 @@ namespace WMS.Moudle.Entity.Models
            public int? sort_no {get;set;}
 
            /// <summary>
-           /// Desc:状态(1-启用，0-停用)
+           /// Desc:状态(1-启用，0-停用)-sys_state
            /// Default:
            /// Nullable:False
            /// </summary>           

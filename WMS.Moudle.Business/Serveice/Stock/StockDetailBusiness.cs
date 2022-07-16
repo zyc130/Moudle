@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WMS.Moudle.Business.Interface.Stock;
 using WMS.Moudle.DataAccess.Interface.Stock;
+using WMS.Moudle.Entity.Models;
 
 namespace WMS.Moudle.Business.Serveice.Stock
 {
@@ -14,19 +15,27 @@ namespace WMS.Moudle.Business.Serveice.Stock
 
         public StockDetailBusiness(IStockDetailDataAccess _detailDataAccess)
         {
-            detailDataAccess= _detailDataAccess;
+            detailDataAccess = _detailDataAccess;
         }
 
         /// <summary>
         /// 批量新增
         /// </summary>
-        /// <typeparam name="stock_detial"></typeparam>
         /// <param name="ts"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public bool Insert<stock_detial>(List<stock_detial> ts)
+        public bool Insert(List<stock_detail> ts)
         {
-            return detailDataAccess.Insert(ts).Count>0;
+            return detailDataAccess.Insert(ts) > 0;
+        }
+
+        /// <summary>
+        /// 获取库存详情
+        /// </summary>
+        /// <param name="stockId"></param>
+        /// <returns></returns>
+        public List<stock_detail> QueryByStockId(long stockId)
+        {
+            return detailDataAccess.Query<stock_detail>(a => a.stock_id == stockId).ToList();
         }
     }
 }

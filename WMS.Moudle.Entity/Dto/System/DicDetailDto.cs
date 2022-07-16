@@ -35,8 +35,7 @@ namespace WMS.Moudle.Entity.Dto.System
         /// Desc:字典键值
         /// </summary>           
         [Required(ErrorMessage = "字典键值不能为空")]
-        [MaxLength(50, ErrorMessage = "字典键值最大长度:50")]
-        public string dic_value { get; set; }
+        public int dic_value { get; set; }
 
         /// <summary>
         /// Desc:排序

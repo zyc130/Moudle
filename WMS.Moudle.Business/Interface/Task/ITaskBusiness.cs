@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WMS.Moudle.Entity;
 using WMS.Moudle.Entity.Dto.Task;
 using WMS.Moudle.Entity.Dto.Wcs;
 using WMS.Moudle.Entity.Models;
@@ -92,5 +93,12 @@ namespace WMS.Moudle.Business.Interface.Task
         /// <param name="id"></param>
         /// <returns></returns>
         (bool, string) Finish(long id, sys_user user);
+
+        /// <summary>
+        /// 分页查询
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        PageData<task> QueryPage(TaskPageDto page);
     }
 }

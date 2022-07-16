@@ -42,7 +42,7 @@ namespace WMS.Moudle.Entity.Models
            /// Default:
            /// Nullable:False
            /// </summary>           
-           public string dic_value {get;set;}
+           public int dic_value {get;set;}
 
            /// <summary>
            /// Desc:排序

@@ -15,6 +15,7 @@ namespace WMS.Moudle.Api.Controllers
     public class TaskController : BaseController
     {
         ITaskBusiness taskBusiness;
+        ITaskDetailBusiness taskDetailBusiness;
 
         /// <summary>
         /// 构造
@@ -23,10 +24,13 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="_userBusiness"></param>
         /// <param name="_mapper"></param>
         /// <param name="_taskBusiness"></param>
+        /// <param name="_taskDetailBusiness"></param>
         public TaskController(IHttpContextAccessor _httpContextAccessor, IUserBusiness _userBusiness, IMapper _mapper
-            , ITaskBusiness _taskBusiness) : base(_httpContextAccessor, _userBusiness, _mapper)
+            , ITaskBusiness _taskBusiness
+            , ITaskDetailBusiness _taskDetailBusiness) : base(_httpContextAccessor, _userBusiness, _mapper)
         {
             taskBusiness = _taskBusiness;
+            taskDetailBusiness = _taskDetailBusiness;
         }
 
         #region 空托盘出入库
@@ -131,5 +135,29 @@ namespace WMS.Moudle.Api.Controllers
 
         #endregion
 
+        /// <summary>
+        /// 任务列表
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult QueryPage([FromQuery] TaskPageDto page)
+        {
+            var data = taskBusiness.QueryPage(page);
+            data?.DataList.SetName(userBusiness.FindAll());
+            return new ApiResult(taskBusiness.QueryPage(page));
+        }
+
+        /// <summary>
+        /// 任务详情
+        /// </summary>
+        /// <param name="taskId">任务id</param>
+        /// <returns></returns>
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(task_detail))]
+        public IActionResult QueryByDetail(long taskId)
+        {
+            return new ApiResult(taskDetailBusiness.GetByTaskId(taskId));
+        }
     }
 }

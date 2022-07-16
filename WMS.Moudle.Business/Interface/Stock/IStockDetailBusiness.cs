@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WMS.Moudle.Entity.Models;
 
 namespace WMS.Moudle.Business.Interface.Stock
 {
@@ -12,11 +13,17 @@ namespace WMS.Moudle.Business.Interface.Stock
     public interface IStockDetailBusiness
     {
         /// <summary>
-        /// 新增
+        /// 批量新增
         /// </summary>
-        /// <typeparam name="stock_detial"></typeparam>
         /// <param name="ts"></param>
         /// <returns></returns>
-        bool Insert<stock_detial>(List<stock_detial> ts);
+        bool Insert(List<stock_detail> ts);
+
+        /// <summary>
+        /// 获取库存详情
+        /// </summary>
+        /// <param name="stockId"></param>
+        /// <returns></returns>
+        List<stock_detail> QueryByStockId(long stockId);
     }
 }

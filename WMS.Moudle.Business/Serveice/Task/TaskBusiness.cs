@@ -15,6 +15,8 @@ using WMS.Moudle.Entity.Dto.Wcs;
 using Newtonsoft.Json.Linq;
 using WMS.Moudle.Entity.Dto.Stock;
 using Newtonsoft.Json;
+using WMS.Moudle.Entity;
+using SqlSugar;
 
 namespace WMS.Moudle.Business.Serveice.Task
 {
@@ -295,7 +297,7 @@ namespace WMS.Moudle.Business.Serveice.Task
             //返回货位信息
             if (!exec.Item1)
             {
-                return (false, exec.Item2, null, null);
+                return (false,string.IsNullOrWhiteSpace(exec.Item2)?"网络不给力!": exec.Item2, null, null);
             }
             return (true,"", location, _task);
         }
@@ -360,6 +362,22 @@ namespace WMS.Moudle.Business.Serveice.Task
             });
 
             return (exec.Item1, exec.Item2);
+        }
+
+        /// <summary>
+        /// 分页查询
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        public PageData<task> QueryPage(TaskPageDto page)
+        {
+            Expressionable<task> express = new();
+            express.AndIF(page.is_in_stock != null, a => a.is_in_stock==page.is_in_stock.GetHashCode())
+                .AndIF(page.task_type!=null, a => a.task_type==page.task_type.GetHashCode())
+                .AndIF(!string.IsNullOrWhiteSpace(page.code),a=>a.end_point.Contains(page.code))
+                .AndIF(!string.IsNullOrWhiteSpace(page.task_no), a => a.task_no.Contains(page.task_no));
+
+            return taskDataAccess.QueryPage<task>(page.pageIndex, page.pageSize, express.ToExpression(), o => o.update_time, false);
         }
 
         #region private
@@ -468,7 +486,7 @@ namespace WMS.Moudle.Business.Serveice.Task
             List<stock_detail> details = new();
             if (ts?.Count>0)
             {
-                var dtoList = mapper.Map<TaskDetailDto>(ts);
+                var dtoList = mapper.Map<List<TaskDetailDto>>(ts);
                 details = mapper.Map<List<stock_detail>>(dtoList);
                 details.ForEach(a =>
                 {

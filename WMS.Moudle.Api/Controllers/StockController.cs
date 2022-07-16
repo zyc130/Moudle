@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using WMS.Moudle.Business.Interface.Stock;
 using WMS.Moudle.Business.Interface.System;
 using WMS.Moudle.Entity.Dto.Stock;
+using WMS.Moudle.Entity.Models;
 using WMS.Moudle.Utility;
 
 namespace WMS.Moudle.Api.Controllers
@@ -14,6 +15,7 @@ namespace WMS.Moudle.Api.Controllers
     {
 
         IStockBusiness stockBusiness;
+        IStockDetailBusiness stockDetailBusiness;
 
         /// <summary>
         /// 构造
@@ -21,10 +23,14 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="_httpContextAccessor"></param>
         /// <param name="_userBusiness"></param>
         /// <param name="_mapper"></param>
+        /// <param name="_stockBusiness"></param>
+        /// <param name="_stockDetailBusiness"></param>
         public StockController(IHttpContextAccessor _httpContextAccessor, IUserBusiness _userBusiness, IMapper _mapper
-            , IStockBusiness _stockBusiness) : base(_httpContextAccessor, _userBusiness, _mapper)
+            , IStockBusiness _stockBusiness
+            , IStockDetailBusiness _stockDetailBusiness) : base(_httpContextAccessor, _userBusiness, _mapper)
         {
             stockBusiness = _stockBusiness;
+            stockDetailBusiness = _stockDetailBusiness;
         }
 
         /// <summary>
@@ -39,6 +45,18 @@ namespace WMS.Moudle.Api.Controllers
             var data = stockBusiness.QueryPage(t);
             data?.DataList.SetName(userBusiness.FindAll());
             return new ApiResult(data);
+        }
+
+        /// <summary>
+        /// 库存详情
+        /// </summary>
+        /// <param name="stockId">库存id</param>
+        /// <returns></returns>
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(stock_detail))]
+        public IActionResult QueryByDetail(long stockId)
+        {
+            return new ApiResult(stockDetailBusiness.QueryByStockId(stockId));
         }
     }
 }

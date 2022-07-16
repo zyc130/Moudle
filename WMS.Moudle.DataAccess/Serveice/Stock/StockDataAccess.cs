@@ -89,7 +89,7 @@ namespace WMS.Moudle.DataAccess.Serveice.Stock
             }).Where((s,d)=>s.is_in_stock== EIsInStock.Yes.GetHashCode() && s.state == EState.Use.GetHashCode())
             .Where((s,d)=>s.location_state==ELocationState.Use.GetHashCode() || s.location_state== ELocationState.OutStockStop.GetHashCode())
             .WhereIF(page.RoadWayNo!=null,s=>s.roadway_no==page.RoadWayNo.GetHashCode())
-            .WhereIF(!string.IsNullOrWhiteSpace(page.LocationCode),s=>s.location_code==page.LocationCode)
+            .WhereIF(!string.IsNullOrWhiteSpace(page.LocationCode),s=>s.location_code.Contains(page.LocationCode??string.Empty))
             .WhereIF(!string.IsNullOrWhiteSpace(page.Code), (s,d) => d.fabrication_no.StartsWith(page.Code??string.Empty))
             .WhereIF(!string.IsNullOrWhiteSpace(page.Type), (s, d) => d.piece_code.StartsWith(page.Type??string.Empty))
             .WhereIF(!page.IsSpecialOut??false, (s, d) => s.location_state!=ELocationState.OutStockStop.GetHashCode())

@@ -9,6 +9,7 @@ namespace WMS.Moudle.DataAccess.Interface
     /// </summary>
     public interface IBaseDataAccess : IDisposable
     {
+
         #region 查询
 
         /// <summary>

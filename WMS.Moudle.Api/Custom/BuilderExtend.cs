@@ -67,7 +67,7 @@ namespace WMS.Moudle.Api.Custom
                         IsAutoCloseConnection = true
                     });
                     return sqlSugarClient;
-                });
+                }).InstancePerLifetimeScope();
                 //redis
                 RedisHelper.Initialization(new CSRedis.CSRedisClient(config.RedisConfig.ToString()));
 
