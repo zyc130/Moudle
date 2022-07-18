@@ -30,7 +30,8 @@ namespace WMS.Moudle.Api.Controllers
             , IExcelHelper _excelHelper
             , IMaterialBusiness _materialBusiness
             , IMapper _mapper
-            , IUserBusiness _userBusiness) : base(_httpContextAccessor, _userBusiness, _mapper)
+            , IUserBusiness _userBusiness
+            , IDictionaryDetailBusiness dictionaryDetailBusiness) : base(_httpContextAccessor, _userBusiness, _mapper,dictionaryDetailBusiness)
         {
             excelHelper = _excelHelper;
             materialBusiness = _materialBusiness;

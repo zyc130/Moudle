@@ -22,7 +22,9 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="_mapper"></param>
         /// <param name="_locationBusiness"></param>
         public LocationController(IHttpContextAccessor _httpContextAccessor, IUserBusiness _userBusiness, IMapper _mapper
-            , ILocationBusiness _locationBusiness) : base(_httpContextAccessor, _userBusiness, _mapper)
+            , ILocationBusiness _locationBusiness
+            , IDictionaryDetailBusiness dictionaryDetailBusiness) 
+            : base(_httpContextAccessor, _userBusiness, _mapper,dictionaryDetailBusiness)
         {
             locationBusiness = _locationBusiness;
         }

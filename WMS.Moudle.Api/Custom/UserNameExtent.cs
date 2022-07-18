@@ -47,12 +47,13 @@ namespace WMS.Moudle.Api
         /// <typeparam name="T"></typeparam>
         /// <param name="ts"></param>
         /// <param name="users"></param>
-        public static void SetName<T>(this List<T> ts, List<sys_user> users) where T : BaseListDto, new()
+        public static List<T> SetName<T>(this List<T> ts, List<sys_user> users) where T : BaseListDto, new()
         {
             ts?.ForEach(a =>
             {
                 a.SetName(users);
             });
+            return ts;
         }
     }
 }

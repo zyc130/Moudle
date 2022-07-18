@@ -100,5 +100,18 @@ namespace WMS.Moudle.Business.Interface.Task
         /// <param name="page"></param>
         /// <returns></returns>
         PageData<task> QueryPage(TaskPageDto page);
+
+        /// <summary>
+        /// 生成出库任务
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        (bool, string) CreateMoudleOut(MoudleOutDto t,sys_user user);
+
+        /// <summary>
+        /// 获取部分出库信息
+        /// </summary>
+        /// <returns></returns>
+        TaskPartDto GetPartOut();
     }
 }

@@ -18,13 +18,13 @@ namespace WMS.Moudle.Entity.Dto.Stock
         /// Default:
         /// Nullable:False
         /// </summary>           
-        public string piece_code { get; set; }
+        public string piece_code { get; set; }=string.Empty;
 
         /// <summary>
         /// Desc:模具编号
         /// Default:
         /// Nullable:False
         /// </summary>           
-        public string fabrication_no { get; set; }
+        public string fabrication_no { get; set; } = string.Empty;
     }
 }

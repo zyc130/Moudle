@@ -54,6 +54,16 @@ namespace WMS.Moudle.Entity.Enum
             /// 出入库类型
             /// </summary>
             is_in_stock,
+
+            /// <summary>
+            /// 货位状态
+            /// </summary>
+            location_state,
+
+            /// <summary>
+            /// 任务状态
+            /// </summary>
+            task_state,
         }
 
         /// <summary>
@@ -176,6 +186,24 @@ namespace WMS.Moudle.Entity.Enum
             /// </summary>
             [Description("巷道2")]
             Two =2
+        }
+
+        /// <summary>
+        /// 是否部分出入库
+        /// </summary>
+        public enum EIsPart
+        {
+            /// <summary>
+            /// 是
+            /// </summary>
+            [Description("是")]
+            Yes = 1,
+
+            /// <summary>
+            /// 否
+            /// </summary>
+            [Description("否")]
+            No = 0
         }
     }
 }

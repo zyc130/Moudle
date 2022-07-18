@@ -12,8 +12,6 @@ namespace WMS.Moudle.Api.Controllers
     /// </summary>
     public class DictionaryDetailController : BaseController
     {
-        IDictionaryDetailBusiness dictionaryDetailBusiness;
-
         /// <summary>
         /// 构造
         /// </summary>
@@ -22,9 +20,8 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="_mapper"></param>
         /// <param name="dictionaryDetailBusiness"></param>
         public DictionaryDetailController(IHttpContextAccessor _httpContextAccessor, IUserBusiness _userBusiness, IMapper _mapper
-            , IDictionaryDetailBusiness dictionaryDetailBusiness) : base(_httpContextAccessor, _userBusiness, _mapper)
+            , IDictionaryDetailBusiness dictionaryDetailBusiness) : base(_httpContextAccessor, _userBusiness, _mapper, dictionaryDetailBusiness)
         {
-            this.dictionaryDetailBusiness = dictionaryDetailBusiness;
         }
 
         /// <summary>

@@ -23,7 +23,8 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="_context"></param>
         /// <param name="_user"></param>
         public DeptController(IDeptBusiness _deptBusiness,IMapper _mapper
-            , IHttpContextAccessor _context, IUserBusiness _user) : base(_context, _user, _mapper)
+            , IHttpContextAccessor _context
+            , IDictionaryDetailBusiness dictionaryDetailBusiness, IUserBusiness _user) : base(_context, _user, _mapper, dictionaryDetailBusiness)
         {
             deptBusiness = _deptBusiness;
         }
@@ -101,7 +102,8 @@ namespace WMS.Moudle.Api.Controllers
         public IActionResult QueryPage([FromQuery] SystemPageDto t)
         {
             var data = deptBusiness.QueryPage(t);
-            data.DataList?.SetName(userBusiness.FindAll());
+            data.DataList?.SetName(userBusiness.FindAll())
+                .ToDictionaryName(dictionaryDetailBusiness);
             return new ApiResult(data);
         }
     }

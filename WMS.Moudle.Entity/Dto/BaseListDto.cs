@@ -16,6 +16,7 @@ namespace WMS.Moudle.Entity.Dto
         /// 创建人
         /// </summary>
         [SugarColumn(IsIgnore = true)]
+
         public string create_name { get; set; } = string.Empty;
 
         /// <summary>

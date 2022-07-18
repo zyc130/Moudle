@@ -25,7 +25,9 @@ namespace WMS.Moudle.Api.Controllers
             IHttpContextAccessor _httpContextAccessor
             , IUserBusiness _userBusiness
             , IMapper _mapper
-            , IDictionaryBusiness _dictionary) : base(_httpContextAccessor, _userBusiness, _mapper)
+            , IDictionaryBusiness _dictionary
+            , IDictionaryDetailBusiness dictionaryDetailBusiness) 
+            : base(_httpContextAccessor, _userBusiness, _mapper, dictionaryDetailBusiness)
         {
             dictionaryBusiness = _dictionary;
         }

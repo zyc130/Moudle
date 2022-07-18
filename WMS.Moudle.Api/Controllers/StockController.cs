@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using WMS.Moudle.Business.Interface.Stock;
 using WMS.Moudle.Business.Interface.System;
 using WMS.Moudle.Entity.Dto.Stock;
+using WMS.Moudle.Entity.Dto.Task;
 using WMS.Moudle.Entity.Models;
 using WMS.Moudle.Utility;
 
@@ -27,7 +28,8 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="_stockDetailBusiness"></param>
         public StockController(IHttpContextAccessor _httpContextAccessor, IUserBusiness _userBusiness, IMapper _mapper
             , IStockBusiness _stockBusiness
-            , IStockDetailBusiness _stockDetailBusiness) : base(_httpContextAccessor, _userBusiness, _mapper)
+            , IStockDetailBusiness _stockDetailBusiness
+            , IDictionaryDetailBusiness dictionaryDetailBusiness) : base(_httpContextAccessor, _userBusiness, _mapper,dictionaryDetailBusiness)
         {
             stockBusiness = _stockBusiness;
             stockDetailBusiness = _stockDetailBusiness;
@@ -43,7 +45,7 @@ namespace WMS.Moudle.Api.Controllers
         public IActionResult QueryPage([FromQuery] StockPageDto t)
         {
             var data = stockBusiness.QueryPage(t);
-            data?.DataList.SetName(userBusiness.FindAll());
+            data?.DataList.SetName(userBusiness.FindAll()).ToDictionaryName(dictionaryDetailBusiness);
             return new ApiResult(data);
         }
 
@@ -56,7 +58,13 @@ namespace WMS.Moudle.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(stock_detail))]
         public IActionResult QueryByDetail(long stockId)
         {
-            return new ApiResult(stockDetailBusiness.QueryByStockId(stockId));
+            var _stock = stockBusiness.Find(stockId);
+            var details = stockDetailBusiness.QueryByStockId(stockId);
+            details?.ForEach(a =>
+            {
+                a.location_code = _stock.location_code;
+            });
+            return new ApiResult(details);
         }
     }
 }

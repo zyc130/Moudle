@@ -25,7 +25,8 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="_user"></param>
         public MenuController(IMenuBusiness _menuBusiness
                         , IMapper _mapper
-                        , IHttpContextAccessor _context, IUserBusiness _user) : base(_context, _user, _mapper)
+                        , IHttpContextAccessor _context, IUserBusiness _user
+            , IDictionaryDetailBusiness dictionaryDetailBusiness) : base(_context, _user, _mapper, dictionaryDetailBusiness)
         {
             menuBusiness = _menuBusiness;
         }

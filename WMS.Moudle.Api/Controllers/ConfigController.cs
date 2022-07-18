@@ -21,7 +21,7 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="_userBusiness"></param>
         /// <param name="_mapper"></param>
         /// <param name="configBusiness"></param>
-        public ConfigController(IHttpContextAccessor _httpContextAccessor, IUserBusiness _userBusiness, IMapper _mapper, IConfigBusiness configBusiness) : base(_httpContextAccessor, _userBusiness, _mapper)
+        public ConfigController(IHttpContextAccessor _httpContextAccessor, IUserBusiness _userBusiness, IMapper _mapper, IConfigBusiness configBusiness, IDictionaryDetailBusiness dictionaryDetailBusiness) : base(_httpContextAccessor, _userBusiness, _mapper,dictionaryDetailBusiness)
         {
             this.configBusiness = configBusiness;
         }
@@ -61,7 +61,8 @@ namespace WMS.Moudle.Api.Controllers
         public IActionResult QueryPage([FromQuery]ConfigPageDto page)
         {
             var data = configBusiness.QueryPage(page);
-            data.DataList?.SetName(userBusiness.FindAll());
+            data.DataList?.SetName(userBusiness.FindAll())
+                .ToDictionaryName(dictionaryDetailBusiness);
             return new ApiResult(data);
         }
 

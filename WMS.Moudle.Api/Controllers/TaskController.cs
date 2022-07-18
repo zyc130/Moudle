@@ -25,9 +25,14 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="_mapper"></param>
         /// <param name="_taskBusiness"></param>
         /// <param name="_taskDetailBusiness"></param>
-        public TaskController(IHttpContextAccessor _httpContextAccessor, IUserBusiness _userBusiness, IMapper _mapper
+        public TaskController(
+            IHttpContextAccessor _httpContextAccessor
+            , IUserBusiness _userBusiness
+            , IMapper _mapper
+            , IDictionaryDetailBusiness dictionaryDetailBusiness
             , ITaskBusiness _taskBusiness
-            , ITaskDetailBusiness _taskDetailBusiness) : base(_httpContextAccessor, _userBusiness, _mapper)
+            , ITaskDetailBusiness _taskDetailBusiness) 
+            : base(_httpContextAccessor, _userBusiness, _mapper, dictionaryDetailBusiness)
         {
             taskBusiness = _taskBusiness;
             taskDetailBusiness = _taskDetailBusiness;
@@ -111,7 +116,19 @@ namespace WMS.Moudle.Api.Controllers
 
         #endregion
 
-        #region 手动完成
+        #region 出库
+
+        /// <summary>
+        /// 生成出库任务
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult CreateMoudleOut([FromBody]MoudleOutDto t)
+        {
+            return new ApiResult(taskBusiness.CreateMoudleOut(t,user));
+        }
+        #endregion
 
         /// <summary>
         /// 取消
@@ -120,7 +137,7 @@ namespace WMS.Moudle.Api.Controllers
         [HttpPut]
         public IActionResult Cancel(long id)
         {
-            return new ApiResult(taskBusiness.Cancel(id,user));
+            return new ApiResult(taskBusiness.Cancel(id, user));
         }
 
         /// <summary>
@@ -133,19 +150,19 @@ namespace WMS.Moudle.Api.Controllers
             return new ApiResult(taskBusiness.Finish(id, user));
         }
 
-        #endregion
-
         /// <summary>
         /// 任务列表
         /// </summary>
         /// <param name="page"></param>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(task))]
         public IActionResult QueryPage([FromQuery] TaskPageDto page)
         {
             var data = taskBusiness.QueryPage(page);
-            data?.DataList.SetName(userBusiness.FindAll());
-            return new ApiResult(taskBusiness.QueryPage(page));
+            data?.DataList.SetName(userBusiness.FindAll())
+                .ToDictionaryName(dictionaryDetailBusiness);
+            return new ApiResult(data);
         }
 
         /// <summary>
@@ -158,6 +175,19 @@ namespace WMS.Moudle.Api.Controllers
         public IActionResult QueryByDetail(long taskId)
         {
             return new ApiResult(taskDetailBusiness.GetByTaskId(taskId));
+        }
+
+        /// <summary>
+        /// 部分回库
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TaskPartDto))]
+        public IActionResult QueryPartIn()
+        {
+            var data = taskBusiness.GetPartOut();
+            data?.details?.ToDictionaryName(dictionaryDetailBusiness);
+            return new ApiResult(data);
         }
     }
 }

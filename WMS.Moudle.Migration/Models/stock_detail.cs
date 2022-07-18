@@ -20,7 +20,7 @@ namespace WMS.Moudle.Entity.Models
            /// Default:
            /// Nullable:False
            /// </summary>           
-           [SugarColumn(IsPrimaryKey=true)]
+           [SugarColumn(IsPrimaryKey=true,IsIdentity=true)]
            public long id {get;set;}
 
            /// <summary>

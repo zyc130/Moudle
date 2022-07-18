@@ -15,26 +15,31 @@ namespace WMS.Moudle.Entity.Dto.Stock
         /// <summary>
         /// 巷道号
         /// </summary>
-        public ERoadWay? RoadWayNo { get; set; }
+        public ERoadWay? roadway_no { get; set; }
 
         /// <summary>
         /// 货位号
         /// </summary>
-        public string? LocationCode { get; set; }
+        public string? location_code { get; set; }
 
         /// <summary>
         /// 编号
         /// </summary>
-        public string? Code { get; set; }
+        public string? code { get; set; }
 
         /// <summary>
         /// 类型编号
         /// </summary>
-        public string? Type { get; set; }
+        public string? type { get; set; }
+
+        /// <summary>
+        /// 是否部分出库(true-是，else-否)
+        /// </summary>
+        public bool? is_part { get; set; }
 
         /// <summary>
         /// 是否指定出库(true-是，else-否)
         /// </summary>
-        public bool? IsSpecialOut { get; set; }
+        public bool? is_special_out { get; set; }
     }
 }

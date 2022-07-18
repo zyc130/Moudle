@@ -28,7 +28,8 @@ namespace WMS.Moudle.Api.Controllers
         public UserController(IUserBusiness _userBusiness
             , IJwtHelper _jwtHelper
             , IMapper _mapper
-            , IHttpContextAccessor _contextAccessor) : base(_contextAccessor, _userBusiness, _mapper)
+            , IHttpContextAccessor _contextAccessor
+            , IDictionaryDetailBusiness dictionaryDetailBusiness) : base(_contextAccessor, _userBusiness, _mapper, dictionaryDetailBusiness)
         {
             jwtHelper = _jwtHelper;
         }
@@ -134,7 +135,8 @@ namespace WMS.Moudle.Api.Controllers
         public IActionResult QueryPage([FromQuery] SystemPageDto t)
         {
             var data = userBusiness.QueryPage(t);
-            data?.DataList.SetName(userBusiness.FindAll());
+            data?.DataList.SetName(userBusiness.FindAll())
+                .ToDictionaryName(dictionaryDetailBusiness);
             return new ApiResult(data);
         }
     }

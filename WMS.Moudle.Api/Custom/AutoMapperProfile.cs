@@ -35,6 +35,7 @@ namespace WMS.Moudle.Api.Custom
                 .ForMember(s => s.task_id, t => t.MapFrom(to => to.id));
             CreateMap<StockDto, stock>().ReverseMap();
             CreateMap<TaskDetailDto, stock_detail>().ReverseMap();
+            CreateMap<TaskPartDto, task>().ReverseMap();
         }
     }
 }

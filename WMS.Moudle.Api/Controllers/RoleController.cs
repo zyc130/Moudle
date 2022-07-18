@@ -25,7 +25,8 @@ namespace WMS.Moudle.Api.Controllers
         /// <param name="_user"></param>
         public RoleController(IRoleBusiness _roleBusiness
             , IMapper _mapper
-            , IHttpContextAccessor _context, IUserBusiness _user) : base(_context, _user,_mapper)
+            , IHttpContextAccessor _context, IUserBusiness _user
+            , IDictionaryDetailBusiness dictionaryDetailBusiness) : base(_context, _user,_mapper, dictionaryDetailBusiness)
         {
             roleBusiness = _roleBusiness;
         }
@@ -103,7 +104,8 @@ namespace WMS.Moudle.Api.Controllers
         public IActionResult QueryPage([FromQuery] SystemPageDto t)
         {
             var data = roleBusiness.QueryPage(t);
-            data?.DataList.SetName(userBusiness.FindAll());
+            data?.DataList.SetName(userBusiness.FindAll())
+                .ToDictionaryName(dictionaryDetailBusiness);
             return new ApiResult(data);
         }
     }

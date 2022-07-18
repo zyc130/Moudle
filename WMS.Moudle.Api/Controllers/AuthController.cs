@@ -29,7 +29,8 @@ namespace WMS.Moudle.Api.Controllers
             , IRoleMenuBusiness _roleMenuBusiness
             , IHttpContextAccessor _httpContextAccessor
             , IUserBusiness _userBusiness
-            , IMapper _mapper) : base(_httpContextAccessor, _userBusiness, _mapper)
+            , IMapper _mapper
+            , IDictionaryDetailBusiness dictionaryDetailBusiness) : base(_httpContextAccessor, _userBusiness, _mapper, dictionaryDetailBusiness)
         {
             roleMenuBusiness = _roleMenuBusiness;
             roleBusiness = _roleBusiness;

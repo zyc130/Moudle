@@ -29,16 +29,16 @@ namespace WMS.Moudle.DataAccess.Serveice.Stock
         /// <exception cref="NotImplementedException"></exception>
         public base_location GetEmptyLocation(int roadwayNo, ELocationType type)
         {
-            return _client.Queryable<base_location, stock>((l, s) =>new object[]{
+            return _client.Queryable<base_location, stock>((l, s) => new object[]{
                 JoinType.Left
                 ,l.roadway_no == s.roadway_no
                 && l.location_code == s.location_code
                 && s.state == EState.Use.GetHashCode()
                 && s.is_in_stock == EIsInStock.Yes.GetHashCode()
-            }).Where((l, s) => l.location_type == type.GetHashCode() 
-                    && string.IsNullOrWhiteSpace(s.location_code) 
-                    && l.roadway_no==roadwayNo).OrderBy(l => l.sort_no).Take(1)
-              .Select(l=>l).First();
+            }).Where((l, s) => l.location_type == type.GetHashCode()
+                    && string.IsNullOrWhiteSpace(s.location_code)
+                    && l.roadway_no == roadwayNo).OrderBy(l => l.sort_no).Take(1)
+              .Select(l => l).First();
         }
 
         /// <summary>
@@ -48,14 +48,14 @@ namespace WMS.Moudle.DataAccess.Serveice.Stock
         /// <returns></returns>
         public int GetLocationEmptyCount(ELocationType type)
         {
-           return _client.Queryable<base_location, stock>((l, s) =>new object[]
-            {
+            return _client.Queryable<base_location, stock>((l, s) => new object[]
+             {
                 JoinType.Left
-                ,l.roadway_no == s.roadway_no 
+                ,l.roadway_no == s.roadway_no
                 && l.location_code==s.location_code
                 && s.state==EState.Use.GetHashCode()
                 && s.is_in_stock == EIsInStock.Yes.GetHashCode()
-            }).Where((l, s)=>l.location_type==type.GetHashCode() && string.IsNullOrWhiteSpace(s.location_code)).Count();
+             }).Where((l, s) => l.location_type == type.GetHashCode() && string.IsNullOrWhiteSpace(s.location_code)).Count();
         }
 
         /// <summary>
@@ -83,16 +83,19 @@ namespace WMS.Moudle.DataAccess.Serveice.Stock
         /// <returns></returns>
         public PageData<StockShowDto> QueryPage(StockPageDto page)
         {
-            var query = _client.Queryable<stock, stock_detail>((s, d) =>new object[]
+            var query = _client.Queryable<stock, stock_detail>((s, d) => new object[]
             {
                 JoinType.Left,s.id==d.stock_id
-            }).Where((s,d)=>s.is_in_stock== EIsInStock.Yes.GetHashCode() && s.state == EState.Use.GetHashCode())
-            .Where((s,d)=>s.location_state==ELocationState.Use.GetHashCode() || s.location_state== ELocationState.OutStockStop.GetHashCode())
-            .WhereIF(page.RoadWayNo!=null,s=>s.roadway_no==page.RoadWayNo.GetHashCode())
-            .WhereIF(!string.IsNullOrWhiteSpace(page.LocationCode),s=>s.location_code.Contains(page.LocationCode??string.Empty))
-            .WhereIF(!string.IsNullOrWhiteSpace(page.Code), (s,d) => d.fabrication_no.StartsWith(page.Code??string.Empty))
-            .WhereIF(!string.IsNullOrWhiteSpace(page.Type), (s, d) => d.piece_code.StartsWith(page.Type??string.Empty))
-            .WhereIF(!page.IsSpecialOut??false, (s, d) => s.location_state!=ELocationState.OutStockStop.GetHashCode())
+            }).Where((s, d) => s.is_in_stock == EIsInStock.Yes.GetHashCode() && s.state == EState.Use.GetHashCode())
+            .Where((s, d) => s.location_state == ELocationState.Use.GetHashCode() || s.location_state == ELocationState.OutStockStop.GetHashCode())
+            .WhereIF(page.roadway_no != null, s => s.roadway_no == page.roadway_no.GetHashCode())
+            .WhereIF(!string.IsNullOrWhiteSpace(page.location_code), s => s.location_code.Contains(page.location_code ?? string.Empty))
+            .WhereIF(!string.IsNullOrWhiteSpace(page.code), (s, d) => d.fabrication_no.StartsWith(page.code ?? string.Empty))
+            .WhereIF(!string.IsNullOrWhiteSpace(page.type), (s, d) => d.piece_code.StartsWith(page.type ?? string.Empty))
+            .WhereIF(!(page.is_special_out ?? false), (s, d) => s.location_state != ELocationState.OutStockStop.GetHashCode()
+                && (s.task_type == ETaskType.MoudleIn.GetHashCode() || s.task_type == ETaskType.MoudleSetIn.GetHashCode()))
+            .WhereIF(page.is_part??false, (s, d)=>s.task_type==ETaskType.MoudleIn.GetHashCode())
+            .OrderByDescending((s, d) => s.update_time)
             .Select<StockShowDto>("s.*,d.piece_code,d.fabrication_no");
 
             return new PageData<StockShowDto>()

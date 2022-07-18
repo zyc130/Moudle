@@ -27,7 +27,8 @@ namespace WMS.Moudle.Api.Controllers
             , IUserBusiness _userBusiness
             , IMapper _mapper
             , ITaskBusiness _taskBusiness
-            ) : base(_httpContextAccessor, _userBusiness, _mapper)
+            , IDictionaryDetailBusiness dictionaryDetailBusiness
+            ) : base(_httpContextAccessor, _userBusiness, _mapper,dictionaryDetailBusiness)
         {
             taskBusiness = _taskBusiness;
         }

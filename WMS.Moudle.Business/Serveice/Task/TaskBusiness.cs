@@ -69,19 +69,23 @@ namespace WMS.Moudle.Business.Serveice.Task
             var _task = mapper.Map<task>(t);
             _task.is_in_stock = EIsInStock.Yes.GetHashCode();
             //模具类型
-            if (_task.task_type== ETaskType.MoudleIn.GetHashCode())
+            if (_task.task_type == ETaskType.MoudleIn.GetHashCode())
             {
-                if ((_task.material_type??0)==0)
+                if ((_task.material_type ?? 0) == 0)
                 {
                     return (false, $"任务类型为:{ETaskType.MoudleIn.ToDescription()},模具类型不能为空");
                 }
+            }
+            else
+            {
+                _task.material_type = 0;
             }
             //扫码验证
             if (IsScan() && string.IsNullOrWhiteSpace(t.pallet_barcode))
             {
                 return (false, $"托盘码不能为空");
             }
-            var codes = t.codes?.FindAll(a => !string.IsNullOrWhiteSpace(a))?.Distinct().ToList();
+            var codes = t.codes?.FindAll(a => !string.IsNullOrWhiteSpace(a))?.ToList();
             if (_task.task_type == ETaskType.MoudleIn.GetHashCode()
                 || _task.task_type == ETaskType.MoudleSetIn.GetHashCode())
             {
@@ -89,19 +93,28 @@ namespace WMS.Moudle.Business.Serveice.Task
                 {
                     return (false, $"部件码不能为空");
                 }
+                int count = QueryCount((_task.material_type ?? 0).ToEnum<EMaterialType>());
+                if ((codes?.Count ?? 0) > count)
+                {
+                    return (false, $"部件码数量不能大于系统配置:{count}条");
+                }
+            }
+            if (codes!=null && codes.Count!=codes.Distinct().Count())
+            {
+                return (false, $"部件码不能重复");
             }
             //货位验证
             int emptyCount = GetLocationEmptyCount(_task.task_type.ToEnum<ETaskType>()) - 1;
             if (emptyCount < 0)
             {
-                return (false, "暂无空货位!");
+                return (false, "暂无空货位");
             }
             var execFormat = taskDetailBusiness.FormatDetails(codes, user);
             if (!execFormat.Item1)
             {
                 return (false, execFormat.Item2);
             }
-            //要加物料入库唯一验证
+            //要加物料入库唯一验证（重要）
             List<task_detail> details = execFormat.Item3;
             _task.create_id = user.id;
             _task.update_id = user.id;
@@ -118,7 +131,7 @@ namespace WMS.Moudle.Business.Serveice.Task
             int emptyCount = GetLocationEmptyCount(t.task_type.ToEnum<ETaskType>())-1;
             if (emptyCount < 0)
             {
-                return (false, "暂无空货位!");
+                return (false, "暂无空货位");
             }
             return Insert(t, null);
         }
@@ -338,27 +351,44 @@ namespace WMS.Moudle.Business.Serveice.Task
             var _task = Find(id);
             if (_task == null)
             {
-                return (false, $"任务不存在!");
+                return (false, $"任务不存在");
             }
             if (_task.task_state.ToEnum<ETaskState>() == ETaskState.Wait
                 || _task.task_state>=ETaskState.Finish.GetHashCode())
             {
-                return (false, $"任务排队中/已结束无法手动完成!");
+                return (false, $"任务排队中/已结束无法手动完成");
             }
             //校验wcs是否允许执行完成
 
             _task.update_id = user.id;
             _task.task_state = ETaskState.HandFinish.GetHashCode();
             //获取库存信息
-            var _stock = stockBusiness.QueryByTaskId(_task.id);
+            stock _stock;
+            if (_task.is_in_stock==EIsInStock.Yes.GetHashCode())
+            {
+                _stock = stockBusiness.QueryByTaskId(_task.id);
+            }
+            else
+            {
+                _stock = stockBusiness.GetOutStock(_task.roadway_no??0,_task.start_point);
+            }
 
             var exec = excuteHelper.Tran<string>(() =>
             {
                 if (!UpdateState(_task))
                 {
-                    return (false, "操作失败!");
+                    return (false, "操作失败");
                 }
-                return stockBusiness.Finish(_stock, user);
+                _stock.is_in_stock = EIsInStock.No.GetHashCode();
+                var (isSuccess, msg) = stockBusiness.Finish(_stock, user);
+                if (!isSuccess)
+                {
+                    return (isSuccess, msg);
+                }
+                //写入存库信息
+                //任务明细
+                var details = taskDetailBusiness.GetByTaskId(_task.id);
+                return InsertStock(_task, details, user);
             });
 
             return (exec.Item1, exec.Item2);
@@ -380,6 +410,103 @@ namespace WMS.Moudle.Business.Serveice.Task
             return taskDataAccess.QueryPage<task>(page.pageIndex, page.pageSize, express.ToExpression(), o => o.update_time, false);
         }
 
+        /// <summary>
+        /// 获取部分出库信息
+        /// </summary>
+        /// <returns></returns>
+        public TaskPartDto GetPartOut()
+        {
+            var _task = taskDataAccess
+                .Query<stock>(a => 
+                a.is_part == EIsPart.Yes.GetHashCode() 
+                && a.is_in_stock == EIsInStock.No.GetHashCode() 
+                && a.task_type==ETaskType.MoudleOut.GetHashCode())
+                .OrderByDescending(a => a.update_time).First();
+            var part = mapper.Map<TaskPartDto>(_task);
+            if (part==null)
+            {
+                return null;
+            }
+            if ((part?.task_type??0)>0)
+            {
+                part.task_type = ETaskType.MoudleIn.GetHashCode();
+            }
+
+            //明细
+            var detials = taskDetailBusiness.GetByTaskId(_task.id);
+            part.details = detials?.Select(a => a.fabrication_no)?.ToList();
+            return part;
+        }
+
+        #region 生成出库任务
+
+        /// <summary>
+        /// 生成出库任务
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public (bool, string) CreateMoudleOut(MoudleOutDto t,sys_user user)
+        {
+            var _stock =stockBusiness.GetStockToOut(t);
+            if (_stock == null)
+            {
+                return (false, "库存信息不存在/不满足出库条件");
+            }
+            //部分出库
+            if (t.is_part??false && _stock.task_type!=ETaskType.MoudleIn.GetHashCode())
+            {
+                return (false, "模具支持部分出库");
+            }
+
+            var stockDetail = stockDetailBusiness.QueryByStockId(_stock.id);
+            //出库任务
+            var _task = new task()
+            {
+                task_no = GetTaskNo(),
+                is_in_stock = EIsInStock.No.GetHashCode(),
+                task_type = GetOutTaskType(_stock.task_type, t.is_special_out ?? false).GetHashCode(),
+                is_part = (t.is_part ?? false) ? 1 : 0,
+                material_type = _stock.material_type,
+                pallet_barcode = _stock.pallet_barcode,
+                roadway_no = _stock.roadway_no,
+                start_point = _stock.location_code,
+                now_point = _stock.location_code,
+                create_id = user.id,
+                update_id = user.id
+            };
+            List<task_detail> taskDetail = new List<task_detail>();
+            if (stockDetail?.Count>0)
+            {
+                var tempDetail = mapper.Map<List<TaskDetailDto>>(stockDetail);
+                taskDetail = mapper.Map<List<task_detail>>(tempDetail);
+                taskDetail?.ForEach(a =>
+                {
+                    a.create_id = user.id;
+                    a.update_id = user.id;
+                    a.state = EState.Use.GetHashCode();
+                });
+            }
+            return excuteHelper.Tran<string>(() =>
+            {
+                //生成任务
+                var add = Insert(_task, taskDetail);
+                if (!add.Item1)
+                {
+                    return add;
+                }
+                //货位状态出库中
+                _stock.location_state = ELocationState.OutStock.GetHashCode();
+                //更新货位状态
+                if (!stockBusiness.UpdateLocationState(_stock))
+                {
+                    return (false, "更新货位状态失败");
+                }
+                return (true, "");
+            });
+        }
+
+        #endregion
+
         #region private
 
         /// <summary>
@@ -393,11 +520,11 @@ namespace WMS.Moudle.Business.Serveice.Task
             t.state = EState.Use.GetHashCode();
             t.task_state = ETaskState.Wait.GetHashCode();
             t.number = details?.Count ?? 0;
-
+            t.sort_no = 0;
             string taskNo = GetTaskNo();
             if (string.IsNullOrWhiteSpace(taskNo))
             {
-                return (false, "任务号生成异常!");
+                return (false, "任务号生成异常");
             }
 
             t.task_no = taskNo;
@@ -406,7 +533,7 @@ namespace WMS.Moudle.Business.Serveice.Task
                 var task = taskDataAccess.Insert(t);
                 if (task?.id == 0)
                 {
-                    return (false, "任务创建失败!");
+                    return (false, "任务创建失败");
                 }
                 if (details?.Count > 0)
                 {
@@ -416,10 +543,10 @@ namespace WMS.Moudle.Business.Serveice.Task
                     });
                     if (taskDetailBusiness.Insert(details) == 0)
                     {
-                        return (false, "任务创建明细失败!");
+                        return (false, "任务创建明细失败");
                     }
                 }
-                return (true, "任务创建成功!");
+                return (true, "任务创建成功");
             });
         }
 
@@ -480,7 +607,8 @@ namespace WMS.Moudle.Business.Serveice.Task
         {
             var dto = mapper.Map<StockDto>(t);
             var _stock = mapper.Map<stock>(dto);
-            _stock.location_state = (t.is_in_stock.ToEnum<EIsInStock>() == EIsInStock.Yes ? ELocationState.InStock : ELocationState.OutStock).GetHashCode();
+            //入库中，出库完成写入记录
+            _stock.location_state = (t.is_in_stock.ToEnum<EIsInStock>() == EIsInStock.Yes ? ELocationState.InStock : ELocationState.Empty).GetHashCode();
             _stock.create_id = user.id;
             _stock.update_id = user.id;
             List<stock_detail> details = new();
@@ -502,9 +630,10 @@ namespace WMS.Moudle.Business.Serveice.Task
             }
             if (details?.Count>0)
             {
+                details.ForEach(d => d.stock_id = exec.id);
                 if (!stockDetailBusiness.Insert(details))
                 {
-                    return (false, "写入库存失败!");
+                    return (false, "写入库存明细失败!");
                 }
             }
             return (true, string.Empty);
@@ -518,6 +647,33 @@ namespace WMS.Moudle.Business.Serveice.Task
         private bool UpdateState(task t)
         {
             return taskDataAccess.UpdateColumns(t, a => new { a.task_state,a.update_id,a.update_time},w=>w.id==t.id);
+        }
+
+        /// <summary>
+        /// 入库转出库类型
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="is_special_out"></param>
+        /// <returns></returns>
+        private ETaskType? GetOutTaskType(int type,bool is_special_out)
+        {
+            if (is_special_out)
+            {
+                return ETaskType.SpecialOut;
+            }
+                            
+            switch (type.ToEnum<ETaskType>())
+            {
+                case ETaskType.MoudleIn:
+                    return ETaskType.MoudleOut;
+                case ETaskType.MoudleSetIn:
+                    return ETaskType.MoudleSetOut;
+                case ETaskType.OtherIn:
+                    return ETaskType.OtherOut;
+                case ETaskType.PalletEmptyIn:
+                    break;
+            }
+            return null;
         }
 
         #endregion

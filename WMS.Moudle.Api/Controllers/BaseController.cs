@@ -36,29 +36,30 @@ namespace WMS.Moudle.Api.Controllers
         protected IUserBusiness userBusiness;
 
         /// <summary>
-        /// 返回对象
+        /// 字典
         /// </summary>
-        protected ApiResult result;
+        protected IDictionaryDetailBusiness dictionaryDetailBusiness;
 
         /// <summary>
-        /// 构造
+        /// 构造2
         /// </summary>
-        /// <param name="_httpContextAccessor"></param>
-        /// <param name="_userBusiness"></param>
-        /// <param name="_mapper"></param>
+        /// <param name="httpContextAccessor"></param>
+        /// <param name="userBusiness"></param>
+        /// <param name="mapper"></param>
+        /// <param name="dictionaryDetailBusiness"></param>
         public BaseController
-            (IHttpContextAccessor _httpContextAccessor
-            , IUserBusiness _userBusiness
-            , IMapper _mapper)
+            (IHttpContextAccessor httpContextAccessor
+            , IUserBusiness userBusiness
+            , IMapper mapper
+            , IDictionaryDetailBusiness dictionaryDetailBusiness)
         {
-            httpContextAccessor = _httpContextAccessor;
-            mapper= _mapper;
-            userBusiness = _userBusiness;
+            this.httpContextAccessor = httpContextAccessor;
+            this.mapper= mapper;
+            this.userBusiness = userBusiness;
+            this.dictionaryDetailBusiness = dictionaryDetailBusiness;
 
             var claims = httpContextAccessor.HttpContext?.User.Claims;
-            user = _userBusiness.QueryByName(claims?.FirstOrDefault()?.Subject?.Name ?? string.Empty) ?? new sys_user() { id = 0 };
-
-            result = new ApiResult(isSuccess: true, msg: string.Empty);
+            user = userBusiness.QueryByName(claims?.FirstOrDefault()?.Subject?.Name ?? string.Empty) ?? new sys_user() { id = 0 };
         }
 
         /// <summary>
