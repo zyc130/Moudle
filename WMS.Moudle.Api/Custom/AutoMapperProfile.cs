@@ -4,6 +4,7 @@ using WMS.Moudle.Entity.Dto.Stock;
 using WMS.Moudle.Entity.Dto.System;
 using WMS.Moudle.Entity.Dto.Task;
 using WMS.Moudle.Entity.Models;
+using static WMS.Moudle.Entity.Enum.TaskEnum;
 
 namespace WMS.Moudle.Api.Custom
 {
@@ -31,7 +32,9 @@ namespace WMS.Moudle.Api.Custom
             CreateMap<TaskDetailDto, base_material>().ReverseMap();
             CreateMap<TaskDetailDto, task_detail>().ReverseMap();
             CreateMap<StockDto, task>().ReverseMap()
-                .ForMember(s => s.location_code, t => t.MapFrom(to => to.end_point))
+                .ForMember(s => s.location_code, t => 
+                t.MapFrom(to =>to.is_in_stock==EIsInStock.No.GetHashCode()?to.start_point:
+                to.end_point))
                 .ForMember(s => s.task_id, t => t.MapFrom(to => to.id));
             CreateMap<StockDto, stock>().ReverseMap();
             CreateMap<TaskDetailDto, stock_detail>().ReverseMap();

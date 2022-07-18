@@ -371,6 +371,7 @@ namespace WMS.Moudle.Business.Serveice.Task
             else
             {
                 _stock = stockBusiness.GetOutStock(_task.roadway_no??0,_task.start_point);
+                _stock.is_in_stock = EIsInStock.No.GetHashCode();
             }
 
             var exec = excuteHelper.Tran<string>(() =>
@@ -379,16 +380,18 @@ namespace WMS.Moudle.Business.Serveice.Task
                 {
                     return (false, "操作失败");
                 }
-                _stock.is_in_stock = EIsInStock.No.GetHashCode();
                 var (isSuccess, msg) = stockBusiness.Finish(_stock, user);
                 if (!isSuccess)
                 {
                     return (isSuccess, msg);
                 }
-                //写入存库信息
-                //任务明细
-                var details = taskDetailBusiness.GetByTaskId(_task.id);
-                return InsertStock(_task, details, user);
+                if (_task.is_in_stock == EIsInStock.No.GetHashCode())
+                {
+                    //写入存库信息
+                    var details = taskDetailBusiness.GetByTaskId(_task.id);
+                    return InsertStock(_task, details, user);
+                }
+                return (true, "");
             });
 
             return (exec.Item1, exec.Item2);
@@ -417,7 +420,7 @@ namespace WMS.Moudle.Business.Serveice.Task
         public TaskPartDto GetPartOut()
         {
             var _task = taskDataAccess
-                .Query<stock>(a => 
+                .Query<task>(a => 
                 a.is_part == EIsPart.Yes.GetHashCode() 
                 && a.is_in_stock == EIsInStock.No.GetHashCode() 
                 && a.task_type==ETaskType.MoudleOut.GetHashCode())
@@ -434,7 +437,7 @@ namespace WMS.Moudle.Business.Serveice.Task
 
             //明细
             var detials = taskDetailBusiness.GetByTaskId(_task.id);
-            part.details = detials?.Select(a => a.fabrication_no)?.ToList();
+            part.codes = detials?.Select(a => a.fabrication_no)?.ToList();
             return part;
         }
 
@@ -452,8 +455,9 @@ namespace WMS.Moudle.Business.Serveice.Task
             {
                 return (false, "库存信息不存在/不满足出库条件");
             }
+            var val = ETaskType.MoudleIn.GetHashCode();
             //部分出库
-            if (t.is_part??false && _stock.task_type!=ETaskType.MoudleIn.GetHashCode())
+            if ((t.is_part ?? false) && _stock.task_type != val)
             {
                 return (false, "模具支持部分出库");
             }

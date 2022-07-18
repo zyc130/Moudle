@@ -186,7 +186,7 @@ namespace WMS.Moudle.Api.Controllers
         public IActionResult QueryPartIn()
         {
             var data = taskBusiness.GetPartOut();
-            data?.details?.ToDictionaryName(dictionaryDetailBusiness);
+            data?.ToDictionaryName(dictionaryDetailBusiness);
             return new ApiResult(data);
         }
     }

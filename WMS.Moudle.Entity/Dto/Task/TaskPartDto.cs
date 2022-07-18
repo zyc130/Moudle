@@ -54,11 +54,11 @@ namespace WMS.Moudle.Entity.Dto.Task
         /// Nullable:False
         /// </summary>           
         [DictionaryTag(EDicCode.task_type, "task_type")]
-        public int task_type_name { get; set; }
+        public string task_type_name { get; set; }
 
         /// <summary>
         /// 部件列表
         /// </summary>
-        public List<string> details { get; set; }
+        public List<string> codes { get; set; }
     }
 }
